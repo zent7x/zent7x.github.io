@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npx --yes serve . -p 5173",
-    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css main.js dist/ && cp -r public/. dist/",
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css dist/ && cp -r public/. dist/",
     "preview": "npx --yes serve dist -p 4173"
   }
 }

@@ -2,148 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>zent7x · zentex</title>
-  <meta name="description" content="Adeeb Bashir — founder, engineer, security researcher. Building routing.run and Keelcode from Kashmir." />
-  <meta name="theme-color" content="#f4efe6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adeeb · zentex</title>
+  <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and Keelcode. Engineer and security researcher from Kashmir." />
+  <meta name="theme-color" content="#09090b" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="grid" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <header class="bar">
-      <p class="bar__brand">zent7x <span>/</span> zentex</p>
-      <p class="bar__meta">
-        est. 2024 · srinagar - localhost · <span class="bar__live"><i></i> shipping</span>
-      </p>
+  <div class="page">
+    <header class="header">
+      <a class="header__mark" href="#">zentex</a>
+      <nav class="header__nav" aria-label="Social">
+        <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:hi@zent7x.dev">Email</a>
+      </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1 class="hero__title">
-          building <em>autonomous</em> things that ship<span class="hero__caret" aria-hidden="true"></span>
-        </h1>
-        <p class="hero__sub">
-          founder · AI infra · security research · open source. doing &gt; advising. one repo a week, one product a quarter.
-        </p>
-
-        <div class="router">
-          <pre class="router__graph" id="graph" aria-hidden="true"></pre>
-          <p class="router__foot mono" id="graph-foot">→ /v1/chat/completions · routed → openai · —ms</p>
+        <div class="hero__text">
+          <h1>
+            Hi, I'm Adeeb.
+            <em>Also known as zentex.</em>
+          </h1>
+          <p class="hero__tag">I build AI infrastructure and break things for a living.</p>
         </div>
+        <img
+          class="hero__photo"
+          src="avatar.png"
+          alt="Adeeb Bashir"
+          width="200"
+          height="200"
+          decoding="async"
+        />
       </section>
 
-      <section class="panel">
-        <div class="panel__head">
-          <h2><span class="chev">&gt;</span> Now</h2>
-          <span class="panel__side">aug · 2026</span>
-        </div>
-        <p class="panel__body">
-          currently shipping <a href="https://keelcode.ai">Keelcode</a> — loop engineering with guardrails, replay, and review-ready PRs.
-          <a href="https://routing.run">routing.run</a> is live: one endpoint for every model, fallback chains, zero prompt logs.
-        </p>
-      </section>
+      <p class="lead">
+        Founder &amp; engineer in Kashmir, India. I ship LLM routing, autonomous coding loops, and
+        open-source tools from the mountains. Nights go to bug bounty, smart contracts, and
+        offensive tooling.
+      </p>
 
-      <section class="panel">
-        <div class="panel__head">
-          <h2><span class="chev">&gt;</span> Work</h2>
-          <span class="panel__side">04 selected</span>
-        </div>
-        <ul class="work">
+      <section class="block">
+        <h2>Ventures</h2>
+        <ul class="cards">
           <li>
-            <a href="https://routing.run" target="_blank" rel="noopener">
-              <span class="work__id">/001</span>
-              <span class="work__name">routing.run</span>
-              <span class="work__arrow" aria-hidden="true">→</span>
+            <a class="card" href="https://keelcode.ai" target="_blank" rel="noopener">
+              <img src="logos/keelcode.png" alt="" width="40" height="40" />
+              <div>
+                <div class="card__top">
+                  <strong>Keelcode</strong>
+                  <span>2026 · Building</span>
+                </div>
+                <p>Loop engineering with guardrails, replay, and review-ready PRs.</p>
+              </div>
             </a>
           </li>
           <li>
-            <a href="https://keelcode.ai" target="_blank" rel="noopener">
-              <span class="work__id">/002</span>
-              <span class="work__name">keelcode</span>
-              <span class="work__arrow" aria-hidden="true">→</span>
+            <a class="card" href="https://routing.run" target="_blank" rel="noopener">
+              <img src="logos/routing.png" alt="" width="40" height="40" />
+              <div>
+                <div class="card__top">
+                  <strong>routing.run</strong>
+                  <span>2025 · Live</span>
+                </div>
+                <p>OpenAI-compatible LLM router with zero prompt logging.</p>
+              </div>
             </a>
-          </li>
-          <li>
-            <a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">
-              <span class="work__id">/003</span>
-              <span class="work__name">grasp</span>
-              <span class="work__arrow" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li class="work__redacted" aria-hidden="true">
-            <span class="work__id">/004</span>
-            <span class="work__block"></span>
-            <span class="work__arrow dim">→</span>
           </li>
         </ul>
       </section>
 
-      <section class="panel">
-        <div class="panel__head">
-          <h2><span class="chev">&gt;</span> Stack</h2>
-          <span class="panel__side">tools, not religion</span>
-        </div>
-        <ul class="stack">
-          <li>typescript</li>
-          <li>rust</li>
-          <li>solidity</li>
-          <li>python</li>
-          <li>bun</li>
-          <li>react</li>
-          <li>postgres</li>
-          <li>redis</li>
-          <li>foundry</li>
-          <li>docker</li>
-          <li>cloudflare workers</li>
-          <li>openai sdk</li>
+      <section class="block">
+        <h2>Projects</h2>
+        <ul class="rows">
+          <li><a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">grasp</a><span>Code context for AI agents</span></li>
+          <li><a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">codemap</a><span>Repository visualization</span></li>
+          <li><a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">cogrep</a><span>Semantic code search</span></li>
+          <li><a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">tally</a><span>Offline finance tracker</span></li>
         </ul>
       </section>
 
-      <section class="panel">
-        <div class="panel__head">
-          <h2><span class="chev">&gt;</span> Elsewhere</h2>
-          <span class="panel__side">say hi</span>
-        </div>
-        <ul class="links">
-          <li>
-            <a href="https://github.com/zent7x" target="_blank" rel="noopener">
-              <span class="links__label">GitHub</span>
-              <span class="links__val">@zent7x <span class="links__arrow">→</span></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://x.com/zent7x" target="_blank" rel="noopener">
-              <span class="links__label">X / Twitter</span>
-              <span class="links__val">@zent7x <span class="links__arrow">→</span></span>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:hi@zent7x.dev">
-              <span class="links__label">Email</span>
-              <span class="links__val">hi@zent7x.dev <span class="links__arrow">→</span></span>
-            </a>
-          </li>
-          <li>
-            <a href="https://routing.run" target="_blank" rel="noopener">
-              <span class="links__label">Product</span>
-              <span class="links__val">routing.run <span class="links__arrow">→</span></span>
-            </a>
-          </li>
-        </ul>
+      <section class="block">
+        <h2>Stack</h2>
+        <p class="stack">TypeScript · Rust · Python · Bun · React · Docker · PostgreSQL · Redis · Solidity</p>
       </section>
+
+      <blockquote class="quote">
+        <p>The less you know is the better.</p>
+      </blockquote>
+
+      <p class="contact">
+        Open to consulting, security work, and interesting builds —
+        <a href="mailto:hi@zent7x.dev">hi@zent7x.dev</a>
+      </p>
     </main>
 
-    <footer class="foot">
-      <span>34.0837° N · 74.7973° E // srinagar</span>
-      <span>last deploy · <span id="deploy-date">—</span></span>
-    </footer>
+    <footer class="footer">© <span id="year"></span> Adeeb Bashir</footer>
   </div>
-
-  <script src="main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
