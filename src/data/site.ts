@@ -5,7 +5,11 @@ export const profile = {
   handle: "zent7x",
   role: "Founder & engineer",
   location: "Kashmir, India",
+  city: "Srinagar",
+  coords: "34.0837° N · 74.7973° E",
+  est: "2024",
   tagline: "I build AI infrastructure and break things for a living.",
+  motto: "The less you know is the better.",
   avatar: "/avatar.png",
   email: "hi@zent7x.dev",
   links: {
@@ -17,45 +21,54 @@ export const profile = {
   },
 } as const;
 
-export const companies = [
+export const work = [
   {
-    name: "Keelcode",
-    url: "https://keelcode.ai",
-    logo: "/logos/keelcode.png",
-    year: "2026",
-    status: "Building",
-    blurb: "Loop engineering with guardrails, replay, and review-ready PRs.",
-  },
-  {
+    id: "001",
     name: "routing.run",
     url: "https://routing.run",
-    logo: "/logos/routing.png",
-    year: "2025",
+    desc: "OpenAI-compatible LLM router · fallback chains · zero prompt logging.",
     status: "Live",
-    blurb: "OpenAI-compatible LLM router with zero prompt logging.",
+    live: true,
   },
-] as const;
-
-export const projects = [
   {
+    id: "002",
+    name: "Keelcode",
+    url: "https://keelcode.ai",
+    desc: "Loop engineering with guardrails, replay, and review-ready PRs.",
+    status: "Building",
+    live: false,
+  },
+  {
+    id: "003",
     name: "grasp",
     url: "https://github.com/zent7x/grasp",
-    desc: "Code context for AI agents",
+    desc: "Code context for AI agents — index once, serve the right slice.",
+    status: "Open source",
+    live: false,
   },
   {
+    id: "004",
     name: "codemap",
     url: "https://github.com/zent7x/codemap",
-    desc: "Repository visualization",
+    desc: "Turn any repository into a self-contained explorable map.",
+    status: "Open source",
+    live: false,
   },
   {
+    id: "005",
     name: "cogrep",
     url: "https://github.com/zent7x/cogrep",
-    desc: "Semantic code search",
+    desc: "Local-first semantic code search from your terminal.",
+    status: "Open source",
+    live: false,
   },
   {
+    id: "006",
     name: "tally",
     url: "https://github.com/zent7x/tally",
-    desc: "Offline finance tracker",
+    desc: "Offline finance tracker — one HTML file, no cloud.",
+    status: "Open source",
+    live: false,
   },
 ] as const;
 
@@ -65,14 +78,24 @@ export const stack = [
   "Python",
   "Bun",
   "React",
+  "Solidity",
   "Docker",
   "PostgreSQL",
   "Redis",
-  "Solidity",
+  "Foundry",
+  "Cloudflare Workers",
+] as const;
+
+export const focus = [
+  "LLM routing & inference infra",
+  "Autonomous coding loops",
+  "Bug bounty & offensive tooling",
+  "Smart contract audits",
 ] as const;
 
 export const social = [
-  { label: "GitHub", href: profile.links.github },
-  { label: "X", href: profile.links.x },
-  { label: "Email", href: profile.links.email },
+  { label: "GitHub", line: "@zent7x", href: profile.links.github },
+  { label: "X", line: "@zent7x", href: profile.links.x },
+  { label: "Email", line: profile.email, href: profile.links.email },
+  { label: "Product", line: "routing.run", href: profile.links.routing },
 ] as const;

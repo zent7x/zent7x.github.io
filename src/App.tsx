@@ -1,87 +1,102 @@
-import { companies, profile, projects, social, stack } from "./data/site";
+import { focus, profile, social, stack, work } from "./data/site";
+import { RouterPanel } from "./components/RouterPanel";
+import { useTheme } from "./hooks/useTheme";
 
 export default function App() {
+  const { theme, toggle } = useTheme();
+
   return (
-    <div className="site">
-      <header className="top">
-        <a href="#" className="mark">
-          {profile.alias}
-        </a>
-        <nav className="top__links" aria-label="Social">
-          {social.map((s, i) => (
-            <span key={s.label}>
-              {i > 0 && <span className="sep" aria-hidden="true"> · </span>}
-              <a
-                href={s.href}
-                target={s.label === "Email" ? undefined : "_blank"}
-                rel="noreferrer"
-              >
-                {s.label}
-              </a>
+    <div className="page">
+      <div className="grid-bg" aria-hidden="true" />
+      <div className="grain" aria-hidden="true" />
+
+      <header className="header">
+        <div className="inner header__row">
+          <a href="#" className="brand">
+            <span className="brand__handle">zent7x</span>
+            <span className="brand__sep">/</span>
+            <span className="brand__alias">{profile.alias}</span>
+          </a>
+          <div className="header__meta">
+            <span>est. {profile.est}</span>
+            <span className="header__dot" aria-hidden="true">
+              ·
             </span>
-          ))}
-        </nav>
+            <span>{profile.city} · localhost</span>
+          </div>
+          <button
+            type="button"
+            className="theme-btn"
+            onClick={toggle}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
+          />
+        </div>
       </header>
 
-      <main>
-        <section className="hero" aria-label="Introduction">
+      <main className="inner">
+        <section className="hero">
           <div className="hero__copy">
-            <h1>
-              Hi, I'm {profile.name}.
-              <br />
-              <em>Also known as {profile.alias}.</em>
+            <h1 className="hero__title">
+              building <em>intelligent</em> systems that ship
+              <span className="hero__cursor" aria-hidden="true" />
             </h1>
-            <p className="hero__tagline">{profile.tagline}</p>
+            <p className="hero__sub">
+              {profile.role.toLowerCase()} · AI infrastructure · security research · open
+              source. doing &gt; advising. from the mountains.
+            </p>
           </div>
-          <figure className="hero__photo">
-            <img
-              src={profile.avatar}
-              alt={profile.fullName}
-              width={208}
-              height={208}
-              decoding="async"
-            />
-          </figure>
+          <RouterPanel />
         </section>
 
-        <p className="intro">
-          {profile.role} based in {profile.location}. I ship LLM routing, autonomous
-          coding loops, and open-source tools from the mountains. When I'm not building,
-          I'm in bug bounty programs, auditing smart contracts, and writing offensive
-          tooling.
-        </p>
-
-        <section className="section" aria-labelledby="ventures-title">
-          <h2 id="ventures-title" className="section__title">
-            Ventures
+        <section className="block" id="now">
+          <h2 className="block__label">
+            <span className="block__chev">&gt;</span> Now
           </h2>
-          <ul className="ventures">
-            {companies.map((company) => (
-              <li key={company.name}>
+          <div className="now">
+            <p className="now__text">
+              Building{" "}
+              <a href={profile.links.keelcode} target="_blank" rel="noreferrer">
+                Keelcode
+              </a>{" "}
+              — loop engineering with guardrails and review-ready PRs.{" "}
+              <a href={profile.links.routing} target="_blank" rel="noreferrer">
+                routing.run
+              </a>{" "}
+              is live: one OpenAI-compatible surface over every model, zero prompt logs.
+            </p>
+            <aside className="now__aside">
+              <p className="now__aside-label">Focus</p>
+              <ul>
+                {focus.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </aside>
+          </div>
+        </section>
+
+        <section className="block" id="work">
+          <h2 className="block__label">
+            <span className="block__chev">&gt;</span> Work
+          </h2>
+          <ul className="work-list">
+            {work.map((item) => (
+              <li key={item.id}>
                 <a
-                  href={company.url}
-                  className="venture"
+                  href={item.url}
+                  className="work-card"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img
-                    className="venture__logo"
-                    src={company.logo}
-                    alt=""
-                    width={44}
-                    height={44}
-                    decoding="async"
-                  />
-                  <div className="venture__body">
-                    <div className="venture__head">
-                      <span className="venture__name">{company.name}</span>
-                      <span className="venture__meta">
-                        {company.year} · {company.status}
-                      </span>
-                    </div>
-                    <p className="venture__desc">{company.blurb}</p>
+                  <span className="work-card__id">{item.id}</span>
+                  <div className="work-card__body">
+                    <h3>{item.name}</h3>
+                    <p>{item.desc}</p>
                   </div>
-                  <span className="venture__go" aria-hidden="true">
+                  <span className={`work-card__tag${item.live ? " work-card__tag--live" : ""}`}>
+                    {item.status}
+                  </span>
+                  <span className="work-card__arrow" aria-hidden="true">
                     ↗
                   </span>
                 </a>
@@ -90,55 +105,50 @@ export default function App() {
           </ul>
         </section>
 
-        <section className="section" aria-labelledby="projects-title">
-          <h2 id="projects-title" className="section__title">
-            Projects
+        <section className="block" id="stack">
+          <h2 className="block__label">
+            <span className="block__chev">&gt;</span> Stack
           </h2>
-          <ul className="catalog">
-            {projects.map((project) => (
-              <li key={project.name} className="catalog__row">
-                <a
-                  href={project.url}
-                  className="catalog__name"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {project.name}
-                </a>
-                <span className="catalog__desc">{project.desc}</span>
+          <p className="stack-note">tools, not religion.</p>
+          <ul className="chips">
+            {stack.map((tool) => (
+              <li key={tool}>
+                <span className="chip">{tool}</span>
               </li>
             ))}
           </ul>
-          <p className="catalog__more">
-            More on{" "}
-            <a href={profile.links.github} target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            .
-          </p>
         </section>
 
-        <section className="section" aria-labelledby="now-title">
-          <h2 id="now-title" className="section__title">
-            Stack
+        <section className="block" id="contact">
+          <h2 className="block__label">
+            <span className="block__chev">&gt;</span> Elsewhere
           </h2>
-          <p className="stack-line">{stack.join(" · ")}</p>
+          <div className="contact-grid">
+            {social.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="contact-tile"
+                target={link.label === "Email" ? undefined : "_blank"}
+                rel="noreferrer"
+              >
+                <span className="contact-tile__label">{link.label}</span>
+                <span className="contact-tile__line">{link.line}</span>
+              </a>
+            ))}
+          </div>
         </section>
 
         <blockquote className="motto">
-          <p>The less you know is the better.</p>
+          <p>{profile.motto}</p>
         </blockquote>
-
-        <p className="contact">
-          Open to consulting, security work, and interesting builds.{" "}
-          <a href={profile.links.email}>{profile.email}</a>
-        </p>
       </main>
 
-      <footer className="foot">
+      <footer className="footer inner">
         <span>
-          © {new Date().getFullYear()} {profile.fullName}
+          {profile.coords} // {profile.city.toLowerCase()}
         </span>
+        <span>© {new Date().getFullYear()} {profile.fullName}</span>
       </footer>
     </div>
   );
