@@ -2,112 +2,194 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adeeb · zentex</title>
-  <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and Keelcode. Engineer and security researcher from Kashmir." />
-  <meta name="theme-color" content="#09090b" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Adeeb · zent7x</title>
+  <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and Keelcode. AI infrastructure and security research from Kashmir." />
+  <meta name="theme-color" content="#0a0908" id="theme-color-meta" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
-  <div class="page">
-    <header class="header">
-      <a class="header__mark" href="#">zentex</a>
-      <nav class="header__nav" aria-label="Social">
-        <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
-        <span aria-hidden="true">·</span>
-        <a href="mailto:hi@zent7x.dev">Email</a>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Page scroll progress"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="frame frame-tl" aria-hidden="true"></div>
+  <div class="frame frame-tr" aria-hidden="true"></div>
+  <div class="frame frame-bl" aria-hidden="true"></div>
+  <div class="frame frame-br" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="inner header-inner">
+      <a class="logo" href="#">zent<span class="logo-accent">7</span>x</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#work" data-section-link="work">Work</a>
+        <a href="#stack" data-section-link="stack">Stack</a>
+        <a href="#contact" data-section-link="contact">Contact</a>
       </nav>
-    </header>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme" title="Theme"></button>
+      <p class="header-meta"><span class="loc">Srinagar · 34.08°N</span></p>
+    </div>
+  </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero__text">
-          <h1>
-            Hi, I'm Adeeb.
-            <em>Also known as zentex.</em>
-          </h1>
-          <p class="hero__tag">I build AI infrastructure and break things for a living.</p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="inner hero-grid">
+        <div class="hero-copy reveal" style="--d: 0ms">
+          <p class="eyebrow">Product · infra · security</p>
+          <h1 class="headline">Building things that <em>listen</em>, route, and&nbsp;ship.</h1>
+          <p class="lede">
+            Founder &amp; engineer in Kashmir. LLM routing, autonomous coding loops, offensive security.
+            Less deck, more commit — shipped beats theorized.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary magnetic" href="https://routing.run" target="_blank" rel="noopener" data-magnetic>routing.run</a>
+            <a class="btn magnetic" href="https://keelcode.ai" target="_blank" rel="noopener" data-magnetic>Keelcode</a>
+            <a class="btn magnetic" href="https://github.com/zent7x" target="_blank" rel="noopener" data-magnetic>GitHub</a>
+          </div>
         </div>
-        <img
-          class="hero__photo"
-          src="avatar.png"
-          alt="Adeeb Bashir"
-          width="200"
-          height="200"
-          decoding="async"
-        />
-      </section>
+        <div class="hero-panel-wrap reveal" style="--d: 90ms">
+          <div class="hero-panel" id="hero-panel">
+            <div class="panel-header">
+              <span class="mono">router · ascii</span>
+              <span class="mono fade" id="graph-caption-top">/v1/chat/completions</span>
+            </div>
+            <pre class="graph" id="graph" aria-hidden="true"></pre>
+            <p class="panel-foot mono"><span id="stamp">last deploy · —</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <p class="lead">
-        Founder &amp; engineer in Kashmir, India. I ship LLM routing, autonomous coding loops, and
-        open-source tools from the mountains. Nights go to bug bounty, smart contracts, and
-        offensive tooling.
-      </p>
+    <section class="now" id="now">
+      <div class="inner">
+        <div class="section-label reveal"><span>02</span> Now</div>
+        <div class="now-grid">
+          <p class="now-text reveal">
+            Building <a href="https://keelcode.ai" target="_blank" rel="noopener">Keelcode</a> — loop engineering with guardrails and review-ready PRs.
+            <a href="https://routing.run" target="_blank" rel="noopener">routing.run</a> is live with fallback chains and zero prompt logging.
+          </p>
+          <aside class="now-aside reveal">
+            <p class="mono small">Focus</p>
+            <ul class="now-list">
+              <li>LLM gateways &amp; inference infra</li>
+              <li>Autonomous coding loops</li>
+              <li>Bug bounty &amp; smart contracts</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-      <section class="block">
-        <h2>Ventures</h2>
-        <ul class="cards">
-          <li>
-            <a class="card" href="https://keelcode.ai" target="_blank" rel="noopener">
-              <img src="logos/keelcode.png" alt="" width="40" height="40" />
-              <div>
-                <div class="card__top">
-                  <strong>Keelcode</strong>
-                  <span>2026 · Building</span>
-                </div>
-                <p>Loop engineering with guardrails, replay, and review-ready PRs.</p>
+    <section class="work section-track" id="work" data-nav-section="work">
+      <div class="inner">
+        <div class="section-head reveal">
+          <div class="section-label"><span>03</span> Selected work</div>
+          <p class="section-sub">Four slots. One is still in the oven.</p>
+        </div>
+        <ul class="project-list">
+          <li class="reveal">
+            <a class="project-card tilt" href="https://routing.run" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">001</span>
+              <div class="project-body">
+                <h2 class="project-title">routing.run</h2>
+                <p class="project-desc">Model router · zero prompt logging · request-priced.</p>
               </div>
+              <span class="tag tag-live">Live</span>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </li>
-          <li>
-            <a class="card" href="https://routing.run" target="_blank" rel="noopener">
-              <img src="logos/routing.png" alt="" width="40" height="40" />
-              <div>
-                <div class="card__top">
-                  <strong>routing.run</strong>
-                  <span>2025 · Live</span>
-                </div>
-                <p>OpenAI-compatible LLM router with zero prompt logging.</p>
+          <li class="reveal">
+            <a class="project-card tilt" href="https://keelcode.ai" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">002</span>
+              <div class="project-body">
+                <h2 class="project-title">Keelcode</h2>
+                <p class="project-desc">Loop engineering · guardrails · replay · review-ready PRs.</p>
               </div>
+              <span class="tag">Building</span>
+              <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </li>
+          <li class="reveal">
+            <a class="project-card tilt" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">003</span>
+              <div class="project-body">
+                <h2 class="project-title">grasp</h2>
+                <p class="project-desc">Code context for AI agents · index once, serve the slice.</p>
+              </div>
+              <span class="tag">Open source</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <div class="project-card project-card-muted">
+              <span class="project-num mono">004</span>
+              <div class="project-body">
+                <h2 class="project-title classified">Redacted build</h2>
+                <p class="project-desc">The less you know is the better.</p>
+              </div>
+              <span class="tag">Soon</span>
+              <span class="arrow dim" aria-hidden="true">·</span>
+            </div>
+          </li>
         </ul>
-      </section>
+      </div>
+    </section>
 
-      <section class="block">
-        <h2>Projects</h2>
-        <ul class="rows">
-          <li><a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">grasp</a><span>Code context for AI agents</span></li>
-          <li><a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">codemap</a><span>Repository visualization</span></li>
-          <li><a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">cogrep</a><span>Semantic code search</span></li>
-          <li><a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">tally</a><span>Offline finance tracker</span></li>
-        </ul>
-      </section>
+    <section class="stack-block section-track" id="stack" data-nav-section="stack">
+      <div class="inner">
+        <div class="section-label reveal"><span>04</span> Stack</div>
+        <p class="stack-intro reveal">Tools I reach for — pragmatic, not dogmatic.</p>
+        <div class="chips reveal" id="chip-cloud">
+          <button type="button" class="chip" data-chip>TypeScript</button>
+          <button type="button" class="chip" data-chip>Rust</button>
+          <button type="button" class="chip" data-chip>Solidity</button>
+          <button type="button" class="chip" data-chip>Python</button>
+          <button type="button" class="chip" data-chip>Bun</button>
+          <button type="button" class="chip" data-chip>React</button>
+          <button type="button" class="chip" data-chip>Postgres</button>
+          <button type="button" class="chip" data-chip>Redis</button>
+          <button type="button" class="chip" data-chip>Foundry</button>
+          <button type="button" class="chip" data-chip>Cloudflare Workers</button>
+          <button type="button" class="chip" data-chip>Docker</button>
+        </div>
+      </div>
+    </section>
 
-      <section class="block">
-        <h2>Stack</h2>
-        <p class="stack">TypeScript · Rust · Python · Bun · React · Docker · PostgreSQL · Redis · Solidity</p>
-      </section>
+    <section class="contact section-track" id="contact" data-nav-section="contact">
+      <div class="inner">
+        <div class="section-label reveal"><span>05</span> Elsewhere</div>
+        <div class="contact-grid reveal">
+          <a class="contact-tile" href="https://github.com/zent7x" target="_blank" rel="noopener">
+            <span class="mono small">GitHub</span>
+            <span class="contact-line">@zent7x</span>
+          </a>
+          <a class="contact-tile" href="https://x.com/zent7x" target="_blank" rel="noopener">
+            <span class="mono small">X</span>
+            <span class="contact-line">@zent7x</span>
+          </a>
+          <a class="contact-tile" href="mailto:hi@zent7x.dev">
+            <span class="mono small">Email</span>
+            <span class="contact-line">hi@zent7x.dev</span>
+          </a>
+          <a class="contact-tile" href="https://routing.run" target="_blank" rel="noopener">
+            <span class="mono small">Product</span>
+            <span class="contact-line">routing.run</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-      <blockquote class="quote">
-        <p>The less you know is the better.</p>
-      </blockquote>
+  <footer class="site-footer">
+    <div class="inner footer-inner">
+      <p class="mono small">© <span id="year"></span> · Srinagar · 74.80°E</p>
+    </div>
+  </footer>
 
-      <p class="contact">
-        Open to consulting, security work, and interesting builds —
-        <a href="mailto:hi@zent7x.dev">hi@zent7x.dev</a>
-      </p>
-    </main>
-
-    <footer class="footer">© <span id="year"></span> Adeeb Bashir</footer>
-  </div>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="main.js?v=5"></script>
 </body>
 </html>
