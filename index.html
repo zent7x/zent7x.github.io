@@ -1,23 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Adeeb Bashir (zentex / zent7x). Founder of routing.run and Keelcode. AI infrastructure, security research, open source — Kashmir."
-    />
-    <meta name="theme-color" content="#f4efe6" />
-    <title>zent7x · zentex</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Adeeb · zent7x — engineer &amp; builder</title>
+  <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and Keelcode. AI infrastructure and security research from Kashmir." />
+  <meta property="og:title" content="zent7x" />
+  <meta property="og:description" content="Autonomous things that ship. Routers, agents, open source." />
+  <meta name="theme-color" content="#0a0908" id="theme-color-meta" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Page scroll progress"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <div class="noise" aria-hidden="true"></div>
+  <div class="frame frame-tl" aria-hidden="true"></div>
+  <div class="frame frame-tr" aria-hidden="true"></div>
+  <div class="frame frame-bl" aria-hidden="true"></div>
+  <div class="frame frame-br" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="inner header-inner">
+      <a class="logo" href="#">zent<span class="logo-accent">7</span>x</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#work" data-section-link="work">Work</a>
+        <a href="#stack" data-section-link="stack">Stack</a>
+        <a href="#contact" data-section-link="contact">Contact</a>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme" title="Theme"></button>
+      <p class="header-meta">
+        <span class="loc">Srinagar · 34.08°N</span>
+      </p>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="inner hero-grid">
+        <div class="hero-copy reveal" style="--d: 0ms">
+          <p class="eyebrow">Product · infra · agents</p>
+          <h1 class="headline">
+            Building things that <em>listen</em>, route, and&nbsp;ship.
+          </h1>
+          <p class="lede">
+            I work at the edge of LLM routing, autonomous coding loops, and offensive security.
+            Less deck, more commit — shipped beats theorized.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary magnetic" href="https://routing.run" target="_blank" rel="noopener" data-magnetic>routing.run</a>
+            <a class="btn magnetic" href="https://keelcode.ai" target="_blank" rel="noopener" data-magnetic>Keelcode</a>
+            <a class="btn magnetic" href="https://github.com/zent7x" target="_blank" rel="noopener" data-magnetic>GitHub</a>
+          </div>
+          <p class="hint-keyboard mono small">⌘ or Ctrl + K quick jump · <kbd>R</kbd> routing.run</p>
+        </div>
+        <div class="hero-panel-wrap reveal" style="--d: 90ms">
+          <div class="hero-panel" id="hero-panel" data-parallax-panel>
+            <div class="panel-header">
+              <span class="mono">router · ascii</span>
+              <span class="mono fade" id="graph-caption-top">/v1/chat/completions</span>
+            </div>
+            <pre class="graph" id="graph" aria-hidden="true"></pre>
+            <p class="panel-foot mono"><span id="stamp">last deploy · —</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="now" id="now">
+      <div class="inner">
+        <div class="section-label reveal" style="--d: 0ms"><span>02</span> Now</div>
+        <div class="now-grid">
+          <p class="now-text reveal" style="--d: 60ms">
+            Building <a href="https://keelcode.ai" target="_blank" rel="noopener">Keelcode</a> — loop engineering with guardrails and review-ready PRs.
+            <a href="https://routing.run" target="_blank" rel="noopener">routing.run</a> is live: one OpenAI-compatible surface over many providers, fallback chains, zero prompt logs.
+          </p>
+          <aside class="now-aside reveal" style="--d: 120ms">
+            <p class="mono small">Focus</p>
+            <ul class="now-list">
+              <li>LLM gateways &amp; edge workers</li>
+              <li>Autonomous coding loops</li>
+              <li>Bug bounty &amp; smart contracts</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-track" id="work" data-nav-section="work">
+      <div class="inner">
+        <div class="section-head reveal" style="--d: 0ms">
+          <div class="section-label"><span>03</span> Selected work</div>
+          <p class="section-sub">Four slots. One is still in the oven.</p>
+        </div>
+        <ul class="project-list">
+          <li class="reveal" style="--d: 40ms">
+            <a class="project-card tilt" href="https://routing.run" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">001</span>
+              <div class="project-body">
+                <h2 class="project-title">routing.run</h2>
+                <p class="project-desc">Model router · zero prompt logging · request-priced.</p>
+              </div>
+              <span class="tag tag-live">Live</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal" style="--d: 80ms">
+            <a class="project-card tilt" href="https://keelcode.ai" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">002</span>
+              <div class="project-body">
+                <h2 class="project-title">Keelcode</h2>
+                <p class="project-desc">Loop engineering · guardrails · replay · review-ready PRs.</p>
+              </div>
+              <span class="tag">Building</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal" style="--d: 120ms">
+            <a class="project-card tilt" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener" data-tilt>
+              <span class="project-num mono">003</span>
+              <div class="project-body">
+                <h2 class="project-title">grasp</h2>
+                <p class="project-desc">Code context for AI agents · index once, serve the slice.</p>
+              </div>
+              <span class="tag">Open source</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li class="reveal" style="--d: 160ms">
+            <div class="project-card project-card-muted">
+              <span class="project-num mono">004</span>
+              <div class="project-body">
+                <h2 class="project-title classified">Redacted build</h2>
+                <p class="project-desc">The less you know is the better.</p>
+              </div>
+              <span class="tag">Soon</span>
+              <span class="arrow dim" aria-hidden="true">·</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="stack-block section-track" id="stack" data-nav-section="stack">
+      <div class="inner">
+        <div class="section-label reveal" style="--d: 0ms"><span>04</span> Stack</div>
+        <p class="stack-intro reveal" style="--d: 50ms">Tools I reach for — pragmatic, not dogmatic.</p>
+        <div class="chips reveal" style="--d: 100ms" id="chip-cloud">
+          <button type="button" class="chip" data-chip>TypeScript</button>
+          <button type="button" class="chip" data-chip>Rust</button>
+          <button type="button" class="chip" data-chip>Solidity</button>
+          <button type="button" class="chip" data-chip>Python</button>
+          <button type="button" class="chip" data-chip>Bun</button>
+          <button type="button" class="chip" data-chip>React</button>
+          <button type="button" class="chip" data-chip>Postgres</button>
+          <button type="button" class="chip" data-chip>Redis</button>
+          <button type="button" class="chip" data-chip>Foundry</button>
+          <button type="button" class="chip" data-chip>Cloudflare Workers</button>
+          <button type="button" class="chip" data-chip>Docker</button>
+          <button type="button" class="chip" data-chip>OpenAI SDK</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-track" id="contact" data-nav-section="contact">
+      <div class="inner">
+        <div class="section-label reveal" style="--d: 0ms"><span>05</span> Elsewhere</div>
+        <div class="contact-grid reveal" style="--d: 70ms">
+          <a class="contact-tile" href="https://github.com/zent7x" target="_blank" rel="noopener">
+            <span class="mono small">GitHub</span>
+            <span class="contact-line">@zent7x</span>
+          </a>
+          <a class="contact-tile" href="https://x.com/zent7x" target="_blank" rel="noopener">
+            <span class="mono small">X</span>
+            <span class="contact-line">@zent7x</span>
+          </a>
+          <a class="contact-tile" href="mailto:hi@zent7x.dev">
+            <span class="mono small">Email</span>
+            <span class="contact-line">hi@zent7x.dev</span>
+          </a>
+          <a class="contact-tile" href="https://routing.run" target="_blank" rel="noopener">
+            <span class="mono small">Product</span>
+            <span class="contact-line">routing.run</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner footer-inner">
+      <p class="mono small">© <span id="year"></span> · Srinagar · 74.80°E</p>
+      <p class="mono small footer-hint">⌘/Ctrl+K · <kbd>R</kbd> routing.run</p>
+    </div>
+  </footer>
+
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" id="palette-backdrop"></div>
+    <div class="palette-dialog" role="dialog" aria-modal="true" aria-labelledby="palette-title">
+      <p id="palette-title" class="sr-only">Quick jump</p>
+      <input type="search" class="palette-input mono" id="palette-input" placeholder="Search actions…" autocomplete="off" spellcheck="false" />
+      <ul class="palette-list" id="palette-list"></ul>
+      <p class="palette-hint mono small">↑↓ navigate · ↵ open · esc close</p>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
 </html>
