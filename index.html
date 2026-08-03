@@ -6,6 +6,9 @@
   <title>Adeeb · zentex</title>
   <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and keelcode.ai. Engineer and security researcher from Kashmir." />
   <meta name="theme-color" content="#09090b" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -63,8 +66,8 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 2.5rem 3.5rem;
       align-items: start;
-      margin-bottom: 3.5rem;
-      padding-bottom: 3rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
       border-bottom: 1px solid var(--line);
     }
     .kicker {
@@ -236,12 +239,16 @@
   <div class="page">
     <header class="top">
       <a class="mark" href="#">zentex</a>
-      <nav class="links" aria-label="Social">
+      <nav class="links" aria-label="Site">
+        <a href="#ventures">Work</a>
+        <span class="dot">·</span>
+        <a href="#projects">Projects</a>
+        <span class="dot">·</span>
         <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
         <span class="dot">·</span>
         <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
         <span class="dot">·</span>
-        <a href="mailto:hi@zent7x.dev">Email</a>
+        <a href="#contact">Email</a>
       </nav>
     </header>
 
@@ -341,7 +348,7 @@
       </p>
     </main>
 
-    <footer class="foot">© <span id="year"></span> Adeeb Bashir · Kashmir</footer>
+    <footer class="foot">© <span id="year"></span> Adeeb Bashir · Kashmir · <span id="build">build 2026-08-03</span></footer>
   </div>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
