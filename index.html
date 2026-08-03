@@ -3,15 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Adeeb · zentex</title>
-  <meta name="description" content="Adeeb Bashir (zentex). Founder of routing.run and keelcode.ai. Engineer and security researcher from Kashmir." />
-  <meta name="theme-color" content="#09090b" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
+  <title>zentex</title>
+  <meta name="description" content="zentex, also known as Adeeb. Founder of routing.run and Keelcode. Security researcher from Kashmir." />
+  <meta name="theme-color" content="#09090b" id="theme-color" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -20,8 +17,10 @@
       --soft: #a1a1aa;
       --faint: #71717a;
       --line: #27272a;
+      --accent: #e07850;
       --serif: "Instrument Serif", Georgia, serif;
       --sans: "Inter", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
     }
     html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 1rem; }
     body {
@@ -36,245 +35,551 @@
     main { display: block; }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
+
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; z-index: 100;
+      height: 2px; width: 100%; transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: linear-gradient(90deg, #c45d38, var(--accent));
+      pointer-events: none;
+    }
+    .cursor-glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 120, 80, 0.07), transparent 70%);
+    }
+    .noise {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
     .page {
+      position: relative; z-index: 2;
       width: min(100% - 3rem, 46rem);
       margin: 0 auto;
       padding: 2.5rem 0 4rem;
     }
     .top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 4.5rem;
     }
     .mark {
       font-family: var(--serif);
-      font-size: 1.4rem;
-      font-style: italic;
-      color: var(--fg);
+      font-size: 1.5rem; font-style: italic;
+      letter-spacing: -0.02em;
+      transition: color 0.15s;
     }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.45rem;
+    .mark:hover { color: #e4e4e7; }
+
+    .nav {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: flex-end; gap: 0.4rem;
       font-size: 0.875rem;
-      color: var(--fg);
     }
-    .links a:hover { color: var(--soft); }
-    .dot { color: var(--faint); }
+    .nav a {
+      color: var(--soft);
+      transition: color 0.15s;
+    }
+    .nav a:hover { color: var(--fg); }
+    .nav__sep { color: var(--faint); user-select: none; }
+
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 2.5rem 3.5rem;
-      align-items: start;
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      display: grid; grid-template-columns: minmax(0, 1fr) auto;
+      gap: 2.5rem 3.5rem; align-items: start;
+      margin-bottom: 2rem; padding-bottom: 2.5rem;
       border-bottom: 1px solid var(--line);
     }
     .kicker {
       margin-bottom: 1.25rem;
-      font-size: 0.8125rem;
+      font-size: 0.8125rem; line-height: 1.5;
       color: var(--faint);
     }
     .hero h1 {
       font-family: var(--serif);
       font-size: clamp(2.5rem, 5.5vw, 3.5rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      font-weight: 400; line-height: 1.08; letter-spacing: -0.02em;
     }
     .hero h1 em {
-      display: block;
-      margin-top: 0.1em;
-      font-style: italic;
-      color: #d4d4d8;
+      display: block; margin-top: 0.12em;
+      font-style: italic; color: #d4d4d8;
     }
     .tagline {
-      margin-top: 1.5rem;
-      max-width: 26rem;
-      font-size: 1.05rem;
-      font-weight: 500;
-      line-height: 1.55;
-      color: var(--fg);
+      margin-top: 1.5rem; max-width: 26rem;
+      font-size: 1.05rem; font-weight: 500; line-height: 1.55;
     }
     .bio {
-      margin-top: 0.85rem;
-      max-width: 28rem;
-      font-size: 0.9375rem;
-      line-height: 1.7;
-      color: var(--soft);
+      margin-top: 0.9rem; max-width: 30rem;
+      font-size: 0.9375rem; line-height: 1.72; color: var(--soft);
+    }
+    .bio-ventures {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem;
+      margin: 0.65rem 0 0.15rem;
+    }
+    .bio-link {
+      color: var(--fg);
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+      text-underline-offset: 3px;
+    }
+    .bio-link:hover { text-decoration-color: var(--fg); }
+    .venture-pill {
+      display: inline-flex; align-items: center; gap: 0.42rem;
+      padding: 0.22rem 0.55rem 0.22rem 0.38rem;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: #0f0f11; color: var(--fg); font-size: 0.84rem;
+      font-weight: 500; transition: border-color 0.15s, background 0.15s;
+    }
+    .venture-pill:hover {
+      border-color: #3f3f46; background: #141416;
     }
     .hero__photo {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--line);
+      width: 200px; height: 200px; object-fit: cover;
+      border-radius: 12px; border: 1px solid var(--line);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-    .block { margin-bottom: 2.75rem; padding-top: 0.25rem; }
+    .hero__photo:hover {
+      border-color: #52525b;
+      transform: scale(1.02);
+    }
+
+    html.site-white {
+      color-scheme: light;
+      --bg: #ffffff;
+      --fg: #09090b;
+      --soft: #52525b;
+      --faint: #71717a;
+      --line: #e4e4e7;
+      --accent: #c45d38;
+    }
+    html.site-white .cursor-glow,
+    html.site-white .noise { opacity: 0; }
+    html.site-white .venture-pill,
+    html.site-white .hint-chip--venture,
+    html.site-white .card,
+    html.site-white .project-card,
+    html.site-white .gh-stat,
+    html.site-white .palette-dialog {
+      background: #f4f4f5;
+    }
+    html.site-white .venture-pill:hover,
+    html.site-white .hint-chip--venture:hover,
+    html.site-white .card:hover,
+    html.site-white .project-card:hover {
+      background: #ebebeb;
+    }
+    html.site-white .hint-chip kbd,
+    html.site-white .palette-input {
+      background: #ffffff;
+    }
+    html.site-white .palette-item:hover,
+    html.site-white .palette-item.is-active {
+      background: color-mix(in oklab, var(--accent) 12%, #f4f4f5);
+    }
+    html.site-white .contrib-skeleton span,
+    html.site-white .contrib-day[data-level="0"] {
+      background: #e4e4e7;
+    }
+    html.site-white .contrib-tip {
+      background: #09090b;
+      color: #fafafa;
+      border-color: #3f3f46;
+    }
+    html.site-white .tech-stack img[alt="Rust"],
+    html.site-white .tech-stack img[alt="AWS"],
+    html.site-white .tech-stack img[alt="Linux"] {
+      filter: none;
+    }
+    html.site-white .tech-stack img[alt="OpenAI"],
+    html.site-white .tech-stack img[alt="Kafka"],
+    html.site-white .tech-stack img[alt="Bun"] {
+      filter: invert(1) saturate(0.9);
+    }
+    html.site-white .hero__photo {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    }
+    .hints {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.45rem; margin-top: 1.35rem;
+    }
+    .hint-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.32rem 0.62rem; border-radius: 8px;
+      border: 1px dashed var(--line); background: transparent;
+      font-family: var(--mono); font-size: 0.68rem; color: var(--faint);
+      cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .hint-chip--venture {
+      border-style: solid; border-color: var(--line);
+      background: #0f0f11; color: var(--soft);
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+      padding: 0.28rem 0.65rem 0.28rem 0.42rem;
+    }
+    .hint-chip kbd {
+      border: 1px solid var(--line); padding: 0.08rem 0.32rem;
+      border-radius: 4px; font-size: 0.62rem; color: var(--soft);
+      background: #111113; font-family: var(--mono);
+    }
+    .hint-chip:hover {
+      color: var(--fg); border-color: #3f3f46; background: #141416;
+    }
+    .hint-chip--venture:hover { border-color: #52525b; }
+
+    .brand-logo {
+      display: grid; place-items: center; flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 10px;
+      background: #fff; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(127, 127, 127, 0.22);
+    }
+    .brand-logo--sm {
+      width: 22px; height: 22px; border-radius: 6px;
+      box-shadow: 0 0 0 1px rgba(127, 127, 127, 0.2);
+    }
+    .brand-logo--hint {
+      width: 24px; height: 24px; border-radius: 7px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(127, 127, 127, 0.18);
+    }
+    .brand-logo img {
+      width: 78%; height: 78%; display: block;
+      object-fit: contain;
+    }
+
+    .block { margin-bottom: 2.75rem; }
     .block h2 {
-      margin-bottom: 1rem;
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 400;
-      color: var(--fg);
+      margin-bottom: 1rem; font-family: var(--serif);
+      font-size: 1.3rem; font-style: italic; font-weight: 400;
     }
+    .block-sub {
+      margin-bottom: 0.85rem; font-size: 0.875rem; color: var(--faint);
+    }
+
     .cards { display: grid; gap: 0.65rem; }
     .card {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      padding: 1rem 1.1rem;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      transition: border-color 0.15s, background 0.15s;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 1rem; padding: 1rem 1.1rem;
+      border: 1px solid var(--line); border-radius: 12px;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
     }
     .card:hover {
-      border-color: #3f3f46;
-      background: #0f0f11;
+      border-color: #3f3f46; background: #0f0f11; transform: translateX(4px);
     }
-    .card img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
+    .card .brand-logo { margin: 0; }
     .card__top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.5rem;
+      display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem;
       margin-bottom: 0.25rem;
     }
     .card__top strong { font-weight: 600; }
     .card__top span {
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--faint);
+      font-size: 0.68rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--faint);
     }
-    .card p {
-      font-size: 0.92rem;
-      color: var(--soft);
-      line-height: 1.55;
+    .card p { font-size: 0.92rem; color: var(--soft); line-height: 1.55; }
+
+    .project-grid { display: grid; gap: 0.65rem; }
+    .project-card {
+      display: block; padding: 1rem 1.1rem;
+      border: 1px solid var(--line); border-radius: 12px;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
     }
-    .rows { border-top: 1px solid var(--line); }
-    .rows li {
-      display: grid;
-      grid-template-columns: 7rem 1fr;
-      gap: 1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--line);
+    .project-card:hover {
+      border-color: #3f3f46; background: #0f0f11; transform: translateX(4px);
     }
-    .rows a {
-      font-weight: 500;
-      text-decoration: underline;
-      text-decoration-color: var(--line);
+    .project-card__head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.75rem; margin-bottom: 0.35rem;
+    }
+    .project-card__head strong {
+      font-size: 0.98rem; font-weight: 600;
+      text-decoration: underline; text-decoration-color: var(--line);
       text-underline-offset: 3px;
     }
-    .rows a:hover { text-decoration-color: var(--fg); }
-    .rows span { color: var(--soft); font-size: 0.94rem; }
-    .rows__more {
-      margin-top: 0.75rem;
-      font-size: 0.875rem;
-      color: var(--faint);
+    .project-card:hover .project-card__head strong {
+      text-decoration-color: var(--fg);
     }
-    .rows__more a {
-      color: var(--soft);
-      text-decoration: underline;
+    .project-card__arrow {
+      font-family: var(--mono); font-size: 0.75rem; color: var(--faint);
+      transition: color 0.15s, transform 0.15s;
+    }
+    .project-card:hover .project-card__arrow {
+      color: var(--soft); transform: translate(2px, -2px);
+    }
+    .project-card p {
+      font-size: 0.92rem; color: var(--soft); line-height: 1.55;
+    }
+    .projects-more {
+      margin-top: 0.75rem; font-size: 0.875rem; color: var(--faint);
+    }
+    .projects-more a {
+      color: var(--soft); text-decoration: underline;
       text-decoration-color: var(--line);
     }
-    .stack {
-      color: var(--soft);
-      font-size: 0.94rem;
-      line-height: 1.7;
+
+    .tech-stack {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.72rem; margin-top: 0.25rem;
     }
+    .tech-stack li {
+      position: relative; display: inline-flex;
+      justify-content: center; align-items: center;
+      width: 27px; height: 27px;
+    }
+    .tech-stack li::after {
+      content: attr(data-tech);
+      position: absolute; bottom: calc(100% + 0.48rem); left: 50%;
+      transform: translate(-50%, 0.25rem);
+      padding: 0.2rem 0.34rem; border-radius: 3px;
+      border: 1px solid var(--line); background: var(--fg); color: var(--bg);
+      font-family: var(--mono); font-size: 0.62rem; line-height: 1.2;
+      white-space: nowrap; pointer-events: none; opacity: 0;
+      transition: opacity 0.12s, transform 0.12s;
+    }
+    .tech-stack li:hover::after {
+      opacity: 1; transform: translate(-50%, 0);
+    }
+    .tech-stack button {
+      display: grid; place-items: center;
+      width: 27px; height: 27px; padding: 0;
+      border: none; background: transparent; cursor: pointer;
+    }
+    .tech-stack img {
+      width: 26px; height: 26px; object-fit: contain;
+      opacity: 0.92; filter: saturate(1.05);
+      transition: opacity 0.14s, transform 0.14s, filter 0.14s;
+      display: block;
+    }
+    .tech-stack li:hover img {
+      opacity: 1; filter: saturate(1.15);
+      transform: translateY(-1px);
+    }
+    .tech-stack button.is-flash img {
+      filter: saturate(1.3) drop-shadow(0 0 6px rgba(224, 120, 80, 0.45));
+    }
+    .tech-stack img[alt="Rust"],
+    .tech-stack img[alt="AWS"],
+    .tech-stack img[alt="Linux"] {
+      filter: invert(1) saturate(0) brightness(1.45);
+    }
+    .tech-stack li:hover img[alt="Rust"],
+    .tech-stack li:hover img[alt="AWS"],
+    .tech-stack li:hover img[alt="Linux"] {
+      filter: invert(1) saturate(0) brightness(1.55);
+    }
+    @media (hover: none) {
+      .tech-stack li::after { display: none; }
+    }
+
+    .contrib-head {
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: space-between; gap: 0.5rem 1rem;
+      margin-bottom: 0.35rem;
+    }
+    .contrib-head a {
+      font-size: 0.8125rem; color: var(--soft);
+      text-decoration: underline; text-decoration-color: var(--line);
+      text-underline-offset: 3px;
+    }
+    .contrib-head a:hover {
+      color: var(--fg); text-decoration-color: var(--fg);
+    }
+    .contrib-meta {
+      font-family: var(--mono); font-size: 0.68rem;
+      color: var(--faint);
+    }
+    .contrib-wrap {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+      overflow-x: auto;
+      scrollbar-color: var(--line) transparent;
+      scrollbar-width: thin;
+    }
+    .contrib-skeleton,
+    .contrib-grid {
+      display: grid;
+      grid-template-rows: repeat(7, 11px);
+      grid-auto-flow: column;
+      gap: 3px;
+      width: max-content;
+    }
+    .contrib-skeleton span,
+    .contrib-grid span {
+      display: block;
+      width: 11px; height: 11px;
+      border-radius: 3px;
+      background: #18181b;
+    }
+    .contrib-skeleton span {
+      animation: contrib-pulse 1.4s ease-in-out infinite;
+      animation-delay: calc(var(--i, 0) * 12ms);
+    }
+    @keyframes contrib-pulse {
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.7; }
+    }
+    .contrib-day {
+      cursor: default;
+      outline: none;
+      transition: transform 0.1s;
+    }
+    .contrib-day[data-level="0"] { background: #18181b; }
+    .contrib-day[data-level="1"] { background: rgba(224, 120, 80, 0.28); }
+    .contrib-day[data-level="2"] { background: rgba(224, 120, 80, 0.45); }
+    .contrib-day[data-level="3"] { background: rgba(224, 120, 80, 0.62); }
+    .contrib-day[data-level="4"] { background: rgba(224, 120, 80, 0.88); }
+    .contrib-day.is-hot {
+      transform: scale(1.15);
+      box-shadow: 0 0 0 1px var(--bg), 0 0 0 2px var(--accent);
+    }
+    .contrib-tip {
+      position: fixed; z-index: 100;
+      padding: 0.35rem 0.5rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #18181b;
+      color: var(--fg);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      line-height: 1.3;
+      white-space: nowrap;
+      pointer-events: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .contrib-tip[hidden] { display: none; }
+
     .quote {
-      margin: 2.5rem 0;
-      padding-left: 1.1rem;
+      margin: 2.5rem 0; padding-left: 1.1rem;
       border-left: 2px solid var(--line);
     }
     .quote p {
-      font-family: var(--serif);
-      font-size: 1.35rem;
-      font-style: italic;
-      line-height: 1.4;
-      color: #d4d4d8;
+      font-family: var(--serif); font-size: 1.35rem; font-style: italic;
+      line-height: 1.4; color: #d4d4d8;
     }
-    .contact {
-      color: var(--soft);
-      font-size: 0.94rem;
-    }
+    .contact { color: var(--soft); font-size: 0.94rem; }
     .contact a {
-      color: var(--fg);
-      text-decoration: underline;
-      text-decoration-color: var(--line);
-      text-underline-offset: 3px;
+      color: var(--fg); text-decoration: underline;
+      text-decoration-color: var(--line); text-underline-offset: 3px;
     }
-    .contact a:hover { text-decoration-color: var(--fg); }
     .foot {
-      margin-top: 3rem;
-      color: var(--faint);
-      font-size: 0.75rem;
+      margin-top: 3rem; color: var(--faint); font-size: 0.75rem;
     }
+
+    /* command palette */
+    .palette[hidden] { display: none !important; }
+    .palette {
+      position: fixed; inset: 0; z-index: 200;
+      display: grid; place-items: start center; padding: 12vh 1rem 2rem;
+    }
+    .palette-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(6px);
+    }
+    .palette-dialog {
+      position: relative; width: min(440px, 100%);
+      border: 1px solid var(--line); border-radius: 14px;
+      background: #111113; padding: 0.85rem;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    }
+    .palette-label {
+      font-family: var(--mono); font-size: 0.62rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--faint); margin-bottom: 0.5rem;
+    }
+    .palette-input {
+      width: 100%; padding: 0.7rem 0.8rem;
+      border: 1px solid var(--line); border-radius: 8px;
+      background: var(--bg); color: var(--fg);
+      font-family: var(--mono); font-size: 0.85rem;
+    }
+    .palette-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .palette-list { margin: 0.35rem 0 0; max-height: 280px; overflow: auto; }
+    .palette-item {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 0.75rem; width: 100%; padding: 0.6rem 0.5rem;
+      border: none; border-radius: 8px; background: transparent;
+      color: inherit; font: inherit; text-align: left; cursor: pointer;
+    }
+    .palette-item:hover, .palette-item.is-active {
+      background: color-mix(in oklab, var(--accent) 12%, #111113);
+    }
+    .palette-key {
+      font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
+    }
+    .palette-empty { padding: 0.6rem 0.5rem; color: var(--faint); font-size: 0.85rem; }
+    .palette-foot {
+      margin-top: 0.5rem; padding-top: 0.5rem;
+      border-top: 1px dashed var(--line);
+      font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
+    }
+
     @media (max-width: 700px) {
       .page { width: min(100% - 1.75rem, 46rem); padding-top: 1.75rem; }
       .top { margin-bottom: 3.5rem; }
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .hero__photo {
-        width: min(100%, 220px);
-        height: auto;
-        aspect-ratio: 1;
-      }
-      .rows li {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
-      }
+      .hero { grid-template-columns: 1fr; gap: 2rem; }
+      .hero__photo { width: min(100%, 220px); height: auto; aspect-ratio: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .card:hover { transform: none; }
+      .project-card:hover { transform: none; }
+      .tech-stack li:hover img { transform: none; }
     }
   </style>
 </head>
 <body>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
   <div class="page">
     <header class="top">
       <a class="mark" href="#">zentex</a>
-      <nav class="links" aria-label="Social">
+      <nav class="nav" aria-label="Links">
         <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
-        <span class="dot">·</span>
+        <span class="nav__sep">·</span>
         <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
-        <span class="dot">·</span>
-        <a href="mailto:hi@zent7x.dev">Email</a>
+        <span class="nav__sep">·</span>
+        <a href="https://zent7x.com/blog" target="_blank" rel="noopener">Blog</a>
+        <span class="nav__sep">·</span>
+        <a href="mailto:zentex@warm.run">Email</a>
       </nav>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero__copy">
-          <p class="kicker">Founder &amp; engineer · Kashmir, India</p>
+          <p class="kicker">Founder &amp; engineer · Kashmir</p>
           <h1>
-            Hi, I'm Adeeb.
-            <em>Also known as zentex.</em>
+            Hi, I'm zentex.
+            <em>Also known as Adeeb.</em>
           </h1>
           <p class="tagline">I build AI infrastructure and break things for a living.</p>
           <p class="bio">
-            Founder of routing.run and keelcode.ai. Security researcher. I ship LLM routing,
-            autonomous coding loops, and open-source tools from the mountains.
+            Founder of
+            <span class="bio-ventures">
+              <a class="venture-pill" href="https://routing.run" target="_blank" rel="noopener">
+                <span class="brand-logo brand-logo--sm"><img src="logos/routing.png" alt="" width="20" height="20" /></span>
+                routing.run
+              </a>
+              <a class="venture-pill" href="https://keelcode.ai" target="_blank" rel="noopener">
+                <span class="brand-logo brand-logo--sm"><img src="logos/keelcode.svg" alt="" width="20" height="20" /></span>
+                Keelcode
+              </a>
+            </span>
+            Security researcher. Worked with
+            <a class="bio-link" href="https://thepublive.com" target="_blank" rel="noopener">Publive</a>
+            to find critical bugs in their systems. I ship LLM routing, autonomous coding loops, and open-source tools from the mountains.
           </p>
+          <div class="hints">
+            <button type="button" class="hint-chip" id="hint-palette"><kbd>⌘K</kbd> jump anywhere</button>
+            <button type="button" class="hint-chip hint-chip--venture" id="hint-routing">
+              <span class="brand-logo brand-logo--hint"><img src="logos/routing.png" alt="" width="24" height="24" /></span>
+              <kbd>R</kbd> routing.run
+            </button>
+            <button type="button" class="hint-chip hint-chip--venture" id="hint-keelcode">
+              <span class="brand-logo brand-logo--hint"><img src="logos/keelcode.svg" alt="" width="24" height="24" /></span>
+              Keelcode
+            </button>
+          </div>
         </div>
-        <img
-          class="hero__photo"
-          src="avatar.png"
-          alt="Adeeb Bashir"
-          width="200"
-          height="200"
-          decoding="async"
-        />
+        <img class="hero__photo" id="hero-photo" src="avatar.png" alt="zentex" width="200" height="200" decoding="async" title="?" />
       </section>
 
       <section class="block" id="ventures">
@@ -282,24 +587,18 @@
         <ul class="cards">
           <li>
             <a class="card" href="https://keelcode.ai" target="_blank" rel="noopener">
-              <img src="logos/keelcode.png" alt="" width="40" height="40" />
+              <span class="brand-logo"><img src="logos/keelcode.svg" alt="" width="40" height="40" /></span>
               <div>
-                <div class="card__top">
-                  <strong>Keelcode</strong>
-                  <span>2026 · Building</span>
-                </div>
+                <div class="card__top"><strong>Keelcode</strong><span>2026 · Building</span></div>
                 <p>Loop engineering with guardrails, replay, and review-ready PRs.</p>
               </div>
             </a>
           </li>
           <li>
             <a class="card" href="https://routing.run" target="_blank" rel="noopener">
-              <img src="logos/routing.png" alt="" width="40" height="40" />
+              <span class="brand-logo"><img src="logos/routing.png" alt="" width="40" height="40" /></span>
               <div>
-                <div class="card__top">
-                  <strong>routing.run</strong>
-                  <span>2025 · Live</span>
-                </div>
+                <div class="card__top"><strong>routing.run</strong><span>2025 · Live</span></div>
                 <p>OpenAI-compatible LLM router with zero prompt logging.</p>
               </div>
             </a>
@@ -309,34 +608,90 @@
 
       <section class="block" id="projects">
         <h2>Projects</h2>
-        <ul class="rows">
+        <ul class="project-grid">
           <li>
-            <a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">grasp</a>
-            <span>Code context for AI agents</span>
+            <a class="project-card" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">
+              <div class="project-card__head">
+                <strong>grasp</strong>
+                <span class="project-card__arrow">↗</span>
+              </div>
+              <p>Code context for AI agents on repos too big for one context window.</p>
+            </a>
           </li>
           <li>
-            <a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">codemap</a>
-            <span>Repository visualization</span>
+            <a class="project-card" href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">
+              <div class="project-card__head">
+                <strong>codemap</strong>
+                <span class="project-card__arrow">↗</span>
+              </div>
+              <p>Turn any repository into a self contained explorable HTML map.</p>
+            </a>
           </li>
           <li>
-            <a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">cogrep</a>
-            <span>Semantic code search</span>
+            <a class="project-card" href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">
+              <div class="project-card__head">
+                <strong>cogrep</strong>
+                <span class="project-card__arrow">↗</span>
+              </div>
+              <p>Local semantic code search and clone detection from your terminal.</p>
+            </a>
           </li>
           <li>
-            <a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">tally</a>
-            <span>Offline finance tracker</span>
+            <a class="project-card" href="https://github.com/zent7x/tally" target="_blank" rel="noopener">
+              <div class="project-card__head">
+                <strong>tally</strong>
+                <span class="project-card__arrow">↗</span>
+              </div>
+              <p>Offline finance tracker. No account, no cloud. One HTML file.</p>
+            </a>
           </li>
         </ul>
-        <p class="rows__more">
-          More on <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>.
-        </p>
+        <p class="projects-more">More on <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>.</p>
       </section>
 
       <section class="block" id="stack">
         <h2>Stack</h2>
-        <p class="stack">
-          TypeScript · Rust · Python · Bun · React · Docker · PostgreSQL · Redis · Solidity · Foundry · Cloudflare Workers
-        </p>
+        <p class="block-sub">Click a tool to copy. Pragmatic, not dogmatic.</p>
+        <ul class="tech-stack" aria-label="Technology stack">
+          <li data-tech="TypeScript"><button type="button" data-chip="TypeScript" title="TypeScript"><img src="tech/typescript.svg" alt="TypeScript" width="26" height="26" /></button></li>
+          <li data-tech="Rust"><button type="button" data-chip="Rust" title="Rust"><img src="tech/rust.svg" alt="Rust" width="26" height="26" /></button></li>
+          <li data-tech="Go"><button type="button" data-chip="Go" title="Go"><img src="tech/go.svg" alt="Go" width="26" height="26" /></button></li>
+          <li data-tech="Python"><button type="button" data-chip="Python" title="Python"><img src="tech/python.svg" alt="Python" width="26" height="26" /></button></li>
+          <li data-tech="Bun"><button type="button" data-chip="Bun" title="Bun"><img src="tech/bun.svg" alt="Bun" width="26" height="26" /></button></li>
+          <li data-tech="Node.js"><button type="button" data-chip="Node.js" title="Node.js"><img src="tech/nodejs.svg" alt="Node.js" width="26" height="26" /></button></li>
+          <li data-tech="React"><button type="button" data-chip="React" title="React"><img src="tech/react.svg" alt="React" width="26" height="26" /></button></li>
+          <li data-tech="Solidity"><button type="button" data-chip="Solidity" title="Solidity"><img src="tech/solidity.svg" alt="Solidity" width="26" height="26" /></button></li>
+          <li data-tech="PyTorch"><button type="button" data-chip="PyTorch" title="PyTorch"><img src="tech/pytorch.svg" alt="PyTorch" width="26" height="26" /></button></li>
+          <li data-tech="Transformers"><button type="button" data-chip="Transformers" title="Transformers"><img src="tech/huggingface.svg" alt="Transformers" width="26" height="26" /></button></li>
+          <li data-tech="OpenAI"><button type="button" data-chip="OpenAI" title="OpenAI"><img src="tech/openai.svg" alt="OpenAI" width="26" height="26" /></button></li>
+          <li data-tech="NVIDIA CUDA"><button type="button" data-chip="NVIDIA CUDA" title="NVIDIA CUDA"><img src="tech/nvidia.svg" alt="NVIDIA CUDA" width="26" height="26" /></button></li>
+          <li data-tech="Docker"><button type="button" data-chip="Docker" title="Docker"><img src="tech/docker.svg" alt="Docker" width="26" height="26" /></button></li>
+          <li data-tech="Kubernetes"><button type="button" data-chip="Kubernetes" title="Kubernetes"><img src="tech/kubernetes.svg" alt="Kubernetes" width="26" height="26" /></button></li>
+          <li data-tech="PostgreSQL"><button type="button" data-chip="PostgreSQL" title="PostgreSQL"><img src="tech/postgresql.svg" alt="PostgreSQL" width="26" height="26" /></button></li>
+          <li data-tech="Redis"><button type="button" data-chip="Redis" title="Redis"><img src="tech/redis.svg" alt="Redis" width="26" height="26" /></button></li>
+          <li data-tech="Kafka"><button type="button" data-chip="Kafka" title="Kafka"><img src="tech/kafka.svg" alt="Kafka" width="26" height="26" /></button></li>
+          <li data-tech="Nginx"><button type="button" data-chip="Nginx" title="Nginx"><img src="tech/nginx.svg" alt="Nginx" width="26" height="26" /></button></li>
+          <li data-tech="Terraform"><button type="button" data-chip="Terraform" title="Terraform"><img src="tech/terraform.svg" alt="Terraform" width="26" height="26" /></button></li>
+          <li data-tech="Ansible"><button type="button" data-chip="Ansible" title="Ansible"><img src="tech/ansible.svg" alt="Ansible" width="26" height="26" /></button></li>
+          <li data-tech="GitHub Actions"><button type="button" data-chip="GitHub Actions" title="GitHub Actions"><img src="tech/github-actions.svg" alt="GitHub Actions" width="26" height="26" /></button></li>
+          <li data-tech="Cloudflare"><button type="button" data-chip="Cloudflare" title="Cloudflare"><img src="tech/cloudflare.svg" alt="Cloudflare" width="26" height="26" /></button></li>
+          <li data-tech="AWS"><button type="button" data-chip="AWS" title="AWS"><img src="tech/aws.svg" alt="AWS" width="26" height="26" /></button></li>
+          <li data-tech="Grafana"><button type="button" data-chip="Grafana" title="Grafana"><img src="tech/grafana.svg" alt="Grafana" width="26" height="26" /></button></li>
+          <li data-tech="Prometheus"><button type="button" data-chip="Prometheus" title="Prometheus"><img src="tech/prometheus.svg" alt="Prometheus" width="26" height="26" /></button></li>
+          <li data-tech="Linux"><button type="button" data-chip="Linux" title="Linux"><img src="tech/linux.svg" alt="Linux" width="26" height="26" /></button></li>
+          <li data-tech="Git"><button type="button" data-chip="Git" title="Git"><img src="tech/git.svg" alt="Git" width="26" height="26" /></button></li>
+        </ul>
+      </section>
+
+      <section class="block" id="github">
+        <div class="contrib-head">
+          <h2>GitHub activity</h2>
+          <a href="https://github.com/zent7x" target="_blank" rel="noopener">@zent7x ↗</a>
+        </div>
+        <p class="contrib-meta" id="contrib-meta">Loading contributions…</p>
+        <div class="contrib-wrap" id="contrib-wrap" aria-busy="true">
+          <div class="contrib-skeleton" id="contrib-skeleton" aria-hidden="true"></div>
+        </div>
       </section>
 
       <blockquote class="quote">
@@ -344,13 +699,24 @@
       </blockquote>
 
       <p class="contact" id="contact">
-        Open to consulting, security work, and interesting builds —
-        <a href="mailto:hi@zent7x.dev">hi@zent7x.dev</a>
+        Open to consulting, security work, and interesting builds.
+        <a href="mailto:zentex@warm.run">zentex@warm.run</a>
       </p>
     </main>
 
-    <footer class="foot">© <span id="year"></span> Adeeb Bashir · Kashmir</footer>
+    <footer class="foot">© <span id="year"></span> zentex · Kashmir</footer>
   </div>
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" id="palette-backdrop"></div>
+    <div class="palette-dialog" role="dialog" aria-modal="true" aria-label="Quick jump">
+      <p class="palette-label">anywhere on warm.run</p>
+      <input type="search" class="palette-input" id="palette-input" placeholder="Where to?" autocomplete="off" spellcheck="false" />
+      <ul class="palette-list" id="palette-list"></ul>
+      <p class="palette-foot">↑↓ navigate · ↵ open · esc close</p>
+    </div>
+  </div>
+
+  <script src="site.js"></script>
 </body>
 </html>

@@ -11,11 +11,11 @@ export const profile = {
   tagline: "I build AI infrastructure and break things for a living.",
   motto: "The less you know is the better.",
   avatar: "/avatar.png",
-  email: "hi@zent7x.dev",
+  email: "zentex@warm.run",
   links: {
     github: "https://github.com/zent7x",
     x: "https://x.com/zent7x",
-    email: "mailto:hi@zent7x.dev",
+    email: "mailto:zentex@warm.run",
     keelcode: "https://keelcode.ai",
     routing: "https://routing.run",
   },
