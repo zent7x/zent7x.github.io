@@ -20,7 +20,7 @@
       --serif: "Instrument Serif", Georgia, serif;
       --sans: "Inter", system-ui, sans-serif;
     }
-    html { color-scheme: dark; }
+    html { color-scheme: dark; scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--fg);
@@ -30,48 +30,7 @@
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
-  </style>
-</head>
-<body>
-  <div class="page">
-    <header class="top">
-      <a class="mark" href="#">zentex</a>
-      <nav class="links" aria-label="Social">
-        <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
-        <span class="dot">·</span>
-        <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
-        <span class="dot">·</span>
-        <a href="mailto:hi@zent7x.dev">Email</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="hero__copy">
-          <p class="kicker">Founder &amp; engineer · Kashmir, India</p>
-          <h1>
-            Hi, I'm Adeeb.
-            <em>Also known as zentex.</em>
-          </h1>
-          <p class="tagline">I build AI infrastructure and break things for a living.</p>
-          <p class="bio">
-            Founder of routing.run and keelcode.ai. Security researcher. I ship LLM routing,
-            autonomous coding loops, and open-source tools from the mountains.
-          </p>
-        </div>
-        <img
-          class="hero__photo"
-          src="avatar.png"
-          alt="Adeeb Bashir"
-          width="200"
-          height="200"
-          decoding="async"
-        />
-      </section>
-    </main>
-  </div>
-
-  <style>
+    ul { list-style: none; }
     .page {
       width: min(100% - 3rem, 46rem);
       margin: 0 auto;
@@ -104,6 +63,9 @@
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 2.5rem 3.5rem;
       align-items: start;
+      margin-bottom: 3.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--line);
     }
     .kicker {
       margin-bottom: 1.25rem;
@@ -145,6 +107,112 @@
       border-radius: 10px;
       border: 1px solid var(--line);
     }
+    .block { margin-bottom: 2.75rem; }
+    .block h2 {
+      margin-bottom: 1rem;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .cards { display: grid; gap: 0.65rem; }
+    .card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .card:hover {
+      border-color: #3f3f46;
+      background: #0f0f11;
+    }
+    .card img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .card__top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .card__top strong { font-weight: 600; }
+    .card__top span {
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: var(--soft);
+      line-height: 1.55;
+    }
+    .rows { border-top: 1px solid var(--line); }
+    .rows li {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .rows a {
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+      text-underline-offset: 3px;
+    }
+    .rows a:hover { text-decoration-color: var(--fg); }
+    .rows span { color: var(--soft); font-size: 0.94rem; }
+    .rows__more {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--faint);
+    }
+    .rows__more a {
+      color: var(--soft);
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+    }
+    .stack {
+      color: var(--soft);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .quote {
+      margin: 2.5rem 0;
+      padding-left: 1.1rem;
+      border-left: 2px solid var(--line);
+    }
+    .quote p {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      line-height: 1.4;
+      color: #d4d4d8;
+    }
+    .contact {
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+    .contact a {
+      color: var(--fg);
+      text-decoration: underline;
+      text-decoration-color: var(--line);
+      text-underline-offset: 3px;
+    }
+    .contact a:hover { text-decoration-color: var(--fg); }
+    .foot {
+      margin-top: 3rem;
+      color: var(--faint);
+      font-size: 0.75rem;
+    }
     @media (max-width: 700px) {
       .page { width: min(100% - 1.75rem, 46rem); padding-top: 1.75rem; }
       .top { margin-bottom: 3.5rem; }
@@ -157,7 +225,124 @@
         height: auto;
         aspect-ratio: 1;
       }
+      .rows li {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
     }
   </style>
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <a class="mark" href="#">zentex</a>
+      <nav class="links" aria-label="Social">
+        <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
+        <span class="dot">·</span>
+        <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
+        <span class="dot">·</span>
+        <a href="mailto:hi@zent7x.dev">Email</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__copy">
+          <p class="kicker">Founder &amp; engineer · Kashmir, India</p>
+          <h1>
+            Hi, I'm Adeeb.
+            <em>Also known as zentex.</em>
+          </h1>
+          <p class="tagline">I build AI infrastructure and break things for a living.</p>
+          <p class="bio">
+            Founder of routing.run and keelcode.ai. Security researcher. I ship LLM routing,
+            autonomous coding loops, and open-source tools from the mountains.
+          </p>
+        </div>
+        <img
+          class="hero__photo"
+          src="avatar.png"
+          alt="Adeeb Bashir"
+          width="200"
+          height="200"
+          decoding="async"
+        />
+      </section>
+
+      <section class="block" id="ventures">
+        <h2>Ventures</h2>
+        <ul class="cards">
+          <li>
+            <a class="card" href="https://keelcode.ai" target="_blank" rel="noopener">
+              <img src="logos/keelcode.png" alt="" width="40" height="40" />
+              <div>
+                <div class="card__top">
+                  <strong>Keelcode</strong>
+                  <span>2026 · Building</span>
+                </div>
+                <p>Loop engineering with guardrails, replay, and review-ready PRs.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="https://routing.run" target="_blank" rel="noopener">
+              <img src="logos/routing.png" alt="" width="40" height="40" />
+              <div>
+                <div class="card__top">
+                  <strong>routing.run</strong>
+                  <span>2025 · Live</span>
+                </div>
+                <p>OpenAI-compatible LLM router with zero prompt logging.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" id="projects">
+        <h2>Projects</h2>
+        <ul class="rows">
+          <li>
+            <a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">grasp</a>
+            <span>Code context for AI agents</span>
+          </li>
+          <li>
+            <a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">codemap</a>
+            <span>Repository visualization</span>
+          </li>
+          <li>
+            <a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">cogrep</a>
+            <span>Semantic code search</span>
+          </li>
+          <li>
+            <a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">tally</a>
+            <span>Offline finance tracker</span>
+          </li>
+        </ul>
+        <p class="rows__more">
+          More on <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+      </section>
+
+      <section class="block" id="stack">
+        <h2>Stack</h2>
+        <p class="stack">
+          TypeScript · Rust · Python · Bun · React · Docker · PostgreSQL · Redis · Solidity · Foundry · Cloudflare Workers
+        </p>
+      </section>
+
+      <blockquote class="quote">
+        <p>The less you know is the better.</p>
+      </blockquote>
+
+      <p class="contact" id="contact">
+        Open to consulting, security work, and interesting builds —
+        <a href="mailto:hi@zent7x.dev">hi@zent7x.dev</a>
+      </p>
+    </main>
+
+    <footer class="foot">© <span id="year"></span> Adeeb Bashir · Kashmir</footer>
+  </div>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
