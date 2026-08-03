@@ -3,8 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "npx --yes serve . -p 5173",
     "build": "rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -r public/. dist/",
+    "dev": "npm run build && npx --yes serve dist -p 5173",
     "preview": "npx --yes serve dist -p 4173"
   }
 }
