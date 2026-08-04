@@ -31,6 +31,7 @@
     { id: "gh", label: "Open GitHub profile", run: () => window.open("https://github.com/zent7x", "_blank", "noopener") },
     { id: "blog", label: "Open blog", run: () => window.open("https://zent7x.com/blog", "_blank", "noopener") },
     { id: "x", label: "Open X / Twitter", run: () => window.open("https://x.com/zent7x", "_blank", "noopener") },
+    { id: "satviks", label: "Open @satviks on X", run: () => window.open("https://x.com/satviks", "_blank", "noopener") },
     { id: "email", label: "Copy email address", run: () => copyText("zentex@warm.run") },
   ];
 
