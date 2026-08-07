@@ -9,7 +9,7 @@
   <link rel="icon" href="logos/zentex.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -20,7 +20,7 @@
       --line: #27272a;
       --accent: #e07850;
       --serif: "Instrument Serif", Georgia, serif;
-      --sans: "Inter", system-ui, sans-serif;
+      --sans: "Familjen Grotesk", system-ui, sans-serif;
       --mono: "JetBrains Mono", ui-monospace, monospace;
     }
     html { color-scheme: dark; scroll-behavior: smooth; scroll-padding-top: 1rem; }
@@ -563,11 +563,358 @@
       font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
     }
 
-    @media (max-width: 700px) {
-      .page { width: min(100% - 1.75rem, 46rem); padding-top: 1.75rem; }
-      .top { margin-bottom: 3.5rem; }
-      .hero { grid-template-columns: 1fr; gap: 2rem; }
-      .hero__photo { width: min(100%, 220px); height: auto; aspect-ratio: 1; }
+    /* ── Editorial systems pass ── */
+    :root {
+      --panel: #101012;
+      --panel-raised: #151518;
+      --line-strong: #36363b;
+      --copper: #e07850;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html.site-white {
+      --panel: #f4f2ed;
+      --panel-raised: #ebe8e1;
+      --line-strong: #c9c5bd;
+    }
+    body {
+      background:
+        radial-gradient(900px circle at 52% -10%, rgba(224, 120, 80, 0.08), transparent 52%),
+        var(--bg);
+    }
+    .cursor-glow {
+      background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 120, 80, 0.075), transparent 68%);
+    }
+    .noise { opacity: 0.026; }
+    .page {
+      width: min(100% - 3rem, 60rem);
+      padding: 2rem 0 5rem;
+    }
+    .top {
+      margin-bottom: clamp(4.5rem, 9vw, 7rem);
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: -0.02em;
+    }
+    .nav a { position: relative; }
+    .nav a::after {
+      content: ""; position: absolute; right: 0; bottom: -0.25rem; left: 0;
+      height: 1px; background: var(--accent); transform: scaleX(0);
+      transform-origin: right; transition: transform 0.25s var(--ease-out);
+    }
+    .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .hero {
+      grid-template-columns: minmax(0, 1fr) 15.5rem;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: center;
+      margin-bottom: 0;
+      padding-bottom: clamp(4.5rem, 9vw, 7rem);
+      border-bottom: 0;
+    }
+    .kicker {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 1.45rem;
+      font-family: var(--mono); font-size: 0.68rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .kicker::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 0 4px rgba(224, 120, 80, 0.1);
+    }
+    .hero h1 {
+      max-width: 10ch;
+      font-size: clamp(3.5rem, 7.4vw, 5.35rem);
+      line-height: 0.96; letter-spacing: -0.035em;
+    }
+    .hero h1 em { color: color-mix(in oklab, var(--fg) 72%, var(--bg)); }
+    .tagline {
+      margin-top: 1.9rem; max-width: 31rem;
+      font-size: 1.14rem; line-height: 1.5;
+    }
+    .bio { max-width: 36rem; font-size: 0.98rem; }
+    .bio-ventures { margin-block: 0.7rem 0.25rem; }
+    .venture-pill {
+      background: var(--panel); border-color: var(--line);
+      transition: transform 0.2s var(--ease-out), border-color 0.2s, background 0.2s;
+    }
+    .venture-pill:hover { transform: translateY(-1px); border-color: var(--line-strong); }
+    .hints { margin-top: 1.75rem; }
+    .hint-chip { min-height: 34px; }
+
+    .portrait { position: relative; width: 100%; }
+    .portrait::before,
+    .portrait::after {
+      content: ""; position: absolute; z-index: -1;
+      width: 64%; height: 64%; border: 1px solid var(--line-strong);
+    }
+    .portrait::before { top: -0.75rem; right: -0.75rem; border-width: 1px 1px 0 0; }
+    .portrait::after { bottom: 2rem; left: -0.75rem; border-width: 0 0 1px 1px; }
+    .hero__photo {
+      width: 100%; height: auto; aspect-ratio: 1; border-radius: 18px;
+      filter: saturate(0.82) contrast(1.04);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+    }
+    .portrait__caption {
+      display: flex; align-items: center; gap: 0.5rem;
+      margin-top: 0.85rem; font-family: var(--mono);
+      font-size: 0.62rem; color: var(--faint); text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .portrait__signal {
+      width: 6px; height: 6px; border-radius: 50%; background: #7ccf9a;
+      box-shadow: 0 0 0 4px rgba(124, 207, 154, 0.1);
+    }
+
+    .block {
+      margin: 0; padding-block: clamp(3.5rem, 7vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .section-head .section-kicker {
+      margin-bottom: 0.25rem; font-family: var(--mono); font-size: 0.62rem;
+      color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .block .section-head h2 {
+      margin: 0; font-size: clamp(1.6rem, 3vw, 2.15rem);
+    }
+    .section-no {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--faint);
+    }
+    .block-sub { margin: -0.75rem 0 1.25rem; }
+
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
+    .card {
+      position: relative; min-height: 150px; align-content: start;
+      gap: 1.1rem; padding: 1.4rem;
+      border-radius: 18px; background:
+        radial-gradient(circle at 0 0, rgba(224, 120, 80, 0.08), transparent 40%),
+        var(--panel);
+      overflow: hidden;
+      transition: transform 0.35s var(--ease-out), border-color 0.25s, background 0.25s, box-shadow 0.35s;
+    }
+    .card::before {
+      content: ""; position: absolute; top: 0; right: 0;
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, transparent 49%, var(--line) 50%, transparent 51%);
+      opacity: 0.8;
+    }
+    .card:hover {
+      transform: translateY(-4px); border-color: var(--line-strong);
+      background:
+        radial-gradient(circle at 0 0, rgba(224, 120, 80, 0.12), transparent 44%),
+        var(--panel-raised);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+    }
+    .card__top { display: grid; gap: 0.05rem; margin-bottom: 0.45rem; }
+    .card__top strong { font-size: 1.08rem; }
+    .brand-logo {
+      background: #f0ede5;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+    .brand-logo::after { display: none; }
+    .card .brand-logo { width: 50px; height: 50px; border-radius: 13px; }
+    .brand-logo--routing img { width: 76%; height: 76%; }
+    .brand-logo--publive img { width: 72%; height: 82%; }
+
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; }
+    .project-card {
+      min-height: 116px; padding: 1.2rem; border-radius: 16px;
+      background: var(--panel);
+      transition: transform 0.3s var(--ease-out), border-color 0.25s, background 0.25s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-3px); border-color: var(--line-strong);
+      background: var(--panel-raised); box-shadow: 0 16px 38px rgba(0, 0, 0, 0.16);
+    }
+    .project-card__head strong { text-decoration: none; font-size: 1.02rem; }
+    .project-logo { width: 46px; height: 46px; border-radius: 13px; }
+    .projects-more { margin-top: 1rem; }
+
+    .tech-stack {
+      gap: 0.7rem; padding: 1.35rem;
+      border: 1px solid var(--line); border-radius: 18px;
+      background: var(--panel);
+    }
+    .tech-stack li,
+    .tech-stack button { width: 42px; height: 42px; }
+    .tech-stack button { border-radius: 12px; }
+    .tech-stack img { width: 22px; height: 22px; }
+
+    .github-block { border-top: 0; padding-top: 0; }
+    .github-panel {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--line); border-radius: 22px;
+      background:
+        radial-gradient(620px circle at 15% 0, rgba(224, 120, 80, 0.1), transparent 48%),
+        var(--panel);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.18);
+    }
+    .github-panel::after {
+      content: ""; position: absolute; top: -80px; right: -70px;
+      width: 240px; height: 240px; border: 1px solid rgba(224, 120, 80, 0.16);
+      border-radius: 50%; box-shadow: 0 0 0 34px rgba(224, 120, 80, 0.025), 0 0 0 68px rgba(224, 120, 80, 0.018);
+      pointer-events: none;
+    }
+    .github-panel__head {
+      position: relative; z-index: 1;
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 2rem; padding: 1.5rem 1.6rem 1.35rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .github-identity { display: flex; align-items: center; gap: 0.8rem; }
+    .github-mark {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border-radius: 12px; background: #fff; color: #09090b;
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+    .github-mark img { width: 23px; height: 23px; }
+    .github-status {
+      display: flex; align-items: center; gap: 0.45rem;
+      font-family: var(--mono); font-size: 0.61rem; color: var(--faint);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .github-status::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: #7ccf9a; box-shadow: 0 0 0 4px rgba(124, 207, 154, 0.1);
+    }
+    .github-title { margin-top: 0.15rem; font-size: 1rem; font-weight: 600; }
+    .github-profile {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.55rem 0.75rem; border: 1px solid var(--line); border-radius: 999px;
+      font-family: var(--mono); font-size: 0.65rem; color: var(--soft);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s var(--ease-out);
+    }
+    .github-profile:hover { color: var(--fg); border-color: var(--line-strong); transform: translateY(-1px); }
+    .gh-metrics {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+    }
+    .gh-metric { padding: 1.25rem 1.6rem; }
+    .gh-metric + .gh-metric { border-left: 1px solid var(--line); }
+    .gh-metric strong {
+      display: block; font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 400; line-height: 1; letter-spacing: -0.025em;
+    }
+    .gh-metric span {
+      display: block; margin-top: 0.35rem;
+      font-family: var(--mono); font-size: 0.58rem; color: var(--faint);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .contrib-zone { position: relative; z-index: 1; padding: 1.45rem 1.6rem 1.25rem; }
+    .contrib-zone__head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 0.95rem;
+    }
+    .contrib-meta { font-size: 0.62rem; letter-spacing: 0.03em; }
+    .contrib-legend {
+      display: flex; align-items: center; gap: 0.3rem;
+      font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
+    }
+    .contrib-legend i { width: 9px; height: 9px; border-radius: 2px; background: #1a1a1e; }
+    .contrib-legend i:nth-of-type(2) { background: rgba(224, 120, 80, 0.28); }
+    .contrib-legend i:nth-of-type(3) { background: rgba(224, 120, 80, 0.48); }
+    .contrib-legend i:nth-of-type(4) { background: rgba(224, 120, 80, 0.68); }
+    .contrib-legend i:nth-of-type(5) { background: rgba(224, 120, 80, 0.92); }
+    .contrib-wrap { border: 0; padding: 0 0 0.35rem; }
+    .contrib-months {
+      display: grid; grid-template-columns: repeat(52, 11px); gap: 3px;
+      width: max-content; min-height: 16px; margin-left: 26px;
+      font-family: var(--mono); font-size: 0.52rem; color: var(--faint);
+    }
+    .contrib-months span { white-space: nowrap; }
+    .contrib-grid-shell { display: flex; align-items: flex-start; gap: 6px; width: max-content; }
+    .contrib-weekdays {
+      display: grid; grid-template-rows: repeat(7, 11px); gap: 3px;
+      width: 20px; font-family: var(--mono); font-size: 0.47rem; line-height: 11px;
+      color: var(--faint);
+    }
+    .contrib-weekdays span:nth-child(1) { grid-row: 2; }
+    .contrib-weekdays span:nth-child(2) { grid-row: 4; }
+    .contrib-weekdays span:nth-child(3) { grid-row: 6; }
+    .contrib-day { animation: cell-in 0.42s var(--ease-out) both; animation-delay: var(--delay, 0ms); }
+    @keyframes cell-in { from { opacity: 0; transform: scale(0.6); } }
+    .github-panel__foot {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1rem 1.6rem; border-top: 1px solid var(--line);
+      font-size: 0.82rem; color: var(--faint);
+    }
+    .github-panel__foot a { color: var(--soft); font-weight: 600; }
+    .github-panel__foot a:hover { color: var(--fg); }
+
+    .quote {
+      margin: clamp(4rem, 9vw, 7rem) 0; padding: 0;
+      border: 0; text-align: center;
+    }
+    .quote::before {
+      content: "✦"; display: block; margin-bottom: 1rem;
+      color: var(--accent); font-size: 0.8rem;
+    }
+    .quote p {
+      max-width: 20ch; margin: auto; color: var(--fg);
+      font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.08;
+    }
+    .contact {
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      padding: 1.5rem 1.6rem; border: 1px solid var(--line); border-radius: 18px;
+      background: var(--panel); color: var(--soft);
+    }
+    .contact__eyebrow {
+      font-family: var(--mono); font-size: 0.59rem; color: var(--faint);
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .contact h2 {
+      margin-top: 0.2rem; font-family: var(--serif); font-weight: 400;
+      font-size: clamp(1.45rem, 3vw, 2rem); color: var(--fg);
+    }
+    .contact__link {
+      flex-shrink: 0; padding: 0.7rem 0.9rem; border-radius: 10px;
+      background: var(--fg); color: var(--bg) !important;
+      font-family: var(--mono); font-size: 0.68rem; text-decoration: none !important;
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+    }
+    .contact__link:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22); }
+    .foot {
+      display: flex; justify-content: space-between; gap: 1rem;
+      margin-top: 1.5rem; font-family: var(--mono); font-size: 0.62rem;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 1.5rem, 60rem); padding-top: 1.25rem; }
+      .top { align-items: flex-start; margin-bottom: 4rem; }
+      .mark { gap: 0.45rem; }
+      .mark__emblem { width: 29px; height: 29px; }
+      .nav { max-width: 65%; gap: 0.32rem; font-size: 0.62rem; }
+      .hero { grid-template-columns: 1fr; gap: 3rem; }
+      .hero h1 { font-size: clamp(3.25rem, 16vw, 4.6rem); }
+      .portrait { width: min(100%, 15rem); }
+      .cards, .project-grid { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .block { padding-block: 3.5rem; }
+      .github-panel__head { gap: 1rem; padding: 1.2rem; }
+      .github-profile { padding: 0.5rem 0.65rem; }
+      .gh-metric { padding: 1rem 0.8rem; }
+      .gh-metric strong { font-size: 1.75rem; }
+      .contrib-zone { padding: 1.2rem; }
+      .github-panel__foot { align-items: flex-start; padding: 1rem 1.2rem; }
+      .contact { align-items: flex-start; flex-direction: column; }
+      .contact__link { width: 100%; text-align: center; }
+    }
+    @media (max-width: 430px) {
+      .mark > span { display: none; }
+      .nav { max-width: calc(100% - 44px); }
+      .contrib-zone__head { align-items: flex-start; flex-direction: column; }
+      .github-panel__foot { flex-direction: column; }
+      .foot { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) {
       .card:hover { transform: none; }
@@ -614,17 +961,17 @@
             Founder of
             <span class="bio-ventures">
               <a class="venture-pill" href="https://routing.run" target="_blank" rel="noopener">
-                <span class="brand-logo brand-logo--sm"><img src="logos/routing.svg" alt="" width="20" height="20" /></span>
+                <span class="brand-logo brand-logo--sm brand-logo--routing"><img src="logos/routing.svg" alt="" width="20" height="20" /></span>
                 routing.run
               </a>
               <a class="venture-pill" href="https://keelcode.ai" target="_blank" rel="noopener">
-                <span class="brand-logo brand-logo--sm"><img src="logos/keelcode.svg" alt="" width="20" height="20" /></span>
+                <span class="brand-logo brand-logo--sm brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="20" height="20" /></span>
                 Keelcode
               </a>
             </span>
             Security researcher. Worked with
             <a class="venture-pill" href="https://thepublive.com" target="_blank" rel="noopener">
-              <span class="brand-logo brand-logo--sm"><img src="logos/publive.svg" alt="" width="20" height="20" /></span>
+              <span class="brand-logo brand-logo--sm brand-logo--publive"><img src="logos/publive.svg" alt="" width="20" height="20" /></span>
               Publive
             </a>
             to find critical bugs in their systems. I ship LLM routing, autonomous coding loops, and open-source tools from the mountains.
@@ -632,24 +979,30 @@
           <div class="hints">
             <button type="button" class="hint-chip" id="hint-palette"><kbd>⌘K</kbd> jump anywhere</button>
             <button type="button" class="hint-chip hint-chip--venture" id="hint-routing">
-              <span class="brand-logo brand-logo--hint"><img src="logos/routing.svg" alt="" width="24" height="24" /></span>
+              <span class="brand-logo brand-logo--hint brand-logo--routing"><img src="logos/routing.svg" alt="" width="24" height="24" /></span>
               <kbd>R</kbd> routing.run
             </button>
             <button type="button" class="hint-chip hint-chip--venture" id="hint-keelcode">
-              <span class="brand-logo brand-logo--hint"><img src="logos/keelcode.svg" alt="" width="24" height="24" /></span>
+              <span class="brand-logo brand-logo--hint brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="24" height="24" /></span>
               Keelcode
             </button>
           </div>
         </div>
-        <img class="hero__photo" id="hero-photo" src="avatar.png" alt="zentex" width="200" height="200" decoding="async" title="?" />
+        <figure class="portrait">
+          <img class="hero__photo" id="hero-photo" src="avatar.png" alt="zentex" width="248" height="248" decoding="async" title="Switch theme" />
+          <figcaption class="portrait__caption"><span class="portrait__signal"></span>Kashmir · online</figcaption>
+        </figure>
       </section>
 
       <section class="block" id="ventures">
-        <h2>Ventures</h2>
+        <div class="section-head">
+          <div><p class="section-kicker">Companies I am building</p><h2>Ventures</h2></div>
+          <span class="section-no">01 / 04</span>
+        </div>
         <ul class="cards">
           <li>
             <a class="card" href="https://keelcode.ai" target="_blank" rel="noopener">
-              <span class="brand-logo"><img src="logos/keelcode.svg" alt="" width="40" height="40" /></span>
+              <span class="brand-logo brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="50" height="50" /></span>
               <div>
                 <div class="card__top"><strong>Keelcode</strong><span>2026 · Building</span></div>
                 <p>Loop engineering with guardrails, replay, and review-ready PRs.</p>
@@ -658,7 +1011,7 @@
           </li>
           <li>
             <a class="card" href="https://routing.run" target="_blank" rel="noopener">
-              <span class="brand-logo"><img src="logos/routing.svg" alt="" width="44" height="44" /></span>
+              <span class="brand-logo brand-logo--routing"><img src="logos/routing.svg" alt="" width="50" height="50" /></span>
               <div>
                 <div class="card__top"><strong>routing.run</strong><span>2025 · Live</span></div>
                 <p>OpenAI-compatible LLM router with zero prompt logging.</p>
@@ -669,7 +1022,10 @@
       </section>
 
       <section class="block" id="projects">
-        <h2>Projects</h2>
+        <div class="section-head">
+          <div><p class="section-kicker">Selected open source</p><h2>Projects</h2></div>
+          <span class="section-no">02 / 04</span>
+        </div>
         <ul class="project-grid">
           <li>
             <a class="project-card" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">
@@ -724,7 +1080,10 @@
       </section>
 
       <section class="block" id="stack">
-        <h2>Stack</h2>
+        <div class="section-head">
+          <div><p class="section-kicker">What I reach for</p><h2>Stack</h2></div>
+          <span class="section-no">03 / 04</span>
+        </div>
         <p class="block-sub">Click a tool to copy. Pragmatic, not dogmatic.</p>
         <ul class="tech-stack" aria-label="Technology stack">
           <li data-tech="TypeScript"><button type="button" data-chip="TypeScript" title="TypeScript"><img src="tech/typescript.svg" alt="TypeScript" width="26" height="26" /></button></li>
@@ -757,14 +1116,46 @@
         </ul>
       </section>
 
-      <section class="block" id="github">
-        <div class="contrib-head">
-          <h2>GitHub activity</h2>
-          <a href="https://github.com/zent7x" target="_blank" rel="noopener">@zent7x ↗</a>
+      <section class="block github-block" id="github">
+        <div class="section-head">
+          <div><p class="section-kicker">Shipping in public</p><h2>GitHub activity</h2></div>
+          <span class="section-no">04 / 04</span>
         </div>
-        <p class="contrib-meta" id="contrib-meta">Loading contributions…</p>
-        <div class="contrib-wrap" id="contrib-wrap" aria-busy="true">
-          <div class="contrib-skeleton" id="contrib-skeleton" aria-hidden="true"></div>
+        <div class="github-panel">
+          <div class="github-panel__head">
+            <div class="github-identity">
+              <span class="github-mark"><img src="logos/github.svg" alt="" width="23" height="23" /></span>
+              <div>
+                <p class="github-status">Live activity</p>
+                <p class="github-title">zent7x / public work</p>
+              </div>
+            </div>
+            <a class="github-profile" href="https://github.com/zent7x" target="_blank" rel="noopener">@zent7x <span aria-hidden="true">↗</span></a>
+          </div>
+          <ul class="gh-metrics" aria-label="GitHub contribution summary">
+            <li class="gh-metric"><strong id="gh-total">—</strong><span>Contributions</span></li>
+            <li class="gh-metric"><strong id="gh-active-days">—</strong><span>Active days</span></li>
+            <li class="gh-metric"><strong id="gh-longest-streak">—</strong><span>Longest streak</span></li>
+          </ul>
+          <div class="contrib-zone">
+            <div class="contrib-zone__head">
+              <p class="contrib-meta" id="contrib-meta">Loading the last 52 weeks…</p>
+              <div class="contrib-legend" aria-label="Contribution intensity from less to more">
+                <span>Less</span><i></i><i></i><i></i><i></i><i></i><span>More</span>
+              </div>
+            </div>
+            <div class="contrib-wrap" id="contrib-wrap" aria-busy="true">
+              <div class="contrib-months" id="contrib-months" aria-hidden="true"></div>
+              <div class="contrib-grid-shell">
+                <div class="contrib-weekdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>
+                <div class="contrib-skeleton" id="contrib-skeleton" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="github-panel__foot">
+            <span>Commits, experiments, and tools—measured from public activity.</span>
+            <a href="https://github.com/zent7x?tab=repositories" target="_blank" rel="noopener">Browse repositories ↗</a>
+          </div>
         </div>
       </section>
 
@@ -772,13 +1163,16 @@
         <p>The less you know is the better.</p>
       </blockquote>
 
-      <p class="contact" id="contact">
-        Open to consulting, security work, and interesting builds.
-        <a href="mailto:zentex@warm.run">zentex@warm.run</a>
-      </p>
+      <section class="contact" id="contact">
+        <div>
+          <p class="contact__eyebrow">Consulting · security · interesting builds</p>
+          <h2>Have something difficult?</h2>
+        </div>
+        <a class="contact__link" href="mailto:zentex@warm.run">zentex@warm.run ↗</a>
+      </section>
     </main>
 
-    <footer class="foot">© <span id="year"></span> zentex · Kashmir</footer>
+    <footer class="foot"><span>© <span id="year"></span> zentex</span><span>Kashmir · 34.0837° N</span></footer>
   </div>
 
   <div class="palette" id="palette" hidden>

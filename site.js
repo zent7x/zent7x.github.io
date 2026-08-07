@@ -154,10 +154,18 @@
   const contribWrap = document.getElementById("contrib-wrap");
   const contribSkeleton = document.getElementById("contrib-skeleton");
   const contribMeta = document.getElementById("contrib-meta");
+  const contribMonths = document.getElementById("contrib-months");
+  const ghTotal = document.getElementById("gh-total");
+  const ghActiveDays = document.getElementById("gh-active-days");
+  const ghLongestStreak = document.getElementById("gh-longest-streak");
   const dateFmt = new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "short",
     year: "numeric",
+    timeZone: "UTC",
+  });
+  const monthFmt = new Intl.DateTimeFormat("en", {
+    month: "short",
     timeZone: "UTC",
   });
 
@@ -224,6 +232,21 @@
     );
   }
 
+  function renderContributionMonths(days) {
+    if (!contribMonths) return;
+    contribMonths.innerHTML = "";
+    let previous = "";
+    days.forEach((day, index) => {
+      const label = monthFmt.format(new Date(day.date + "T00:00:00Z"));
+      if (label === previous) return;
+      previous = label;
+      const month = document.createElement("span");
+      month.textContent = label;
+      month.style.gridColumnStart = String(Math.floor(index / 7) + 1);
+      contribMonths.appendChild(month);
+    });
+  }
+
   async function loadContributions() {
     if (!contribWrap || contribWrap.dataset.ready === "true") return;
     contribWrap.dataset.ready = "true";
@@ -236,6 +259,22 @@
       if (!days.length) throw new Error("unavailable");
 
       const total = days.reduce((n, d) => n + Number(d.count || 0), 0);
+      const activeDays = days.filter((day) => Number(day.count || 0) > 0).length;
+      const bestDay = days.reduce((best, day) =>
+        Number(day.count || 0) > Number(best.count || 0) ? day : best
+      , days[0]);
+      let streak = 0;
+      let longestStreak = 0;
+      days.forEach((day) => {
+        streak = Number(day.count || 0) > 0 ? streak + 1 : 0;
+        longestStreak = Math.max(longestStreak, streak);
+      });
+
+      if (ghTotal) ghTotal.textContent = total.toLocaleString();
+      if (ghActiveDays) ghActiveDays.textContent = activeDays.toLocaleString();
+      if (ghLongestStreak) ghLongestStreak.textContent = `${longestStreak}d`;
+      renderContributionMonths(days);
+
       const grid = document.createElement("div");
       grid.className = "contrib-grid";
       grid.setAttribute("role", "img");
@@ -244,7 +283,7 @@
         `${total.toLocaleString()} contributions in the last year`
       );
 
-      days.forEach((day) => {
+      days.forEach((day, index) => {
         const count = Number(day.count || 0);
         const level = Math.max(0, Math.min(4, Number(day.level || 0)));
         const when = dateFmt.format(new Date(day.date + "T00:00:00Z"));
@@ -257,16 +296,22 @@
         cell.className = "contrib-day";
         cell.dataset.level = String(level);
         cell.dataset.tip = tip;
+        cell.style.setProperty("--delay", `${Math.min(index, 80) * 5}ms`);
         grid.appendChild(cell);
       });
 
       contribSkeleton?.replaceWith(grid);
       wireContribGrid(grid);
+      requestAnimationFrame(() => {
+        contribWrap.scrollLeft = contribWrap.scrollWidth;
+      });
       if (contribMeta) {
-        contribMeta.textContent = `${total.toLocaleString()} contributions in the last year`;
+        const bestCount = Number(bestDay.count || 0).toLocaleString();
+        contribMeta.textContent = `Last 52 weeks · best day ${bestCount} commits`;
       }
     } catch {
       contribSkeleton?.remove();
+      contribMonths?.remove();
       if (contribMeta) contribMeta.textContent = "Contributions unavailable right now.";
     } finally {
       contribWrap.setAttribute("aria-busy", "false");
