@@ -6,9 +6,10 @@
   <title>zentex</title>
   <meta name="description" content="zentex, also known as Adeeb. Founder of routing.run and Keelcode. Security researcher from Kashmir." />
   <meta name="theme-color" content="#09090b" id="theme-color" />
+  <link rel="icon" href="logos/zentex.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -63,12 +64,20 @@
       gap: 1rem; margin-bottom: 4.5rem;
     }
     .mark {
-      font-family: var(--serif);
-      font-size: 1.5rem; font-style: italic;
-      letter-spacing: -0.02em;
-      transition: color 0.15s;
+      display: inline-flex; align-items: center; gap: 0.62rem;
+      font-family: var(--serif); font-size: 1.5rem; font-style: italic;
+      letter-spacing: -0.02em; transition: color 0.15s;
     }
     .mark:hover { color: #e4e4e7; }
+    .mark__emblem {
+      width: 32px; height: 32px; border-radius: 9px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
+    }
+    .mark:hover .mark__emblem {
+      transform: rotate(-3deg) translateY(-1px);
+      box-shadow: 0 11px 28px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(224, 120, 80, 0.35);
+    }
 
     .nav {
       display: flex; flex-wrap: wrap; align-items: center;
@@ -202,6 +211,11 @@
     html.site-white .hero__photo {
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
     }
+    html.site-white .mark__emblem,
+    html.site-white .brand-logo,
+    html.site-white .project-logo {
+      box-shadow: 0 8px 22px rgba(17, 17, 19, 0.13), 0 0 0 1px rgba(17, 17, 19, 0.08);
+    }
     .hints {
       display: flex; flex-wrap: wrap; align-items: center;
       gap: 0.45rem; margin-top: 1.35rem;
@@ -230,22 +244,32 @@
     .hint-chip--venture:hover { border-color: #52525b; }
 
     .brand-logo {
-      display: grid; place-items: center; flex-shrink: 0;
-      width: 40px; height: 40px; border-radius: 10px;
-      background: #fff; overflow: hidden;
-      box-shadow: 0 0 0 1px rgba(127, 127, 127, 0.22);
+      position: relative; display: grid; place-items: center; flex-shrink: 0;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: #0b0b0d; overflow: hidden;
+      box-shadow: 0 9px 24px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.07);
     }
     .brand-logo--sm {
       width: 22px; height: 22px; border-radius: 6px;
-      box-shadow: 0 0 0 1px rgba(127, 127, 127, 0.2);
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
     .brand-logo--hint {
       width: 24px; height: 24px; border-radius: 7px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(127, 127, 127, 0.18);
+      box-shadow: 0 4px 11px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
+    .brand-logo::after,
+    .project-logo::after {
+      content: ""; position: absolute; inset: -40% 48% -40% -65%;
+      background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.18), transparent 70%);
+      transform: translateX(-120%) rotate(8deg); pointer-events: none;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .card:hover .brand-logo::after,
+    .project-card:hover .project-logo::after,
+    .venture-pill:hover .brand-logo::after,
+    .hint-chip:hover .brand-logo::after { transform: translateX(420%) rotate(8deg); }
     .brand-logo img {
-      width: 78%; height: 78%; display: block;
-      object-fit: contain;
+      width: 100%; height: 100%; display: block; object-fit: contain;
     }
 
     .block { margin-bottom: 2.75rem; }
@@ -281,7 +305,8 @@
 
     .project-grid { display: grid; gap: 0.65rem; }
     .project-card {
-      display: block; padding: 1rem 1.1rem;
+      display: grid; grid-template-columns: auto minmax(0, 1fr);
+      align-items: center; gap: 0.9rem; padding: 0.9rem 1rem;
       border: 1px solid var(--line); border-radius: 12px;
       transition: border-color 0.15s, background 0.15s, transform 0.15s;
     }
@@ -290,7 +315,7 @@
     }
     .project-card__head {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 0.75rem; margin-bottom: 0.35rem;
+      gap: 0.75rem; margin-bottom: 0.22rem;
     }
     .project-card__head strong {
       font-size: 0.98rem; font-weight: 600;
@@ -310,6 +335,13 @@
     .project-card p {
       font-size: 0.92rem; color: var(--soft); line-height: 1.55;
     }
+    .project-logo {
+      position: relative; display: grid; place-items: center; flex-shrink: 0;
+      width: 42px; height: 42px; border-radius: 11px; overflow: hidden;
+      background: #0b0b0d;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.26), 0 0 0 1px rgba(255, 255, 255, 0.07);
+    }
+    .project-logo img { width: 100%; height: 100%; display: block; }
     .projects-more {
       margin-top: 0.75rem; font-size: 0.875rem; color: var(--faint);
     }
@@ -320,12 +352,12 @@
 
     .tech-stack {
       display: flex; flex-wrap: wrap; align-items: center;
-      gap: 0.72rem; margin-top: 0.25rem;
+      gap: 0.62rem; margin-top: 0.25rem;
     }
     .tech-stack li {
       position: relative; display: inline-flex;
       justify-content: center; align-items: center;
-      width: 27px; height: 27px;
+      width: 38px; height: 38px;
     }
     .tech-stack li::after {
       content: attr(data-tech);
@@ -342,18 +374,35 @@
     }
     .tech-stack button {
       display: grid; place-items: center;
-      width: 27px; height: 27px; padding: 0;
-      border: none; background: transparent; cursor: pointer;
+      width: 38px; height: 38px; padding: 0;
+      border: 1px solid var(--line); border-radius: 10px;
+      background:
+        linear-gradient(145deg, color-mix(in oklab, var(--fg) 5%, transparent), transparent 52%),
+        color-mix(in oklab, var(--bg) 86%, var(--fg));
+      box-shadow: inset 0 1px 0 color-mix(in oklab, var(--fg) 9%, transparent), 0 5px 16px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .tech-stack button:hover {
+      transform: translateY(-2px); border-color: color-mix(in oklab, var(--accent) 52%, var(--line));
+      background:
+        linear-gradient(145deg, color-mix(in oklab, var(--accent) 12%, transparent), transparent 58%),
+        color-mix(in oklab, var(--bg) 82%, var(--fg));
+      box-shadow: inset 0 1px 0 color-mix(in oklab, var(--fg) 13%, transparent), 0 9px 24px rgba(0, 0, 0, 0.2);
     }
     .tech-stack img {
-      width: 26px; height: 26px; object-fit: contain;
+      width: 21px; height: 21px; object-fit: contain;
       opacity: 0.92; filter: saturate(1.05);
       transition: opacity 0.14s, transform 0.14s, filter 0.14s;
       display: block;
     }
     .tech-stack li:hover img {
       opacity: 1; filter: saturate(1.15);
-      transform: translateY(-1px);
+      transform: scale(1.06);
+    }
+    .tech-stack button.is-flash {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(224, 120, 80, 0.12), 0 9px 24px rgba(0, 0, 0, 0.2);
     }
     .tech-stack button.is-flash img {
       filter: saturate(1.3) drop-shadow(0 0 6px rgba(224, 120, 80, 0.45));
@@ -523,7 +572,8 @@
     @media (prefers-reduced-motion: reduce) {
       .card:hover { transform: none; }
       .project-card:hover { transform: none; }
-      .tech-stack li:hover img { transform: none; }
+      .tech-stack li:hover img, .tech-stack button:hover, .mark:hover .mark__emblem { transform: none; }
+      .brand-logo::after, .project-logo::after { display: none; }
     }
   </style>
 </head>
@@ -534,7 +584,10 @@
 
   <div class="page">
     <header class="top">
-      <a class="mark" href="#">zentex</a>
+      <a class="mark" href="#" aria-label="zentex — home">
+        <img class="mark__emblem" src="logos/zentex.svg" alt="" width="32" height="32" />
+        <span>zentex</span>
+      </a>
       <nav class="nav" aria-label="Links">
         <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
         <span class="nav__sep">·</span>
@@ -561,7 +614,7 @@
             Founder of
             <span class="bio-ventures">
               <a class="venture-pill" href="https://routing.run" target="_blank" rel="noopener">
-                <span class="brand-logo brand-logo--sm"><img src="logos/routing.png" alt="" width="20" height="20" /></span>
+                <span class="brand-logo brand-logo--sm"><img src="logos/routing.svg" alt="" width="20" height="20" /></span>
                 routing.run
               </a>
               <a class="venture-pill" href="https://keelcode.ai" target="_blank" rel="noopener">
@@ -579,7 +632,7 @@
           <div class="hints">
             <button type="button" class="hint-chip" id="hint-palette"><kbd>⌘K</kbd> jump anywhere</button>
             <button type="button" class="hint-chip hint-chip--venture" id="hint-routing">
-              <span class="brand-logo brand-logo--hint"><img src="logos/routing.png" alt="" width="24" height="24" /></span>
+              <span class="brand-logo brand-logo--hint"><img src="logos/routing.svg" alt="" width="24" height="24" /></span>
               <kbd>R</kbd> routing.run
             </button>
             <button type="button" class="hint-chip hint-chip--venture" id="hint-keelcode">
@@ -605,7 +658,7 @@
           </li>
           <li>
             <a class="card" href="https://routing.run" target="_blank" rel="noopener">
-              <span class="brand-logo"><img src="logos/routing.png" alt="" width="40" height="40" /></span>
+              <span class="brand-logo"><img src="logos/routing.svg" alt="" width="44" height="44" /></span>
               <div>
                 <div class="card__top"><strong>routing.run</strong><span>2025 · Live</span></div>
                 <p>OpenAI-compatible LLM router with zero prompt logging.</p>
@@ -620,38 +673,50 @@
         <ul class="project-grid">
           <li>
             <a class="project-card" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">
-              <div class="project-card__head">
-                <strong>grasp</strong>
-                <span class="project-card__arrow">↗</span>
+              <span class="project-logo"><img src="logos/grasp.svg" alt="" width="42" height="42" /></span>
+              <div class="project-card__content">
+                <div class="project-card__head">
+                  <strong>grasp</strong>
+                  <span class="project-card__arrow">↗</span>
+                </div>
+                <p>Code context for AI agents on repos too big for one context window.</p>
               </div>
-              <p>Code context for AI agents on repos too big for one context window.</p>
             </a>
           </li>
           <li>
             <a class="project-card" href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">
-              <div class="project-card__head">
-                <strong>codemap</strong>
-                <span class="project-card__arrow">↗</span>
+              <span class="project-logo"><img src="logos/codemap.svg" alt="" width="42" height="42" /></span>
+              <div class="project-card__content">
+                <div class="project-card__head">
+                  <strong>codemap</strong>
+                  <span class="project-card__arrow">↗</span>
+                </div>
+                <p>Turn any repository into a self contained explorable HTML map.</p>
               </div>
-              <p>Turn any repository into a self contained explorable HTML map.</p>
             </a>
           </li>
           <li>
             <a class="project-card" href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">
-              <div class="project-card__head">
-                <strong>cogrep</strong>
-                <span class="project-card__arrow">↗</span>
+              <span class="project-logo"><img src="logos/cogrep.svg" alt="" width="42" height="42" /></span>
+              <div class="project-card__content">
+                <div class="project-card__head">
+                  <strong>cogrep</strong>
+                  <span class="project-card__arrow">↗</span>
+                </div>
+                <p>Local semantic code search and clone detection from your terminal.</p>
               </div>
-              <p>Local semantic code search and clone detection from your terminal.</p>
             </a>
           </li>
           <li>
             <a class="project-card" href="https://github.com/zent7x/tally" target="_blank" rel="noopener">
-              <div class="project-card__head">
-                <strong>tally</strong>
-                <span class="project-card__arrow">↗</span>
+              <span class="project-logo"><img src="logos/tally.svg" alt="" width="42" height="42" /></span>
+              <div class="project-card__content">
+                <div class="project-card__head">
+                  <strong>tally</strong>
+                  <span class="project-card__arrow">↗</span>
+                </div>
+                <p>Offline finance tracker. No account, no cloud. One HTML file.</p>
               </div>
-              <p>Offline finance tracker. No account, no cloud. One HTML file.</p>
             </a>
           </li>
         </ul>

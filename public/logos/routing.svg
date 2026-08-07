@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="r-bg" x1="7" y1="4" x2="58" y2="61" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172027"/>
+      <stop offset="1" stop-color="#070A0D"/>
+    </linearGradient>
+    <linearGradient id="r-line" x1="13" y1="31" x2="52" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F7F8"/>
+      <stop offset=".56" stop-color="#91A8B5"/>
+      <stop offset="1" stop-color="#E07850"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="17" fill="url(#r-bg)"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="16.5" stroke="#fff" stroke-opacity=".14"/>
+  <path d="M15 32h12c5.2 0 6.2-13 12-13h10M27 32h7c5.4 0 5.8 13 11.5 13H50" stroke="url(#r-line)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="14.5" cy="32" r="4.5" fill="#F4F7F8"/>
+  <circle cx="14.5" cy="32" r="2" fill="#11171B"/>
+  <circle cx="49.5" cy="19" r="4.5" fill="#E07850"/>
+  <circle cx="49.5" cy="45" r="4.5" fill="#F4F7F8"/>
+  <path d="m47.5 42.7 4.3 2.3-4.3 2.3" stroke="#11171B" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
