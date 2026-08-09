@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>zentex</title>
+  <title>zentex — Adeeb Bashir</title>
   <meta name="description" content="zentex, also known as Adeeb. Founder of routing.run and Keelcode. Security researcher from Kashmir." />
+  <meta property="og:title" content="zentex — Adeeb Bashir" />
+  <meta property="og:description" content="Founder of routing.run and Keelcode. Security researcher from Kashmir." />
+  <meta property="og:url" content="https://zent7x.com/" />
   <meta name="theme-color" content="#09090b" id="theme-color" />
   <link rel="icon" href="logos/zentex.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -578,24 +581,34 @@
     }
     body {
       background:
-        radial-gradient(900px circle at 52% -10%, rgba(224, 120, 80, 0.08), transparent 52%),
-        var(--bg);
+        radial-gradient(1100px circle at 48% -18%, rgba(224, 120, 80, 0.14), transparent 55%),
+        radial-gradient(700px circle at 100% 18%, rgba(224, 120, 80, 0.05), transparent 45%),
+        linear-gradient(180deg, #0c0c0e 0%, var(--bg) 28%, #080809 100%);
     }
     .cursor-glow {
-      background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 120, 80, 0.075), transparent 68%);
+      background: radial-gradient(560px circle at var(--mx, 50%) var(--my, 50%), rgba(224, 120, 80, 0.09), transparent 68%);
     }
-    .noise { opacity: 0.026; }
+    .noise { opacity: 0.032; }
     .page {
       width: min(100% - 3rem, 60rem);
-      padding: 2rem 0 5rem;
+      padding: 0 0 5rem;
     }
     .top {
-      margin-bottom: clamp(4.5rem, 9vw, 7rem);
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      margin-bottom: clamp(3.5rem, 8vw, 6rem);
+      padding: 1.05rem 0;
+      border-bottom: 1px solid color-mix(in oklab, var(--line) 80%, transparent);
+      background: color-mix(in oklab, var(--bg) 78%, transparent);
+      backdrop-filter: blur(14px) saturate(1.15);
+      -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    }
+    html.site-white .top {
+      background: color-mix(in oklab, var(--bg) 82%, transparent);
     }
     .nav {
-      gap: 0.5rem;
+      gap: 0.55rem;
       font-family: var(--mono);
       font-size: 0.7rem;
       letter-spacing: -0.02em;
@@ -625,11 +638,23 @@
     .kicker::before {
       content: ""; width: 6px; height: 6px; border-radius: 50%;
       background: var(--accent); box-shadow: 0 0 0 4px rgba(224, 120, 80, 0.1);
+      animation: pulse-dot 2.4s var(--ease-out) infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(224, 120, 80, 0.1); }
+      50% { box-shadow: 0 0 0 7px rgba(224, 120, 80, 0.04); }
     }
     .hero h1 {
-      max-width: 10ch;
+      max-width: 11ch;
       font-size: clamp(3.5rem, 7.4vw, 5.35rem);
       line-height: 0.96; letter-spacing: -0.035em;
+    }
+    .hero h1 .brand {
+      display: inline;
+      background: linear-gradient(120deg, var(--fg) 0%, var(--fg) 55%, var(--copper) 130%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     .hero h1 em { color: color-mix(in oklab, var(--fg) 72%, var(--bg)); }
     .tagline {
@@ -637,7 +662,10 @@
       font-size: 1.14rem; line-height: 1.5;
     }
     .bio { max-width: 36rem; font-size: 0.98rem; }
-    .bio-ventures { margin-block: 0.7rem 0.25rem; }
+    .bio-ventures {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin: 1rem 0 0;
+    }
     .venture-pill {
       background: var(--panel); border-color: var(--line);
       transition: transform 0.2s var(--ease-out), border-color 0.2s, background 0.2s;
@@ -668,6 +696,99 @@
     .portrait__signal {
       width: 6px; height: 6px; border-radius: 50%; background: #7ccf9a;
       box-shadow: 0 0 0 4px rgba(124, 207, 154, 0.1);
+      animation: pulse-dot 2.8s var(--ease-out) infinite;
+    }
+
+    .hero-enter > * {
+      animation: rise-in 0.9s var(--ease-out) both;
+    }
+    .hero-enter > *:nth-child(1) { animation-delay: 0.04s; }
+    .hero-enter > *:nth-child(2) { animation-delay: 0.12s; }
+    .hero-enter > *:nth-child(3) { animation-delay: 0.2s; }
+    .hero-enter > *:nth-child(4) { animation-delay: 0.28s; }
+    .hero-enter > *:nth-child(5) { animation-delay: 0.36s; }
+    .portrait {
+      position: relative;
+      width: 100%;
+      animation: rise-in 1s var(--ease-out) 0.18s both;
+    }
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(18px); filter: blur(8px); }
+      to { opacity: 1; transform: none; filter: none; }
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    [data-reveal].is-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .block {
+      margin: 0; padding-block: clamp(3.5rem, 7vw, 5rem);
+      border-top: 1px solid var(--line);
+    }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .section-head .section-kicker {
+      margin-bottom: 0.25rem; font-family: var(--mono); font-size: 0.62rem;
+      color: var(--faint); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .block .section-head h2 {
+      margin: 0; font-size: clamp(1.7rem, 3vw, 2.25rem);
+    }
+    .section-no {
+      font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
+      letter-spacing: 0.08em;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+    .project-card--feature {
+      grid-column: 1 / -1;
+      min-height: 0;
+      padding: 1.35rem 1.4rem;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(246, 216, 19, 0.08), transparent 42%),
+        var(--panel);
+    }
+    .project-card--feature .project-logo {
+      width: 52px; height: 52px; border-radius: 14px;
+    }
+    .project-card--feature p { max-width: 48ch; }
+
+    .tech-stack {
+      gap: 0.7rem; padding: 1.2rem 1.25rem;
+      border: 1px solid var(--line); border-radius: 18px;
+      background: var(--panel);
+    }
+
+    .quote {
+      margin: clamp(4rem, 9vw, 7rem) 0; padding: 0;
+      border: 0; text-align: center;
+    }
+    .contact {
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      padding: 1.55rem 1.7rem; border: 1px solid var(--line); border-radius: 18px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(224, 120, 80, 0.12), transparent 45%),
+        var(--panel);
+      color: var(--soft);
+      transition: border-color 0.25s, transform 0.25s var(--ease-out);
+    }
+    .contact:hover { border-color: var(--line-strong); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kicker::before, .portrait__signal { animation: none; }
+      .hero-enter > *, .portrait { animation: none; }
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
     }
 
     .block {
@@ -736,6 +857,26 @@
     }
     .project-card__head strong { text-decoration: none; font-size: 1.02rem; }
     .project-logo { width: 46px; height: 46px; border-radius: 13px; }
+    .project-card--feature {
+      grid-column: 1 / -1;
+      min-height: 0;
+      align-items: start;
+      padding: 1.4rem 1.5rem;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(246, 216, 19, 0.09), transparent 42%),
+        var(--panel);
+    }
+    .project-card--feature .project-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 15px;
+    }
+    .project-card--feature .project-card__head strong {
+      font-size: 1.12rem;
+    }
+    .project-card--feature p {
+      max-width: 52ch;
+    }
     .projects-more { margin-top: 1rem; }
 
     .tech-stack {
@@ -865,9 +1006,14 @@
     }
     .contact {
       display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-      padding: 1.5rem 1.6rem; border: 1px solid var(--line); border-radius: 18px;
-      background: var(--panel); color: var(--soft);
+      padding: 1.55rem 1.7rem; border: 1px solid var(--line); border-radius: 18px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(224, 120, 80, 0.12), transparent 45%),
+        var(--panel);
+      color: var(--soft);
+      transition: border-color 0.25s, transform 0.25s var(--ease-out);
     }
+    .contact:hover { border-color: var(--line-strong); }
     .contact__eyebrow {
       font-family: var(--mono); font-size: 0.59rem; color: var(--faint);
       letter-spacing: 0.07em; text-transform: uppercase;
@@ -921,6 +1067,9 @@
       .project-card:hover { transform: none; }
       .tech-stack li:hover img, .tech-stack button:hover, .mark:hover .mark__emblem { transform: none; }
       .brand-logo::after, .project-logo::after { display: none; }
+      .kicker::before, .portrait__signal { animation: none; }
+      .hero-enter > *, .portrait { animation: none !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
     }
   </style>
 </head>
@@ -950,42 +1099,32 @@
 
     <main>
       <section class="hero">
-        <div class="hero__copy">
+        <div class="hero__copy hero-enter">
           <p class="kicker">Founder &amp; engineer · Kashmir</p>
           <h1>
-            Hi, I'm zentex.
+            Hi, I'm <span class="brand">zentex</span>.
             <em>Also known as Adeeb.</em>
           </h1>
           <p class="tagline">I build AI infrastructure and break things for a living.</p>
           <p class="bio">
-            Founder of
-            <span class="bio-ventures">
-              <a class="venture-pill" href="https://routing.run" target="_blank" rel="noopener">
-                <span class="brand-logo brand-logo--sm brand-logo--routing"><img src="logos/routing.svg" alt="" width="20" height="20" /></span>
-                routing.run
-              </a>
-              <a class="venture-pill" href="https://keelcode.ai" target="_blank" rel="noopener">
-                <span class="brand-logo brand-logo--sm brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="20" height="20" /></span>
-                Keelcode
-              </a>
-            </span>
-            Security researcher. Worked with
+            Founder of routing.run and Keelcode. Security researcher — worked with Publive to find critical bugs in their systems. I ship LLM routing, autonomous coding loops, and open-source tools from the mountains.
+          </p>
+          <div class="bio-ventures" aria-label="Ventures">
+            <a class="venture-pill" href="https://routing.run" target="_blank" rel="noopener">
+              <span class="brand-logo brand-logo--sm brand-logo--routing"><img src="logos/routing.svg" alt="" width="20" height="20" /></span>
+              routing.run
+            </a>
+            <a class="venture-pill" href="https://keelcode.ai" target="_blank" rel="noopener">
+              <span class="brand-logo brand-logo--sm brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="20" height="20" /></span>
+              Keelcode
+            </a>
             <a class="venture-pill" href="https://thepublive.com" target="_blank" rel="noopener">
               <span class="brand-logo brand-logo--sm brand-logo--publive"><img src="logos/publive.svg" alt="" width="20" height="20" /></span>
               Publive
             </a>
-            to find critical bugs in their systems. I ship LLM routing, autonomous coding loops, and open-source tools from the mountains.
-          </p>
+          </div>
           <div class="hints">
             <button type="button" class="hint-chip" id="hint-palette"><kbd>⌘K</kbd> jump anywhere</button>
-            <button type="button" class="hint-chip hint-chip--venture" id="hint-routing">
-              <span class="brand-logo brand-logo--hint brand-logo--routing"><img src="logos/routing.svg" alt="" width="24" height="24" /></span>
-              <kbd>R</kbd> routing.run
-            </button>
-            <button type="button" class="hint-chip hint-chip--venture" id="hint-keelcode">
-              <span class="brand-logo brand-logo--hint brand-logo--keelcode"><img src="logos/keelcode.svg" alt="" width="24" height="24" /></span>
-              Keelcode
-            </button>
           </div>
         </div>
         <figure class="portrait">
@@ -994,7 +1133,7 @@
         </figure>
       </section>
 
-      <section class="block" id="ventures">
+      <section class="block" id="ventures" data-reveal>
         <div class="section-head">
           <div><p class="section-kicker">Companies I am building</p><h2>Ventures</h2></div>
           <span class="section-no">01 / 04</span>
@@ -1021,21 +1160,21 @@
         </ul>
       </section>
 
-      <section class="block" id="projects">
+      <section class="block" id="projects" data-reveal>
         <div class="section-head">
           <div><p class="section-kicker">Selected open source</p><h2>Projects</h2></div>
           <span class="section-no">02 / 04</span>
         </div>
         <ul class="project-grid">
           <li>
-            <a class="project-card" href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener">
+            <a class="project-card project-card--feature" href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener">
               <span class="project-logo"><img src="logos/terminal-fenster.svg" alt="" width="42" height="42" /></span>
               <div class="project-card__content">
                 <div class="project-card__head">
                   <strong>terminal-fenster</strong>
                   <span class="project-card__arrow">↗</span>
                 </div>
-                <p>Real Chromium pixels inside your terminal via Kitty graphics.</p>
+                <p>Real Chromium pixels inside your terminal via Kitty graphics. The newest ship — a browser that paints frames into Ghostty.</p>
               </div>
             </a>
           </li>
@@ -1091,44 +1230,31 @@
         <p class="projects-more">More on <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>.</p>
       </section>
 
-      <section class="block" id="stack">
+      <section class="block" id="stack" data-reveal>
         <div class="section-head">
           <div><p class="section-kicker">What I reach for</p><h2>Stack</h2></div>
           <span class="section-no">03 / 04</span>
         </div>
-        <p class="block-sub">Click a tool to copy. Pragmatic, not dogmatic.</p>
+        <p class="block-sub">Click a tool to copy. The short list I actually reach for.</p>
         <ul class="tech-stack" aria-label="Technology stack">
           <li data-tech="TypeScript"><button type="button" data-chip="TypeScript" title="TypeScript"><img src="tech/typescript.svg" alt="TypeScript" width="26" height="26" /></button></li>
           <li data-tech="Rust"><button type="button" data-chip="Rust" title="Rust"><img src="tech/rust.svg" alt="Rust" width="26" height="26" /></button></li>
           <li data-tech="Go"><button type="button" data-chip="Go" title="Go"><img src="tech/go.svg" alt="Go" width="26" height="26" /></button></li>
           <li data-tech="Python"><button type="button" data-chip="Python" title="Python"><img src="tech/python.svg" alt="Python" width="26" height="26" /></button></li>
           <li data-tech="Bun"><button type="button" data-chip="Bun" title="Bun"><img src="tech/bun.svg" alt="Bun" width="26" height="26" /></button></li>
-          <li data-tech="Node.js"><button type="button" data-chip="Node.js" title="Node.js"><img src="tech/nodejs.svg" alt="Node.js" width="26" height="26" /></button></li>
           <li data-tech="React"><button type="button" data-chip="React" title="React"><img src="tech/react.svg" alt="React" width="26" height="26" /></button></li>
-          <li data-tech="Solidity"><button type="button" data-chip="Solidity" title="Solidity"><img src="tech/solidity.svg" alt="Solidity" width="26" height="26" /></button></li>
-          <li data-tech="PyTorch"><button type="button" data-chip="PyTorch" title="PyTorch"><img src="tech/pytorch.svg" alt="PyTorch" width="26" height="26" /></button></li>
-          <li data-tech="Transformers"><button type="button" data-chip="Transformers" title="Transformers"><img src="tech/huggingface.svg" alt="Transformers" width="26" height="26" /></button></li>
-          <li data-tech="OpenAI"><button type="button" data-chip="OpenAI" title="OpenAI"><img src="tech/openai.svg" alt="OpenAI" width="26" height="26" /></button></li>
-          <li data-tech="NVIDIA CUDA"><button type="button" data-chip="NVIDIA CUDA" title="NVIDIA CUDA"><img src="tech/nvidia.svg" alt="NVIDIA CUDA" width="26" height="26" /></button></li>
-          <li data-tech="Docker"><button type="button" data-chip="Docker" title="Docker"><img src="tech/docker.svg" alt="Docker" width="26" height="26" /></button></li>
-          <li data-tech="Kubernetes"><button type="button" data-chip="Kubernetes" title="Kubernetes"><img src="tech/kubernetes.svg" alt="Kubernetes" width="26" height="26" /></button></li>
           <li data-tech="PostgreSQL"><button type="button" data-chip="PostgreSQL" title="PostgreSQL"><img src="tech/postgresql.svg" alt="PostgreSQL" width="26" height="26" /></button></li>
           <li data-tech="Redis"><button type="button" data-chip="Redis" title="Redis"><img src="tech/redis.svg" alt="Redis" width="26" height="26" /></button></li>
-          <li data-tech="Kafka"><button type="button" data-chip="Kafka" title="Kafka"><img src="tech/kafka.svg" alt="Kafka" width="26" height="26" /></button></li>
-          <li data-tech="Nginx"><button type="button" data-chip="Nginx" title="Nginx"><img src="tech/nginx.svg" alt="Nginx" width="26" height="26" /></button></li>
-          <li data-tech="Terraform"><button type="button" data-chip="Terraform" title="Terraform"><img src="tech/terraform.svg" alt="Terraform" width="26" height="26" /></button></li>
-          <li data-tech="Ansible"><button type="button" data-chip="Ansible" title="Ansible"><img src="tech/ansible.svg" alt="Ansible" width="26" height="26" /></button></li>
-          <li data-tech="GitHub Actions"><button type="button" data-chip="GitHub Actions" title="GitHub Actions"><img src="tech/github-actions.svg" alt="GitHub Actions" width="26" height="26" /></button></li>
+          <li data-tech="Docker"><button type="button" data-chip="Docker" title="Docker"><img src="tech/docker.svg" alt="Docker" width="26" height="26" /></button></li>
+          <li data-tech="Kubernetes"><button type="button" data-chip="Kubernetes" title="Kubernetes"><img src="tech/kubernetes.svg" alt="Kubernetes" width="26" height="26" /></button></li>
           <li data-tech="Cloudflare"><button type="button" data-chip="Cloudflare" title="Cloudflare"><img src="tech/cloudflare.svg" alt="Cloudflare" width="26" height="26" /></button></li>
           <li data-tech="AWS"><button type="button" data-chip="AWS" title="AWS"><img src="tech/aws.svg" alt="AWS" width="26" height="26" /></button></li>
-          <li data-tech="Grafana"><button type="button" data-chip="Grafana" title="Grafana"><img src="tech/grafana.svg" alt="Grafana" width="26" height="26" /></button></li>
-          <li data-tech="Prometheus"><button type="button" data-chip="Prometheus" title="Prometheus"><img src="tech/prometheus.svg" alt="Prometheus" width="26" height="26" /></button></li>
           <li data-tech="Linux"><button type="button" data-chip="Linux" title="Linux"><img src="tech/linux.svg" alt="Linux" width="26" height="26" /></button></li>
           <li data-tech="Git"><button type="button" data-chip="Git" title="Git"><img src="tech/git.svg" alt="Git" width="26" height="26" /></button></li>
         </ul>
       </section>
 
-      <section class="block github-block" id="github">
+      <section class="block github-block" id="github" data-reveal>
         <div class="section-head">
           <div><p class="section-kicker">Shipping in public</p><h2>GitHub activity</h2></div>
           <span class="section-no">04 / 04</span>
@@ -1171,11 +1297,11 @@
         </div>
       </section>
 
-      <blockquote class="quote">
+      <blockquote class="quote" data-reveal>
         <p>The less you know is the better.</p>
       </blockquote>
 
-      <section class="contact" id="contact">
+      <section class="contact" id="contact" data-reveal>
         <div>
           <p class="contact__eyebrow">Consulting · security · interesting builds</p>
           <h2>Have something difficult?</h2>

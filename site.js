@@ -26,6 +26,7 @@
     { id: "projects", label: "Jump to projects", run: () => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }) },
     { id: "github", label: "Jump to GitHub activity", run: () => document.getElementById("github")?.scrollIntoView({ behavior: "smooth" }) },
     { id: "contact", label: "Jump to contact", run: () => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }) },
+    { id: "fenster", label: "Open terminal-fenster", run: () => window.open("https://zent7x.com/terminal-fenster/", "_blank", "noopener") },
     { id: "routing", label: "Open routing.run", run: () => window.open("https://routing.run", "_blank", "noopener") },
     { id: "keelcode", label: "Open Keelcode", run: () => window.open("https://keelcode.ai", "_blank", "noopener") },
     { id: "gh", label: "Open GitHub profile", run: () => window.open("https://github.com/zent7x", "_blank", "noopener") },
@@ -94,12 +95,28 @@
   input?.addEventListener("input", () => filter(input.value));
 
   document.getElementById("hint-palette")?.addEventListener("click", openPalette);
-  document.getElementById("hint-routing")?.addEventListener("click", () => {
-    window.open("https://routing.run", "_blank", "noopener");
-  });
-  document.getElementById("hint-keelcode")?.addEventListener("click", () => {
-    window.open("https://keelcode.ai", "_blank", "noopener");
-  });
+
+  /* scroll reveal */
+  if (!reduce) {
+    const revealEls = document.querySelectorAll("[data-reveal]");
+    if (revealEls.length && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-in");
+            io.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      );
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add("is-in"));
+    }
+  } else {
+    document.querySelectorAll("[data-reveal]").forEach((el) => el.classList.add("is-in"));
+  }
 
   const heroPhoto = document.getElementById("hero-photo");
   const themeColor = document.getElementById("theme-color");
