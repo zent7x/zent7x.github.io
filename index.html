@@ -915,13 +915,11 @@
       gap: 2rem; padding: 1.5rem 1.6rem 1.35rem;
       border-bottom: 1px solid var(--line);
     }
-    .github-identity { display: flex; align-items: center; gap: 0.8rem; }
-    .github-mark {
-      display: grid; place-items: center; width: 42px; height: 42px;
-      border-radius: 12px; background: #fff; color: #09090b;
-      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    .github-identity { display: flex; align-items: center; gap: 0.85rem; }
+    .github-avatar {
+      width: 48px; height: 48px; border-radius: 14px; object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
-    .github-mark img { width: 23px; height: 23px; }
     .github-status {
       display: flex; align-items: center; gap: 0.45rem;
       font-family: var(--mono); font-size: 0.61rem; color: var(--faint);
@@ -930,8 +928,15 @@
     .github-status::before {
       content: ""; width: 6px; height: 6px; border-radius: 50%;
       background: #7ccf9a; box-shadow: 0 0 0 4px rgba(124, 207, 154, 0.1);
+      animation: pulse-dot 2.4s var(--ease-out) infinite;
     }
-    .github-title { margin-top: 0.15rem; font-size: 1rem; font-weight: 600; }
+    .github-title { margin-top: 0.12rem; font-size: 1.05rem; font-weight: 600; }
+    .github-handle {
+      margin-top: 0.2rem; font-family: var(--mono); font-size: 0.62rem; color: var(--faint);
+    }
+    .github-handle a { color: var(--soft); }
+    .github-handle a:hover { color: var(--fg); }
+    .github-dot { margin: 0 0.28rem; opacity: 0.55; }
     .github-profile {
       display: inline-flex; align-items: center; gap: 0.4rem;
       padding: 0.55rem 0.75rem; border: 1px solid var(--line); border-radius: 999px;
@@ -939,28 +944,65 @@
       transition: border-color 0.2s, color 0.2s, transform 0.2s var(--ease-out);
     }
     .github-profile:hover { color: var(--fg); border-color: var(--line-strong); transform: translateY(-1px); }
-    .gh-metrics {
+
+    .gh-stats-row {
       position: relative; z-index: 1;
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: 1.35fr 1fr;
       border-bottom: 1px solid var(--line);
     }
-    .gh-metric { padding: 1.25rem 1.6rem; }
-    .gh-metric + .gh-metric { border-left: 1px solid var(--line); }
+    .gh-metrics {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+    }
+    .gh-metric { padding: 1.15rem 1.35rem; border-bottom: 1px solid var(--line); }
+    .gh-metric:nth-child(odd) { border-right: 1px solid var(--line); }
+    .gh-metric:nth-last-child(-n + 2) { border-bottom: 0; }
     .gh-metric strong {
-      display: block; font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.6rem);
+      display: block; font-family: var(--serif); font-size: clamp(1.55rem, 3.2vw, 2.15rem);
       font-weight: 400; line-height: 1; letter-spacing: -0.025em;
+      font-variant-numeric: tabular-nums;
     }
     .gh-metric span {
       display: block; margin-top: 0.35rem;
-      font-family: var(--mono); font-size: 0.58rem; color: var(--faint);
+      font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
       letter-spacing: 0.06em; text-transform: uppercase;
     }
+    .gh-week {
+      padding: 1.15rem 1.35rem 1.25rem;
+      border-left: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(224, 120, 80, 0.04), transparent 60%);
+    }
+    .gh-week__head {
+      display: flex; justify-content: space-between; gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .gh-bars {
+      display: flex; align-items: flex-end; gap: 5px;
+      height: 88px;
+    }
+    .gh-bar {
+      flex: 1; min-width: 0; height: 100%;
+      display: flex; align-items: flex-end;
+    }
+    .gh-bar i {
+      display: block; width: 100%;
+      border-radius: 4px 4px 2px 2px;
+      background: linear-gradient(180deg, var(--accent), rgba(224, 120, 80, 0.35));
+      transform-origin: bottom;
+      transform: scaleY(0.08);
+      transition: transform 0.7s var(--ease-out), filter 0.2s;
+      min-height: 4px;
+    }
+    .gh-bars.is-in .gh-bar i { transform: scaleY(var(--h, 0.2)); }
+    .gh-bar:hover i { filter: brightness(1.15); }
+
     .contrib-zone { position: relative; z-index: 1; padding: 1.45rem 1.6rem 1.25rem; }
     .contrib-zone__head {
       display: flex; align-items: center; justify-content: space-between;
       gap: 1rem; margin-bottom: 0.95rem;
     }
-    .contrib-meta { font-size: 0.62rem; letter-spacing: 0.03em; }
+    .contrib-meta { font-size: 0.62rem; letter-spacing: 0.03em; color: var(--faint); }
     .contrib-legend {
       display: flex; align-items: center; gap: 0.3rem;
       font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
@@ -970,24 +1012,101 @@
     .contrib-legend i:nth-of-type(3) { background: rgba(224, 120, 80, 0.48); }
     .contrib-legend i:nth-of-type(4) { background: rgba(224, 120, 80, 0.68); }
     .contrib-legend i:nth-of-type(5) { background: rgba(224, 120, 80, 0.92); }
-    .contrib-wrap { border: 0; padding: 0 0 0.35rem; }
+    .contrib-wrap {
+      border: 0; padding: 0.15rem 0 0.35rem;
+      overflow-x: auto;
+      scrollbar-color: var(--line) transparent;
+      scrollbar-width: thin;
+    }
     .contrib-months {
-      display: grid; grid-template-columns: repeat(52, 11px); gap: 3px;
+      display: grid; grid-template-columns: repeat(52, 12px); gap: 3px;
       width: max-content; min-height: 16px; margin-left: 26px;
       font-family: var(--mono); font-size: 0.52rem; color: var(--faint);
     }
     .contrib-months span { white-space: nowrap; }
     .contrib-grid-shell { display: flex; align-items: flex-start; gap: 6px; width: max-content; }
     .contrib-weekdays {
-      display: grid; grid-template-rows: repeat(7, 11px); gap: 3px;
-      width: 20px; font-family: var(--mono); font-size: 0.47rem; line-height: 11px;
+      display: grid; grid-template-rows: repeat(7, 12px); gap: 3px;
+      width: 20px; font-family: var(--mono); font-size: 0.47rem; line-height: 12px;
       color: var(--faint);
     }
     .contrib-weekdays span:nth-child(1) { grid-row: 2; }
     .contrib-weekdays span:nth-child(2) { grid-row: 4; }
     .contrib-weekdays span:nth-child(3) { grid-row: 6; }
-    .contrib-day { animation: cell-in 0.42s var(--ease-out) both; animation-delay: var(--delay, 0ms); }
+    .contrib-skeleton,
+    .contrib-grid {
+      display: grid;
+      grid-template-rows: repeat(7, 12px);
+      grid-auto-flow: column;
+      gap: 3px;
+      width: max-content;
+    }
+    .contrib-skeleton span,
+    .contrib-grid span {
+      display: block;
+      width: 12px; height: 12px;
+      border-radius: 3px;
+      background: #18181b;
+    }
+    .contrib-day {
+      cursor: default;
+      outline: none;
+      transition: transform 0.12s var(--ease-out), box-shadow 0.12s;
+      animation: cell-in 0.42s var(--ease-out) both;
+      animation-delay: var(--delay, 0ms);
+    }
+    .contrib-day[data-level="0"] { background: #18181b; }
+    .contrib-day[data-level="1"] { background: rgba(224, 120, 80, 0.28); }
+    .contrib-day[data-level="2"] { background: rgba(224, 120, 80, 0.45); }
+    .contrib-day[data-level="3"] { background: rgba(224, 120, 80, 0.62); }
+    .contrib-day[data-level="4"] { background: rgba(224, 120, 80, 0.9); }
+    .contrib-day.is-hot {
+      transform: scale(1.22);
+      box-shadow: 0 0 0 1px var(--bg), 0 0 0 2px var(--accent), 0 0 18px rgba(224, 120, 80, 0.35);
+      z-index: 1;
+    }
     @keyframes cell-in { from { opacity: 0; transform: scale(0.6); } }
+
+    .gh-repos {
+      position: relative; z-index: 1;
+      padding: 1.15rem 1.6rem 1.35rem;
+      border-top: 1px solid var(--line);
+    }
+    .gh-repos[hidden] { display: none !important; }
+    .gh-repos__label {
+      margin-bottom: 0.75rem;
+      font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .gh-repos__grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem;
+    }
+    .gh-repo {
+      display: grid; gap: 0.28rem;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--line); border-radius: 14px;
+      background: color-mix(in oklab, var(--bg) 55%, transparent);
+      transition: border-color 0.2s, transform 0.2s var(--ease-out), background 0.2s;
+    }
+    .gh-repo:hover {
+      border-color: var(--line-strong);
+      background: var(--panel-raised);
+      transform: translateY(-2px);
+    }
+    .gh-repo__top {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+    }
+    .gh-repo__name {
+      font-size: 0.92rem; font-weight: 600; letter-spacing: -0.015em;
+    }
+    .gh-repo__lang {
+      font-family: var(--mono); font-size: 0.55rem; color: var(--faint);
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .gh-repo__meta {
+      font-family: var(--mono); font-size: 0.58rem; color: var(--faint);
+    }
+
     .github-panel__foot {
       position: relative; z-index: 1;
       display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -996,6 +1115,12 @@
     }
     .github-panel__foot a { color: var(--soft); font-weight: 600; }
     .github-panel__foot a:hover { color: var(--fg); }
+
+    html.site-white .contrib-day[data-level="0"],
+    html.site-white .contrib-skeleton span,
+    html.site-white .contrib-legend i:first-of-type {
+      background: #e4e4e7;
+    }
 
     .quote {
       margin: clamp(4rem, 9vw, 7rem) 0; padding: 0;
@@ -1051,12 +1176,15 @@
       .cards, .project-grid { grid-template-columns: 1fr; }
       .card { min-height: 0; }
       .block { padding-block: 3.5rem; }
-      .github-panel__head { gap: 1rem; padding: 1.2rem; }
+      .github-panel__head { gap: 1rem; padding: 1.2rem; flex-wrap: wrap; }
       .github-profile { padding: 0.5rem 0.65rem; }
-      .gh-metric { padding: 1rem 0.8rem; }
-      .gh-metric strong { font-size: 1.75rem; }
+      .gh-stats-row { grid-template-columns: 1fr; }
+      .gh-week { border-left: 0; border-top: 1px solid var(--line); }
+      .gh-metric { padding: 1rem 0.9rem; }
+      .gh-metric strong { font-size: 1.55rem; }
+      .gh-repos__grid { grid-template-columns: 1fr; }
       .contrib-zone { padding: 1.2rem; }
-      .github-panel__foot { align-items: flex-start; padding: 1rem 1.2rem; }
+      .github-panel__foot { align-items: flex-start; padding: 1rem 1.2rem; flex-direction: column; }
       .contact { align-items: flex-start; flex-direction: column; }
       .contact__link { width: 100%; text-align: center; }
     }
@@ -1273,19 +1401,50 @@
         <div class="github-panel">
           <div class="github-panel__head">
             <div class="github-identity">
-              <span class="github-mark"><img src="logos/github.svg" alt="" width="23" height="23" /></span>
+              <img class="github-avatar" id="gh-avatar" src="icons/mark.png" alt="" width="48" height="48" />
               <div>
                 <p class="github-status">Live activity</p>
-                <p class="github-title">zent7x / public work</p>
+                <p class="github-title" id="gh-name">zentex</p>
+                <p class="github-handle">
+                  <a href="https://github.com/zent7x" target="_blank" rel="noopener">@zent7x</a>
+                  <span class="github-dot" aria-hidden="true">·</span>
+                  <span id="gh-followers">—</span> followers
+                  <span class="github-dot" aria-hidden="true">·</span>
+                  <span id="gh-repos">—</span> repos
+                </p>
               </div>
             </div>
-            <a class="github-profile" href="https://github.com/zent7x" target="_blank" rel="noopener">@zent7x <span aria-hidden="true">↗</span></a>
+            <a class="github-profile" href="https://github.com/zent7x" target="_blank" rel="noopener">Open profile <span aria-hidden="true">↗</span></a>
           </div>
-          <ul class="gh-metrics" aria-label="GitHub contribution summary">
-            <li class="gh-metric"><strong id="gh-total">—</strong><span>Contributions</span></li>
-            <li class="gh-metric"><strong id="gh-active-days">—</strong><span>Active days</span></li>
-            <li class="gh-metric"><strong id="gh-longest-streak">—</strong><span>Longest streak</span></li>
-          </ul>
+
+          <div class="gh-stats-row">
+            <ul class="gh-metrics" aria-label="GitHub contribution summary">
+              <li class="gh-metric">
+                <strong id="gh-total" data-count="0">—</strong>
+                <span>Contributions</span>
+              </li>
+              <li class="gh-metric">
+                <strong id="gh-active-days" data-count="0">—</strong>
+                <span>Active days</span>
+              </li>
+              <li class="gh-metric">
+                <strong id="gh-longest-streak" data-count="0">—</strong>
+                <span>Longest streak</span>
+              </li>
+              <li class="gh-metric">
+                <strong id="gh-current-streak" data-count="0">—</strong>
+                <span>Current streak</span>
+              </li>
+            </ul>
+            <div class="gh-week" aria-hidden="true">
+              <div class="gh-week__head">
+                <span>Last 12 weeks</span>
+                <span id="gh-week-peak">peak —</span>
+              </div>
+              <div class="gh-bars" id="gh-bars"></div>
+            </div>
+          </div>
+
           <div class="contrib-zone">
             <div class="contrib-zone__head">
               <p class="contrib-meta" id="contrib-meta">Loading the last 52 weeks…</p>
@@ -1301,8 +1460,14 @@
               </div>
             </div>
           </div>
+
+          <div class="gh-repos" id="gh-repos-list" hidden>
+            <p class="gh-repos__label">Recently updated</p>
+            <ul class="gh-repos__grid" id="gh-repos-grid"></ul>
+          </div>
+
           <div class="github-panel__foot">
-            <span>Commits, experiments, and tools—measured from public activity.</span>
+            <span>Public commits and experiments — measured live from GitHub.</span>
             <a href="https://github.com/zent7x?tab=repositories" target="_blank" rel="noopener">Browse repositories ↗</a>
           </div>
         </div>

@@ -166,7 +166,7 @@
     });
   });
 
-  /* github contributions */
+  /* github contributions + profile */
   const contribWrap = document.getElementById("contrib-wrap");
   const contribSkeleton = document.getElementById("contrib-skeleton");
   const contribMeta = document.getElementById("contrib-meta");
@@ -174,6 +174,15 @@
   const ghTotal = document.getElementById("gh-total");
   const ghActiveDays = document.getElementById("gh-active-days");
   const ghLongestStreak = document.getElementById("gh-longest-streak");
+  const ghCurrentStreak = document.getElementById("gh-current-streak");
+  const ghBars = document.getElementById("gh-bars");
+  const ghWeekPeak = document.getElementById("gh-week-peak");
+  const ghAvatar = document.getElementById("gh-avatar");
+  const ghName = document.getElementById("gh-name");
+  const ghFollowers = document.getElementById("gh-followers");
+  const ghRepos = document.getElementById("gh-repos");
+  const ghReposList = document.getElementById("gh-repos-list");
+  const ghReposGrid = document.getElementById("gh-repos-grid");
   const dateFmt = new Intl.DateTimeFormat("en", {
     day: "numeric",
     month: "short",
@@ -263,6 +272,96 @@
     });
   }
 
+  function animateCount(el, value, suffix) {
+    if (!el) return;
+    const end = Number(value) || 0;
+    if (reduce) {
+      el.textContent = suffix ? `${end}${suffix}` : end.toLocaleString();
+      return;
+    }
+    const start = performance.now();
+    const dur = 900;
+    function tick(now) {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const n = Math.round(end * eased);
+      el.textContent = suffix ? `${n}${suffix}` : n.toLocaleString();
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function renderWeekBars(days) {
+    if (!ghBars) return;
+    ghBars.innerHTML = "";
+    const weeks = [];
+    for (let i = 0; i < days.length; i += 7) {
+      weeks.push(days.slice(i, i + 7).reduce((n, d) => n + Number(d.count || 0), 0));
+    }
+    const last = weeks.slice(-12);
+    const peak = Math.max(1, ...last);
+    last.forEach((count, i) => {
+      const wrap = document.createElement("div");
+      wrap.className = "gh-bar";
+      wrap.title = `${count.toLocaleString()} commits`;
+      const bar = document.createElement("i");
+      bar.style.setProperty("--h", String(Math.max(0.08, count / peak)));
+      bar.style.transitionDelay = `${i * 40}ms`;
+      wrap.appendChild(bar);
+      ghBars.appendChild(wrap);
+    });
+    if (ghWeekPeak) ghWeekPeak.textContent = `peak ${peak.toLocaleString()}`;
+    requestAnimationFrame(() => ghBars.classList.add("is-in"));
+  }
+
+  async function loadGithubProfile() {
+    try {
+      const res = await fetch(`https://api.github.com/users/${handle}`);
+      if (!res.ok) throw new Error("profile");
+      const user = await res.json();
+      if (ghAvatar && user.avatar_url) ghAvatar.src = user.avatar_url;
+      if (ghName) ghName.textContent = user.name || user.login || "zentex";
+      if (ghFollowers) ghFollowers.textContent = Number(user.followers || 0).toLocaleString();
+      if (ghRepos) ghRepos.textContent = Number(user.public_repos || 0).toLocaleString();
+    } catch {
+      /* keep local fallbacks */
+    }
+
+    try {
+      const res = await fetch(
+        `https://api.github.com/users/${handle}/repos?per_page=6&sort=updated`
+      );
+      if (!res.ok) throw new Error("repos");
+      const repos = (await res.json()).filter((r) => !r.fork).slice(0, 4);
+      if (!ghReposGrid || !repos.length) return;
+      ghReposGrid.innerHTML = "";
+      repos.forEach((repo) => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.className = "gh-repo";
+        a.href = repo.html_url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        const updated = new Date(repo.updated_at).toLocaleDateString("en", {
+          month: "short",
+          day: "numeric",
+        });
+        a.innerHTML = `
+          <div class="gh-repo__top">
+            <span class="gh-repo__name">${repo.name}</span>
+            <span class="gh-repo__lang">${repo.language || "code"}</span>
+          </div>
+          <div class="gh-repo__meta">★ ${repo.stargazers_count} · updated ${updated}</div>
+        `;
+        li.appendChild(a);
+        ghReposGrid.appendChild(li);
+      });
+      if (ghReposList) ghReposList.hidden = false;
+    } catch {
+      /* optional */
+    }
+  }
+
   async function loadContributions() {
     if (!contribWrap || contribWrap.dataset.ready === "true") return;
     contribWrap.dataset.ready = "true";
@@ -276,9 +375,11 @@
 
       const total = days.reduce((n, d) => n + Number(d.count || 0), 0);
       const activeDays = days.filter((day) => Number(day.count || 0) > 0).length;
-      const bestDay = days.reduce((best, day) =>
-        Number(day.count || 0) > Number(best.count || 0) ? day : best
-      , days[0]);
+      const bestDay = days.reduce(
+        (best, day) => (Number(day.count || 0) > Number(best.count || 0) ? day : best),
+        days[0]
+      );
+
       let streak = 0;
       let longestStreak = 0;
       days.forEach((day) => {
@@ -286,10 +387,19 @@
         longestStreak = Math.max(longestStreak, streak);
       });
 
-      if (ghTotal) ghTotal.textContent = total.toLocaleString();
-      if (ghActiveDays) ghActiveDays.textContent = activeDays.toLocaleString();
-      if (ghLongestStreak) ghLongestStreak.textContent = `${longestStreak}d`;
+      let currentStreak = 0;
+      for (let i = days.length - 1; i >= 0; i--) {
+        if (Number(days[i].count || 0) > 0) currentStreak += 1;
+        else if (i === days.length - 1) continue;
+        else break;
+      }
+
+      animateCount(ghTotal, total);
+      animateCount(ghActiveDays, activeDays);
+      animateCount(ghLongestStreak, longestStreak, "d");
+      animateCount(ghCurrentStreak, currentStreak, "d");
       renderContributionMonths(days);
+      renderWeekBars(days);
 
       const grid = document.createElement("div");
       grid.className = "contrib-grid";
@@ -323,7 +433,7 @@
       });
       if (contribMeta) {
         const bestCount = Number(bestDay.count || 0).toLocaleString();
-        contribMeta.textContent = `Last 52 weeks · best day ${bestCount} commits`;
+        contribMeta.textContent = `Last 52 weeks · best day ${bestCount}`;
       }
     } catch {
       contribSkeleton?.remove();
@@ -335,11 +445,14 @@
   }
 
   if (contribWrap) {
-    const run = () => loadContributions();
+    const run = () => {
+      loadGithubProfile();
+      loadContributions();
+    };
     if ("requestIdleCallback" in window) {
       requestIdleCallback(run, { timeout: 4000 });
     } else {
-      setTimeout(run, 1200);
+      setTimeout(run, 800);
     }
   }
 
