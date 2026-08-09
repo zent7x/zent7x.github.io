@@ -41,6 +41,14 @@ export const work = [
   },
   {
     id: "003",
+    name: "terminal-fenster",
+    url: "https://zent7x.com/terminal-fenster/",
+    desc: "Real Chromium pixels inside your terminal via Kitty graphics.",
+    status: "Open source",
+    live: true,
+  },
+  {
+    id: "004",
     name: "grasp",
     url: "https://github.com/zent7x/grasp",
     desc: "Code context for AI agents — index once, serve the right slice.",
@@ -48,7 +56,7 @@ export const work = [
     live: false,
   },
   {
-    id: "004",
+    id: "005",
     name: "codemap",
     url: "https://github.com/zent7x/codemap",
     desc: "Turn any repository into a self-contained explorable map.",
@@ -56,7 +64,7 @@ export const work = [
     live: false,
   },
   {
-    id: "005",
+    id: "006",
     name: "cogrep",
     url: "https://github.com/zent7x/cogrep",
     desc: "Local-first semantic code search from your terminal.",
@@ -64,7 +72,7 @@ export const work = [
     live: false,
   },
   {
-    id: "006",
+    id: "007",
     name: "tally",
     url: "https://github.com/zent7x/tally",
     desc: "Offline finance tracker — one HTML file, no cloud.",
