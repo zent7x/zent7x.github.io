@@ -1,30 +1,14 @@
-import { useEffect, useState } from "react";
-
-const KEY = "zent7x-theme";
+import { useCallback, useEffect, useState } from "react";
 
 export function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">(() => {
-    try {
-      const stored = localStorage.getItem(KEY);
-      if (stored === "light" || stored === "dark") return stored;
-    } catch {
-      /* ignore */
-    }
-    return "light";
-  });
+  const [white, setWhite] = useState(false);
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
-    const meta = document.querySelector('meta[name="theme-color"]');
-    meta?.setAttribute("content", theme === "light" ? "#f4efe6" : "#0a0908");
-    try {
-      localStorage.setItem(KEY, theme);
-    } catch {
-      /* ignore */
-    }
-  }, [theme]);
+    document.documentElement.classList.toggle("site-white", white);
+    const meta = document.getElementById("theme-color");
+    if (meta) meta.setAttribute("content", white ? "#ffffff" : "#09090b");
+  }, [white]);
 
-  const toggle = () => setTheme((t) => (t === "light" ? "dark" : "light"));
-
-  return { theme, toggle };
+  const toggle = useCallback(() => setWhite((v) => !v), []);
+  return { white, toggle };
 }
