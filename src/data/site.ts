@@ -15,7 +15,6 @@ export const profile = {
   links: {
     github: "https://github.com/zent7x",
     x: "https://x.com/zent7x",
-    satviks: "https://x.com/satviks",
     email: "mailto:zentex@warm.run",
     keelcode: "https://keelcode.ai",
     routing: "https://routing.run",
@@ -105,7 +104,6 @@ export const focus = [
 export const social = [
   { label: "GitHub", line: "@zent7x", href: profile.links.github },
   { label: "X", line: "@zent7x", href: profile.links.x },
-  { label: "satviks", line: "@satviks", href: profile.links.satviks },
   { label: "Email", line: profile.email, href: profile.links.email },
   { label: "Product", line: "routing.run", href: profile.links.routing },
 ] as const;

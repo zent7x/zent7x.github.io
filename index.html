@@ -74,6 +74,7 @@
     .mark:hover { color: #e4e4e7; }
     .mark__emblem {
       width: 32px; height: 32px; border-radius: 9px;
+      object-fit: cover;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.06);
       transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s;
     }
@@ -84,15 +85,22 @@
 
     .nav {
       display: flex; flex-wrap: wrap; align-items: center;
-      justify-content: flex-end; gap: 0.4rem;
+      justify-content: flex-end; gap: 0.55rem;
       font-size: 0.875rem;
     }
     .nav a {
+      display: inline-flex; align-items: center; gap: 0.38rem;
       color: var(--soft);
-      transition: color 0.15s;
+      transition: color 0.15s, opacity 0.15s;
     }
     .nav a:hover { color: var(--fg); }
-    .nav__sep { color: var(--faint); user-select: none; }
+    .nav__icon {
+      width: 15px; height: 15px; display: block; flex-shrink: 0;
+      opacity: 0.88;
+      transition: opacity 0.15s, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav a:hover .nav__icon { opacity: 1; transform: translateY(-1px); }
+    .nav__sep { display: none; }
 
     .hero {
       display: grid; grid-template-columns: minmax(0, 1fr) auto;
@@ -615,11 +623,12 @@
     }
     .nav a { position: relative; }
     .nav a::after {
-      content: ""; position: absolute; right: 0; bottom: -0.25rem; left: 0;
+      content: ""; position: absolute; right: 0; bottom: -0.35rem; left: 0;
       height: 1px; background: var(--accent); transform: scaleX(0);
       transform-origin: right; transition: transform 0.25s var(--ease-out);
     }
     .nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+    html.site-white .nav__icon { filter: invert(1) brightness(0.18); }
 
     .hero {
       grid-template-columns: minmax(0, 1fr) 15.5rem;
@@ -674,7 +683,7 @@
     .hints { margin-top: 1.75rem; }
     .hint-chip { min-height: 34px; }
 
-    .portrait { position: relative; width: 100%; }
+    .portrait { position: relative; width: 100%; animation: rise-in 1s var(--ease-out) 0.18s both; }
     .portrait::before,
     .portrait::after {
       content: ""; position: absolute; z-index: -1;
@@ -707,11 +716,7 @@
     .hero-enter > *:nth-child(3) { animation-delay: 0.2s; }
     .hero-enter > *:nth-child(4) { animation-delay: 0.28s; }
     .hero-enter > *:nth-child(5) { animation-delay: 0.36s; }
-    .portrait {
-      position: relative;
-      width: 100%;
-      animation: rise-in 1s var(--ease-out) 0.18s both;
-    }
+    .hero-enter > *:nth-child(6) { animation-delay: 0.44s; }
     @keyframes rise-in {
       from { opacity: 0; transform: translateY(18px); filter: blur(8px); }
       to { opacity: 1; transform: none; filter: none; }
@@ -1081,19 +1086,26 @@
   <div class="page">
     <header class="top">
       <a class="mark" href="#" aria-label="zentex — home">
-        <img class="mark__emblem" src="logos/zentex.svg" alt="" width="32" height="32" />
+        <img class="mark__emblem" src="icons/mark.png" alt="" width="32" height="32" />
         <span>zentex</span>
       </a>
       <nav class="nav" aria-label="Links">
-        <a href="https://github.com/zent7x" target="_blank" rel="noopener">GitHub</a>
-        <span class="nav__sep">·</span>
-        <a href="https://x.com/zent7x" target="_blank" rel="noopener">X</a>
-        <span class="nav__sep">·</span>
-        <a href="https://x.com/satviks" target="_blank" rel="noopener">@satviks</a>
-        <span class="nav__sep">·</span>
-        <a href="https://zent7x.com/blog" target="_blank" rel="noopener">Blog</a>
-        <span class="nav__sep">·</span>
-        <a href="mailto:zentex@warm.run">Email</a>
+        <a href="https://github.com/zent7x" target="_blank" rel="noopener">
+          <img class="nav__icon" src="icons/github.png" alt="" width="15" height="15" />
+          GitHub
+        </a>
+        <a href="https://x.com/zent7x" target="_blank" rel="noopener">
+          <img class="nav__icon" src="icons/x.png" alt="" width="15" height="15" />
+          X
+        </a>
+        <a href="https://zent7x.com/blog" target="_blank" rel="noopener">
+          <img class="nav__icon" src="icons/blog.png" alt="" width="15" height="15" />
+          Blog
+        </a>
+        <a href="mailto:zentex@warm.run">
+          <img class="nav__icon" src="icons/email.png" alt="" width="15" height="15" />
+          Email
+        </a>
       </nav>
     </header>
 
