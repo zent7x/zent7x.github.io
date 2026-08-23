@@ -1,8 +1,7 @@
-import { copyFileSync, existsSync } from "node:fs";
-import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
+import { prerender } from "./prerender";
 
 // Applied to production builds only: the dev server needs inline scripts for HMR.
 // GitHub Pages cannot send headers, so the policy ships as a meta tag.
@@ -33,13 +32,7 @@ export default defineConfig({
         );
       },
     },
-    {
-      name: "gh-pages-404",
-      closeBundle() {
-        const index = resolve("dist/index.html");
-        if (existsSync(index)) copyFileSync(index, resolve("dist/404.html"));
-      },
-    },
+    prerender(),
   ],
   build: {
     outDir: "dist",

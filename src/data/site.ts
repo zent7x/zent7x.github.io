@@ -7,7 +7,6 @@ export const profile = {
   region: "Kashmir",
   coords: "34.0837 N",
   email: "zentex@warm.run",
-  avatar: "/avatar.png",
   og: "/media/og.jpg",
   links: {
     github: "https://github.com/zent7x",
