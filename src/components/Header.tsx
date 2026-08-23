@@ -18,7 +18,7 @@ export function Header() {
           className={`${fluid} flex items-center gap-3 rounded-lg font-mono text-sm text-muted hover:text-fg`}
           aria-label="zentex home"
         >
-          <img src="/logos/zentex.svg" alt="" width={28} height={28} className="size-7 rounded-md" />
+          <img src="/avatar.png" alt="" width={32} height={32} className="size-8 rounded-full object-cover" />
           zentex ~/
         </a>
         <button
