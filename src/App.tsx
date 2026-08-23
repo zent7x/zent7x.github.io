@@ -10,7 +10,7 @@ function pathOf() {
 }
 
 function resolve(path: string) {
-  if (path === "/") return { view: <Home />, title: "zentex. Adeeb. AI systems you control" };
+  if (path === "/") return { view: <Home />, title: "zentex · Adeeb" };
   if (path === "/privacy") return { view: <Privacy />, title: "Privacy · zentex" };
   if (path === "/terms") return { view: <Terms />, title: "Terms · zentex" };
   if (path === "/blog") return { view: <BlogIndex />, title: "Writing · zentex" };

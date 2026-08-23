@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 import { copy, now, oss, posts, profile, security } from "../data/site";
 import { cn, fluid } from "../lib/cn";
 import { Reveal } from "./Reveal";
-import { TaglineReveal } from "./TaglineReveal";
 
 function Badge({
   href,
@@ -159,9 +158,7 @@ export function Home() {
         </ul>
       </Reveal>
 
-      <TaglineReveal />
-
-      <Reveal>
+      <Reveal className="mt-24">
         <Kicker n="02" label="Open source" />
         <ul className="mt-4">
           {oss.map((item) => (
@@ -233,9 +230,6 @@ export function Home() {
 export function Footer() {
   return (
     <footer className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8 pb-16 text-sm text-muted">
-      <p>
-        © {new Date().getFullYear()} {profile.fullName} · {profile.region}
-      </p>
       <nav className="flex flex-wrap gap-4" aria-label="Footer">
         <a className="hover:text-fg" href="/blog">
           Writing

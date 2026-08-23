@@ -113,7 +113,7 @@ export const ventures = [
   {
     name: "routing.run",
     url: profile.links.routing,
-    logo: "/logos/routing.svg",
+    logo: "/logos/routing.png",
     mark: "line",
     status: "2025 · Live",
     desc: "OpenAI compatible LLM router with zero prompt logging.",
@@ -189,7 +189,7 @@ export const now = [
   {
     name: "routing.run",
     url: profile.links.routing,
-    logo: "/logos/routing.svg",
+    logo: "/logos/routing.png",
     mark: "line",
     state: "Live",
     tone: "live",
