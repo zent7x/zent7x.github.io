@@ -1,14 +1,32 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+export type Theme = "light" | "dark";
+
+const THEME_COLORS: Record<Theme, string> = { light: "#fdfdfc", dark: "#181818" };
 
 export function useTheme() {
-  const [white, setWhite] = useState(false);
+  const [theme, setTheme] = useState<Theme>(() =>
+    document.documentElement.classList.contains("dark") ? "dark" : "light",
+  );
 
   useEffect(() => {
-    document.documentElement.classList.toggle("site-white", white);
-    const meta = document.getElementById("theme-color");
-    if (meta) meta.setAttribute("content", white ? "#ffffff" : "#09090b");
-  }, [white]);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", THEME_COLORS[theme]);
+  }, [theme]);
 
-  const toggle = useCallback(() => setWhite((v) => !v), []);
-  return { white, toggle };
+  function toggle() {
+    setTheme((t) => {
+      const next: Theme = t === "light" ? "dark" : "light";
+      try {
+        localStorage.setItem("zentex-theme", next);
+      } catch {
+        /* storage unavailable */
+      }
+      return next;
+    });
+  }
+
+  return { theme, toggle };
 }

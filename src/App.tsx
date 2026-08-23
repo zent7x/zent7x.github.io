@@ -1,70 +1,39 @@
-import { useEffect } from "react";
-import { CommandPalette } from "./components/CommandPalette";
-import { GithubActivity } from "./components/GithubActivity";
+import { useEffect, useMemo } from "react";
+import { BlogIndex, BlogPost } from "./components/Blog";
 import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { Projects, Stack, Ventures } from "./components/Sections";
-import { Contact, Footer, Quote } from "./components/Shell";
-import { useTheme } from "./hooks/useTheme";
+import { Footer, Home } from "./components/Home";
+import { NotFound, Privacy, Terms } from "./components/Pages";
+import { posts } from "./data/site";
 
-function ScrollProgress() {
-  useEffect(() => {
-    const bar = document.getElementById("scroll-progress");
-    const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      const p = h > 0 ? window.scrollY / h : 0;
-      if (bar) bar.style.transform = `scaleX(${p})`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-  return <div className="scroll-progress" id="scroll-progress" aria-hidden />;
+function pathOf() {
+  return window.location.pathname.replace(/\/+$/, "") || "/";
 }
 
-function CursorGlow() {
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || !window.matchMedia("(pointer: fine)").matches) return;
-    const glow = document.getElementById("cursor-glow");
-    let ticking = false;
-    const onMove = (e: MouseEvent) => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        glow?.style.setProperty("--mx", `${e.clientX}px`);
-        glow?.style.setProperty("--my", `${e.clientY}px`);
-        ticking = false;
-      });
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-  return <div className="cursor-glow" id="cursor-glow" aria-hidden />;
+function resolve(path: string) {
+  if (path === "/") return { view: <Home />, title: "zentex. Adeeb. AI systems you control" };
+  if (path === "/privacy") return { view: <Privacy />, title: "Privacy · zentex" };
+  if (path === "/terms") return { view: <Terms />, title: "Terms · zentex" };
+  if (path === "/blog") return { view: <BlogIndex />, title: "Writing · zentex" };
+  if (path.startsWith("/blog/")) {
+    const slug = path.slice("/blog/".length);
+    const post = posts.find((p) => p.slug === slug);
+    if (post) return { view: <BlogPost post={post} />, title: `${post.title} · zentex` };
+  }
+  return { view: <NotFound />, title: "404 · zentex" };
 }
 
 export default function App() {
-  const { toggle } = useTheme();
+  const { view, title } = useMemo(() => resolve(pathOf()), []);
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 
   return (
-    <>
-      <ScrollProgress />
-      <CursorGlow />
-      <div className="noise" aria-hidden />
-      <div className="page">
-        <Header />
-        <main>
-          <Hero onToggleTheme={toggle} />
-          <Ventures />
-          <Projects />
-          <Stack />
-          <GithubActivity />
-          <Quote />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-      <CommandPalette />
-    </>
+    <div className="mx-auto max-w-[680px] px-6 pt-12 sm:pt-16">
+      <Header />
+      {view}
+      <Footer />
+    </div>
   );
 }

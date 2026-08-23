@@ -1,25 +1,42 @@
-import { nav, profile } from "../data/site";
+import { Moon, Sun } from "@phosphor-icons/react";
+import { profile } from "../data/site";
+import { useTheme } from "../hooks/useTheme";
+import { fluid } from "../lib/cn";
 
 export function Header() {
+  const { theme, toggle } = useTheme();
   return (
-    <header className="top">
-      <a className="mark" href="#" aria-label="zentex — home">
-        <img className="mark__emblem" src="/icons/mark.png" alt="" width={32} height={32} />
-        <span>{profile.alias}</span>
+    <>
+      <a
+        href="#main"
+        className="fixed top-2 left-2 z-50 -translate-y-24 rounded-lg bg-fg px-3 py-2 text-sm font-semibold text-bg focus-visible:translate-y-0"
+      >
+        Skip to content
       </a>
-      <nav className="nav" aria-label="Links">
-        {nav.map((item) => (
-          <a
-            key={item.label}
-            href={item.href}
-            target={item.label === "Email" ? undefined : "_blank"}
-            rel="noopener noreferrer"
-          >
-            <img className="nav__icon" src={item.icon} alt="" width={15} height={15} />
-            {item.label}
-          </a>
-        ))}
-      </nav>
-    </header>
+      <header className="flex items-center justify-between">
+        <a
+          href="/"
+          className={`${fluid} flex items-center gap-3 rounded-lg font-mono text-sm text-muted hover:text-fg`}
+          aria-label="zentex home"
+        >
+          <img
+            src={profile.avatar}
+            alt=""
+            width={32}
+            height={32}
+            className="size-8 rounded-full object-cover"
+          />
+          zentex ~/
+        </a>
+        <button
+          type="button"
+          onClick={toggle}
+          aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+          className={`${fluid} grid size-10 place-items-center rounded-full bg-chip text-muted hover:text-fg active:scale-[0.98]`}
+        >
+          {theme === "light" ? <Sun className="size-5" aria-hidden /> : <Moon className="size-5" aria-hidden />}
+        </button>
+      </header>
+    </>
   );
 }
