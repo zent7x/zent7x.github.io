@@ -1,10 +1,10 @@
-# Adeeb (zentex)
+# Adeeb Bashir (zentex)
 
 > Founder and security researcher in Kashmir. Builds warm.run and routing.run, ships open source developer tools, and takes authorized security engagements only.
 
 ## Pages
-- [zentex · Adeeb · founder and security researcher](https://zent7x.com/): Adeeb, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir.
-- [Writing · zentex](https://zent7x.com/blog): Short posts about LLM routing, agent loops, terminals, and security work by Adeeb (zentex).
+- [Adeeb Bashir · zentex · founder and security researcher](https://zent7x.com/): Adeeb Bashir, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir.
+- [Writing · zentex](https://zent7x.com/blog): Short posts about LLM routing, agent loops, terminals, and security work by Adeeb Bashir (zentex).
 - [Real Chromium pixels in your terminal · zentex](https://zent7x.com/blog/chromium-in-the-terminal): Why terminal-fenster paints actual browser frames into Ghostty instead of faking a text mode web.
 - [Zero prompt logging is the product · zentex](https://zent7x.com/blog/zero-prompt-logging): The router in the middle sees everything. routing.run is built on the idea that it should remember nothing.
 - [Authorized means written down · zentex](https://zent7x.com/blog/authorized-means-written): How I run security engagements, and why nothing happens before the scope exists on paper.
