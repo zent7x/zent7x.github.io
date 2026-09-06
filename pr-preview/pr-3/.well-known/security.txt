@@ -1,5 +1,0 @@
-Contact: mailto:zentex@warm.run
-Expires: 2027-08-23T00:00:00.000Z
-Preferred-Languages: en
-Canonical: https://zent7x.com/.well-known/security.txt
-Policy: https://zent7x.com/terms
