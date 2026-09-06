@@ -12,7 +12,7 @@ export const profile = {
     github: "https://github.com/zent7x",
     x: "https://x.com/zent7x",
     email: "mailto:zentex@warm.run?subject=Hard%20problem",
-    keelcode: "https://keelcode.ai",
+    warm: "https://warm.run",
     routing: "https://routing.run",
     publive: "https://thepublive.com",
   },
@@ -21,8 +21,8 @@ export const profile = {
 export const copy = {
   headline: ["AI systems that stay", "under your control"],
   subhead:
-    "routing.run routes your LLM traffic and remembers nothing, so prompts never end up in vendor logs. Keelcode turns agent runs into loops you can replay, review, and undo.",
-  proof: "routing.run is live. Keelcode is in build. The Publive engagement surfaced critical bugs, under a written scope.",
+    "routing.run routes your LLM traffic and remembers nothing, so prompts never end up in vendor logs. warm.run turns agent runs into loops you can replay, review, and undo.",
+  proof: "routing.run is live. warm.run is in build. The Publive engagement surfaced critical bugs, under a written scope.",
   cta: "Email me the hard problem",
   risk: "One email. A written yes or no. No deck, no call until I reply.",
   tagline: ["I ship the loop.", "You keep the keys."],
@@ -35,7 +35,7 @@ export const benefits = [
   },
   {
     title: "Loops you can actually replay",
-    body: "Keelcode is loop engineering with guardrails, replay, and review ready PRs. You can see what the agent did, and you can undo it.",
+    body: "warm.run is loop engineering with guardrails, replay, and review ready PRs. You can see what the agent did, and you can undo it.",
   },
   {
     title: "I break things on purpose",
@@ -72,7 +72,7 @@ export const faqs = [
   },
   {
     q: "Are you a freelancer or a founder?",
-    a: "Both. I am building Keelcode and routing.run. Consulting is for problems that are sharp enough to be worth the context switch.",
+    a: "Both. I am building warm.run and routing.run. Consulting is for problems that are sharp enough to be worth the context switch.",
   },
   {
     q: "Do you log prompts on routing.run?",
@@ -102,12 +102,12 @@ export const faqs = [
 
 export const ventures = [
   {
-    name: "Keelcode",
-    url: profile.links.keelcode,
-    logo: "/logos/keelcode.svg",
-    mark: "line",
+    name: "warm.run",
+    url: profile.links.warm,
+    logo: "/logos/warm.svg",
+    mark: "full",
     status: "2026 · Building",
-    desc: "Loop engineering with guardrails, replay, and review ready PRs.",
+    desc: "Loop engineering with guardrails, replay, and review ready PRs. Formerly Keelcode.",
   },
   {
     name: "routing.run",
@@ -182,9 +182,19 @@ export const stack = [
 export const status = "open to hard problems." as const;
 
 export const bio =
-  "I run two products and a security practice from Kashmir. routing.run keeps prompts out of vendor logs. Keelcode makes agent loops reviewable. Between releases I take authorized security engagements, like the Publive work that surfaced critical bugs. Most days are Rust, TypeScript, and a terminal." as const;
+  "I run two products and a security practice from Kashmir. routing.run keeps prompts out of vendor logs. warm.run makes agent loops reviewable. Between releases I take authorized security engagements, like the Publive work that surfaced critical bugs. Most days are Rust, TypeScript, and a terminal." as const;
 
 export const now = [
+  {
+    name: "warm.run",
+    url: profile.links.warm,
+    logo: "/logos/warm.svg",
+    mark: "full",
+    role: "Founder",
+    state: "Building",
+    tone: "building",
+    desc: "Overnight loops that ship review-ready PRs. Formerly Keelcode.",
+  },
   {
     name: "routing.run",
     url: profile.links.routing,
@@ -193,15 +203,6 @@ export const now = [
     state: "Live",
     tone: "live",
     desc: "OpenAI compatible LLM router with zero prompt logging.",
-  },
-  {
-    name: "keelcode.ai",
-    url: profile.links.keelcode,
-    logo: "/logos/keelcode.svg",
-    mark: "line",
-    state: "Building",
-    tone: "building",
-    desc: "Loop engineering with guardrails, replay, and review ready PRs.",
   },
 ] as const;
 

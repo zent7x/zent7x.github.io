@@ -3,7 +3,7 @@ import { useTheme } from "../hooks/useTheme";
 import { fluid } from "../lib/cn";
 
 export function Header() {
-  const { theme, toggle } = useTheme();
+  const { toggle } = useTheme();
   return (
     <>
       <a
@@ -24,10 +24,11 @@ export function Header() {
         <button
           type="button"
           onClick={toggle}
-          aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+          aria-label="Toggle dark theme"
           className={`${fluid} grid size-10 place-items-center rounded-full bg-chip text-muted hover:text-fg active:scale-[0.98]`}
         >
-          {theme === "light" ? <Sun className="size-5" aria-hidden /> : <Moon className="size-5" aria-hidden />}
+          <Sun className="size-5 dark:hidden" aria-hidden />
+          <Moon className="hidden size-5 dark:block" aria-hidden />
         </button>
       </header>
     </>

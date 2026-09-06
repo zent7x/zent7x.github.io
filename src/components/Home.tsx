@@ -64,6 +64,7 @@ function Row({
   url,
   logo,
   desc,
+  role,
   state,
   tone,
   mark = "line",
@@ -72,6 +73,7 @@ function Row({
   url: string;
   logo: string;
   desc: string;
+  role?: string;
   state?: string;
   tone?: "live" | "building";
   mark?: "line" | "full";
@@ -94,6 +96,7 @@ function Row({
         <span className="min-w-0 flex-1">
           <span className="flex flex-wrap items-baseline gap-x-3">
             <span className="font-semibold">{name}</span>
+            {role && <span className="text-sm text-muted">{role}</span>}
             {state && tone && <StateTag state={state} tone={tone} />}
           </span>
           <span className="mt-1 block text-muted text-pretty">{desc}</span>
@@ -106,10 +109,10 @@ function Row({
 
 export function Home() {
   const routing = now.find((n) => n.name === "routing.run");
-  const keelcode = now.find((n) => n.name === "keelcode.ai");
+  const warm = now.find((n) => n.name === "warm.run");
   return (
     <main id="main">
-      <Reveal className="mt-16">
+      <Reveal className="mt-16" immediate>
         <h1
           className="bg-clip-text text-2xl font-semibold tracking-tight text-transparent"
           style={{ backgroundImage: "linear-gradient(to right, var(--fg), var(--grad-to))" }}
@@ -119,8 +122,8 @@ export function Home() {
         <p className="mt-4 max-w-[680px] text-lg leading-8 text-muted text-pretty">
           founder and security researcher in{" "}
           <Badge icon={<MapPin className="size-4" aria-hidden />} label="kashmir" />, building{" "}
-          <Badge href={routing?.url} logo={routing?.logo} label="routing.run" /> and{" "}
-          <Badge href={keelcode?.url} logo={keelcode?.logo} label="keelcode" />. i work on llm routing, agent loops, and local developer tools, and i take authorized security engagements, like the work with{" "}
+          <Badge href={warm?.url} logo={warm?.logo} label="warm.run" /> and{" "}
+          <Badge href={routing?.url} logo={routing?.logo} label="routing.run" />. i work on llm routing, agent loops, and local developer tools, and i take authorized security engagements, like the work with{" "}
           <Badge href={security.url} logo={security.logo} label="publive" /> that surfaced critical bugs.
         </p>
         <p className="mt-4 max-w-[680px] text-lg leading-8 text-muted text-pretty">
@@ -150,7 +153,7 @@ export function Home() {
       </Reveal>
 
       <Reveal className="mt-24">
-        <Kicker n="01" label="Building" />
+        <Kicker n="01" label="Experience" />
         <ul className="mt-4">
           {now.map((item) => (
             <Row key={item.name} {...item} />

@@ -1,7 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
-import { prerender } from "./prerender";
 
 // Applied to production builds only: the dev server needs inline scripts for HMR.
 // GitHub Pages cannot send headers, so the policy ships as a meta tag.
@@ -32,7 +31,6 @@ export default defineConfig({
         );
       },
     },
-    prerender(),
   ],
   build: {
     outDir: "dist",

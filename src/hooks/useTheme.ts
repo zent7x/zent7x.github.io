@@ -6,7 +6,9 @@ const THEME_COLORS: Record<Theme, string> = { light: "#fdfdfc", dark: "#181818" 
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() =>
-    document.documentElement.classList.contains("dark") ? "dark" : "light",
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light",
   );
 
   useEffect(() => {

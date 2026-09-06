@@ -8,6 +8,13 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Reveal sections start hidden only when JavaScript will run to show them. */
+.js .reveal-pending {
+  opacity: 0;
+  translate: 0 4rem;
+  filter: blur(12px);
+}
+
 :root {
   --bg: #fdfdfc;
   --fg: #21201c;

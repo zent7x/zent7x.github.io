@@ -22,8 +22,8 @@ function resolve(path: string) {
   return { view: <NotFound />, title: "404 · zentex" };
 }
 
-export default function App() {
-  const { view, title } = useMemo(() => resolve(pathOf()), []);
+export default function App({ path }: { path?: string }) {
+  const { view, title } = useMemo(() => resolve(path ?? pathOf()), [path]);
 
   useEffect(() => {
     document.title = title;
