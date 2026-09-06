@@ -4,9 +4,12 @@ import { Header } from "./components/Header";
 import { Footer, Home } from "./components/Home";
 import { NotFound, Privacy, Terms } from "./components/Pages";
 import { posts } from "./data/site";
+import { base } from "./lib/url";
 
 function pathOf() {
-  return window.location.pathname.replace(/\/+$/, "") || "/";
+  const { pathname } = window.location;
+  const local = pathname.startsWith(base) ? pathname.slice(base.length - 1) : pathname;
+  return local.replace(/\/+$/, "") || "/";
 }
 
 function resolve(path: string) {

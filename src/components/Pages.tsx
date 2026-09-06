@@ -1,4 +1,5 @@
 import { profile } from "../data/site";
+import { href } from "../lib/url";
 import { Reveal } from "./Reveal";
 
 export function Privacy() {
@@ -53,7 +54,7 @@ export function NotFound() {
       </h1>
       <p className="mt-6 text-muted text-pretty">The page you want is not on this site. Head home, or email the hard problem anyway.</p>
       <div className="mt-8 flex flex-wrap gap-3">
-        <a className="inline-flex items-center rounded-lg bg-fg px-3 py-2 text-base font-semibold text-bg hover:opacity-80 active:scale-[0.98]" href="/">
+        <a className="inline-flex items-center rounded-lg bg-fg px-3 py-2 text-base font-semibold text-bg hover:opacity-80 active:scale-[0.98]" href={href("/")}>
           Back home
         </a>
         <a className="inline-flex items-center rounded-lg bg-chip px-3 py-2 text-base font-semibold hover:bg-line active:scale-[0.98]" href={profile.links.email}>

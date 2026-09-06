@@ -1,6 +1,7 @@
 import { ArrowLeft } from "@phosphor-icons/react";
 import { posts, profile, type Post } from "../data/site";
 import { fluid } from "../lib/cn";
+import { href } from "../lib/url";
 import { Reveal } from "./Reveal";
 
 export function BlogIndex() {
@@ -18,7 +19,7 @@ export function BlogIndex() {
           {posts.map((post) => (
             <li key={post.slug}>
               <a
-                href={`/blog/${post.slug}`}
+                href={href(`/blog/${post.slug}`)}
                 className={`${fluid} group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]`}
               >
                 <span className="min-w-0 flex-1">
@@ -40,7 +41,7 @@ export function BlogPost({ post }: { post: Post }) {
     <main id="main" className="mt-16 pb-8">
       <Reveal>
         <a
-          href="/blog"
+          href={href("/blog")}
           className={`${fluid} inline-flex items-center gap-2 rounded-sm text-sm text-muted hover:text-fg`}
         >
           <ArrowLeft className="size-4" aria-hidden />

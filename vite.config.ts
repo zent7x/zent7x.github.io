@@ -18,6 +18,8 @@ const csp = [
 ].join("; ");
 
 export default defineConfig({
+  // Pull request previews are served from a subpath of the same Pages site.
+  base: process.env.BASE_PATH || "/",
   plugins: [
     react(),
     tailwindcss(),

@@ -2,6 +2,7 @@ import { ArrowUpRight, MapPin } from "@phosphor-icons/react";
 import type { ReactNode } from "react";
 import { copy, now, oss, posts, profile, security } from "../data/site";
 import { cn, fluid } from "../lib/cn";
+import { href as withBase } from "../lib/url";
 import { Reveal } from "./Reveal";
 
 function Badge({
@@ -20,7 +21,7 @@ function Badge({
     <>
       {logo ? (
         <span className="grid size-5 place-items-center rounded-sm bg-white">
-          <img src={logo} alt="" width={14} height={14} className="size-3.5 object-contain" />
+          <img src={withBase(logo)} alt="" width={14} height={14} className="size-3.5 object-contain" />
         </span>
       ) : (
         icon
@@ -87,10 +88,10 @@ function Row({
         className={`${fluid} group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]`}
       >
         {mark === "full" ? (
-          <img src={logo} alt="" width={40} height={40} className="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]" />
+          <img src={withBase(logo)} alt="" width={40} height={40} className="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]" />
         ) : (
           <span className="grid size-10 shrink-0 place-items-center rounded-md bg-white shadow-[0_0_0_1px_var(--line)]">
-            <img src={logo} alt="" width={28} height={28} className="size-7 object-contain" />
+            <img src={withBase(logo)} alt="" width={28} height={28} className="size-7 object-contain" />
           </span>
         )}
         <span className="min-w-0 flex-1">
@@ -131,7 +132,7 @@ export function Home() {
         </p>
         <figure className="mt-12 rounded-2xl bg-chip p-2">
           <img
-            src="/media/kashmir.jpg"
+            src={withBase("/media/kashmir.jpg")}
             alt="Krishansar Lake near Sonamarg, Kashmir: a deep blue alpine lake below grey peaks with patches of snow, green meadows in the foreground"
             width={1600}
             height={1066}
@@ -176,7 +177,7 @@ export function Home() {
           {posts.map((post) => (
             <li key={post.slug}>
               <a
-                href={`/blog/${post.slug}`}
+                href={withBase(`/blog/${post.slug}`)}
                 className={`${fluid} group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]`}
               >
                 <span className="min-w-0 flex-1">
@@ -191,7 +192,7 @@ export function Home() {
         <p className="mt-4">
           <a
             className={`${fluid} rounded-sm text-sm text-muted underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg`}
-            href="/blog"
+            href={withBase("/blog")}
           >
             All writing
           </a>
@@ -234,13 +235,13 @@ export function Footer() {
   return (
     <footer className="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8 pb-16 text-sm text-muted">
       <nav className="flex flex-wrap gap-4" aria-label="Footer">
-        <a className="hover:text-fg" href="/blog">
+        <a className="hover:text-fg" href={withBase("/blog")}>
           Writing
         </a>
-        <a className="hover:text-fg" href="/privacy">
+        <a className="hover:text-fg" href={withBase("/privacy")}>
           Privacy
         </a>
-        <a className="hover:text-fg" href="/terms">
+        <a className="hover:text-fg" href={withBase("/terms")}>
           Terms
         </a>
       </nav>

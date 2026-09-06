@@ -1,6 +1,7 @@
 import { Moon, Sun } from "@phosphor-icons/react";
 import { useTheme } from "../hooks/useTheme";
 import { fluid } from "../lib/cn";
+import { href } from "../lib/url";
 
 export function Header() {
   const { toggle } = useTheme();
@@ -14,11 +15,11 @@ export function Header() {
       </a>
       <header className="flex items-center justify-between">
         <a
-          href="/"
+          href={href("/")}
           className={`${fluid} flex items-center gap-3 rounded-lg font-mono text-sm text-muted hover:text-fg`}
           aria-label="zentex home"
         >
-          <img src="/avatar.png" alt="" width={32} height={32} className="size-8 rounded-full object-cover" />
+          <img src={href("/avatar.png")} alt="" width={32} height={32} className="size-8 rounded-full object-cover" />
           zentex ~/
         </a>
         <button

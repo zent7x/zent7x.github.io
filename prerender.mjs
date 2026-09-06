@@ -7,6 +7,9 @@ import { pathToFileURL } from "node:url";
 
 const ORIGIN = "https://zent7x.com";
 const SITE_NAME = "zentex";
+// "/" for production; "/pr-preview/pr-N/" when building a pull request preview.
+const BASE = (process.env.BASE_PATH || "/").replace(/\/?$/, "/");
+const preview = BASE !== "/";
 const dist = resolve("dist");
 const ssrDir = join(dist, ".ssr");
 
@@ -158,7 +161,7 @@ function fontPreloads() {
   return wanted
     .map((stem) => files.find((f) => f.startsWith(`${stem}-`)))
     .filter(Boolean)
-    .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
+    .map((f) => `<link rel="preload" href="${BASE}assets/${f}" as="font" type="font/woff2" crossorigin />`);
 }
 
 function renderPage(template, r) {
@@ -193,10 +196,12 @@ function renderPage(template, r) {
 }
 
 const all = routes();
-const template = readFileSync(join(dist, "index.html"), "utf8").replace(
+let template = readFileSync(join(dist, "index.html"), "utf8").replace(
   '<meta name="viewport" content="width=device-width, initial-scale=1.0" />',
   ['<meta name="viewport" content="width=device-width, initial-scale=1.0" />', ...fontPreloads()].join("\n    "),
 );
+// A preview is a copy of the site at another URL: keep it out of the index.
+if (preview) template = template.replace(/<meta name="robots" content="[^"]*" \/>/, '<meta name="robots" content="noindex" />');
 
 for (const r of all) {
   const page = renderPage(template, r);
@@ -223,6 +228,17 @@ writeFileSync(
     .replace('<div id="root"></div>', `<div id="root">${render("/404")}</div>`),
 );
 
+// GitHub Pages runs Jekyll on branch deploys unless told not to, and Jekyll
+// drops dotfiles such as .well-known/security.txt.
+writeFileSync(join(dist, ".nojekyll"), "");
+
+if (preview) {
+  rmSync(join(dist, "CNAME"), { force: true });
+  console.log(`prerendered ${all.length} routes as a preview under ${BASE}`);
+  rmSync(ssrDir, { recursive: true, force: true });
+  process.exit(0);
+}
+
 writeFileSync(
   join(dist, "sitemap.xml"),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${all
@@ -230,7 +246,10 @@ writeFileSync(
     .join("\n")}\n</urlset>\n`,
 );
 
-writeFileSync(join(dist, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
+writeFileSync(
+  join(dist, "robots.txt"),
+  `User-agent: *\nAllow: /\nDisallow: /pr-preview/\n\nSitemap: ${ORIGIN}/sitemap.xml\n`,
+);
 
 const rfc822 = (date) => new Date(`${date}T00:00:00Z`).toUTCString();
 writeFileSync(
