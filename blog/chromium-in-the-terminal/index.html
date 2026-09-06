@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Ivv6p6pQSkwy2MVXoi/0lCDx1ew+/9+pGP5iqQ/rH9Y='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preload" href="/assets/geist-sans-latin-400-normal-gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/assets/geist-sans-latin-600-normal-DFOURf8L.woff2" as="font" type="font/woff2" crossorigin />
@@ -48,7 +48,17 @@
     <meta name="twitter:image:alt" content="zentex — Adeeb" />
 
     <meta name="theme-color" content="#fdfdfc" />
-    <script src="/theme-init.js"></script>
+    <script>(function () {
+  if (window.top !== window.self) {
+    try { window.top.location = window.self.location; } catch (e) {}
+  }
+  document.documentElement.classList.add("js");
+  var dark = false;
+  try {
+    dark = localStorage.getItem("zentex-theme") === "dark";
+  } catch (e) {}
+  if (dark) document.documentElement.classList.add("dark");
+})();</script>
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="/favicon-256.png" type="image/png" sizes="256x256" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -59,7 +69,7 @@
         "@type": "Person",
         "@id": "https://zent7x.com/#person",
         "name": "Adeeb",
-        "alternateName": "zentex",
+        "alternateName": ["zentex", "zent7x"],
         "url": "https://zent7x.com/",
         "image": "https://zent7x.com/media/og.jpg",
         "email": "mailto:zentex@warm.run",
@@ -71,14 +81,16 @@
         },
         "sameAs": [
           "https://github.com/zent7x",
-          "https://x.com/zent7x",
-          "https://routing.run",
-          "https://warm.run"
+          "https://x.com/zent7x"
+        ],
+        "worksFor": [
+          { "@type": "Organization", "name": "warm.run", "url": "https://warm.run" },
+          { "@type": "Organization", "name": "routing.run", "url": "https://routing.run" }
         ]
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-CDxiyZ8B.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-ClcA7NbK.css">
+    <script type="module" crossorigin src="/assets/index-ant9X80q.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-txh61FSc.css">
       <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -90,18 +102,10 @@
   "datePublished": "2026-08-02",
   "dateModified": "2026-08-02",
   "author": {
-    "@type": "Person",
-    "@id": "https://zent7x.com/#person",
-    "name": "Adeeb",
-    "alternateName": "zentex",
-    "url": "https://zent7x.com/"
+    "@id": "https://zent7x.com/#person"
   },
   "publisher": {
-    "@type": "Person",
-    "@id": "https://zent7x.com/#person",
-    "name": "Adeeb",
-    "alternateName": "zentex",
-    "url": "https://zent7x.com/"
+    "@id": "https://zent7x.com/#person"
   },
   "image": "https://zent7x.com/media/og.jpg",
   "mainEntityOfPage": "https://zent7x.com/blog/chromium-in-the-terminal",
