@@ -8,8 +8,7 @@
 - [Real Chromium pixels in your terminal · zentex](https://zent7x.com/blog/chromium-in-the-terminal): Why terminal-fenster paints actual browser frames into Ghostty instead of faking a text mode web.
 - [Zero prompt logging is the product · zentex](https://zent7x.com/blog/zero-prompt-logging): The router in the middle sees everything. routing.run is built on the idea that it should remember nothing.
 - [Authorized means written down · zentex](https://zent7x.com/blog/authorized-means-written): How I run security engagements, and why nothing happens before the scope exists on paper.
-- [Privacy · zentex](https://zent7x.com/privacy): How zent7x.com treats your data: no accounts, no analytics, no tracking cookies.
-- [Terms · zentex](https://zent7x.com/terms): Terms for zent7x.com: content ownership, open source licenses, and authorized security work only.
+- [Pack the repo, not the prompt · zentex](https://zent7x.com/blog/pack-the-repo-not-the-prompt): grasp indexes a codebase too big for one window, then packs only the source that belongs in the prompt.
 
 ## Projects
 - [terminal-fenster](https://zent7x.com/terminal-fenster/): Real Chromium pixels inside your terminal.
