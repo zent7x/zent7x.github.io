@@ -1,78 +1,380 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>zentex · Adeeb</title>
-    <meta
-      name="description"
-      content="Adeeb, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir. Email the hard problem."
-    />
-    <link rel="canonical" href="https://zent7x.com/" />
-    <meta name="author" content="Adeeb" />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <link rel="alternate" type="application/rss+xml" title="zentex · Writing" href="https://zent7x.com/feed.xml" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adeeb Bashir (zentex) — Founder &amp; Security Researcher</title>
+  <meta name="description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta name="author" content="Adeeb Bashir" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="msvalidate.01" content="940AB5BDEC0119745699D137EAE0FACE" />
+  <meta name="theme-color" content="#141414" id="theme-color" />
+  <link rel="canonical" href="https://zent7x.com/" />
+  <link rel="alternate" type="application/rss+xml" title="zentex · Writing" href="https://zent7x.com/feed.xml" />
+  <link rel="preload" href="assets/geist-sans-latin-400-normal-gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="zentex" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="zentex · Adeeb" />
-    <meta
-      property="og:description"
-      content="Founder of warm.run and routing.run. Authorized security research from Kashmir."
-    />
-    <meta property="og:url" content="https://zent7x.com/" />
-    <meta property="og:image" content="https://zent7x.com/media/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="zentex — Adeeb" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@zent7x" />
-    <meta name="twitter:creator" content="@zent7x" />
-    <meta name="twitter:title" content="zentex · Adeeb" />
-    <meta
-      name="twitter:description"
-      content="Founder of warm.run and routing.run. Authorized security research from Kashmir."
-    />
-    <meta name="twitter:image" content="https://zent7x.com/media/og.jpg" />
-    <meta name="twitter:image:alt" content="zentex — Adeeb" />
-
-    <meta name="theme-color" content="#fdfdfc" />
-    <script src="/theme-init.js"></script>
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon-256.png" type="image/png" sizes="256x256" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://zent7x.com/#person",
-        "name": "Adeeb",
-        "alternateName": "zentex",
-        "url": "https://zent7x.com/",
-        "image": "https://zent7x.com/media/og.jpg",
-        "email": "mailto:zentex@warm.run",
-        "jobTitle": "Founder and security researcher",
-        "knowsAbout": ["LLM routing", "AI agent loops", "Application security", "Rust", "TypeScript"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "Kashmir"
-        },
-        "sameAs": [
-          "https://github.com/zent7x",
-          "https://x.com/zent7x",
-          "https://routing.run",
-          "https://warm.run"
-        ]
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="zentex" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Adeeb Bashir (zentex) — Founder &amp; Security Researcher" />
+  <meta property="og:description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta property="og:url" content="https://zent7x.com/" />
+  <meta property="og:image" content="https://zent7x.com/media/og-portfolio.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Adeeb Bashir — founder and security researcher in Kashmir. warm.run and routing.run." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@zent7x" />
+  <meta name="twitter:creator" content="@zent7x" />
+  <meta name="twitter:title" content="Adeeb Bashir (zentex) — Founder &amp; Security Researcher" />
+  <meta name="twitter:description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta name="twitter:image" content="https://zent7x.com/media/og-portfolio.png" />
+  <meta name="twitter:image:alt" content="Adeeb Bashir — founder and security researcher in Kashmir. warm.run and routing.run." />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="favicon-256.png" type="image/png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://zent7x.com/#website",
+      "url": "https://zent7x.com/",
+      "name": "zentex",
+      "alternateName": "Adeeb Bashir",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://zent7x.com/#person"
       }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://zent7x.com/#profile",
+      "url": "https://zent7x.com/",
+      "name": "Adeeb Bashir (zentex) — Founder & Security Researcher",
+      "description": "Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://zent7x.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://zent7x.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://zent7x.com/#person",
+      "name": "Adeeb Bashir",
+      "givenName": "Adeeb",
+      "familyName": "Bashir",
+      "alternateName": [
+        "zentex",
+        "zent7x"
+      ],
+      "url": "https://zent7x.com/",
+      "image": "https://zent7x.com/media/adeeb.jpg",
+      "description": "Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools.",
+      "jobTitle": "Founder and security researcher",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Kashmir, India"
+      },
+      "sameAs": [
+        "https://github.com/zent7x",
+        "https://x.com/zent7x",
+        "https://www.linkedin.com/in/adeeb-ahmad-555131340/"
+      ]
+    }
+  ]
+}
+  </script>
+  <script>
+    try {
+      if (localStorage.getItem('zentex-theme') === 'light') {
+        document.documentElement.classList.add('site-white');
+        document.getElementById('theme-color').content = '#ffffff';
+      }
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="stylesheet" href="extras.css" />
+  <link rel="stylesheet" href="chess.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="top">
+      <a class="identity" href="#about" aria-label="Adeeb Bashir — about">
+        <img class="avatar" src="avatar.png" alt="" width="42" height="42" />
+        <span class="identity__text"><strong>Adeeb Bashir</strong><span class="identity__alias">zentex</span></span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-open-palette hidden aria-label="Search the site" title="Search the site (⌘ / Ctrl K)" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" hidden aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+      </div>
+    </header>
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="#about" data-page-link>About</a>
+      <a href="#work" data-page-link>Work</a>
+      <a href="#writing" data-page-link>Writing</a>
+      <a href="#more" data-page-link>Elsewhere</a>
+    </nav>
+    <main id="main" tabindex="-1">
+      <section class="panel about-panel" id="about" data-panel="about" aria-labelledby="about-title">
+        <h1 id="about-title" data-panel-heading>I’m Adeeb, a <strong>founder and security researcher</strong> in Kashmir.</h1>
+        <div class="intro-copy">
+          <p>I’m building <a class="inline-link brand-warm" href="https://warm.run" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#warm"></use></svg>warm.run</a>, where coding agents work through the night and leave PRs to review, and <a class="inline-link brand-routing" href="https://routing.run" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#routing"></use></svg>routing.run</a>, an LLM gateway that doesn’t log your prompts.</p>
+          <p>I also make open-source tools: <a class="inline-link brand-terminal" href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#terminal-fenster"></use></svg>terminal-fenster</a> puts a real browser in your terminal; <a class="inline-link brand-grasp" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#grasp"></use></svg>grasp</a> gives agents the code they need; <a class="inline-link brand-cogrep" href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#cogrep"></use></svg>cogrep</a> searches code locally.</p>
+          <p>Most of my work is in <a class="inline-link brand-rust" href="https://www.rust-lang.org/" target="_blank" rel="noopener"><span class="link-logo link-logo--rust" aria-hidden="true"></span>Rust</a> and <a class="inline-link brand-typescript" href="https://www.typescriptlang.org/" target="_blank" rel="noopener"><span class="link-logo link-logo--typescript" aria-hidden="true"></span>TypeScript</a>. I like building tools that are small enough to understand and useful without an internet connection.</p>
+          <p>My security work includes an engagement with <a class="inline-link" href="https://thepublive.com" target="_blank" rel="noopener"><img class="link-logo logo--black" src="logos/publive-mark.svg" alt="" width="17" height="17" />Publive</a>, where I found and reported critical bugs.</p>
+        </div>
+        <div class="intro-actions" id="contact">
+          <div class="contact-actions"><a class="email-button" href="mailto:zentex@warm.run">Get in touch</a><button class="copy-email" id="copy-email" type="button" hidden aria-label="Copy email address" title="Copy zentex@warm.run"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span data-copy-label>Copy email</span></button></div>
+          <a class="quiet-link" href="#chess">Take a chess break <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="social-links" aria-label="Social profiles">
+          <a href="https://github.com/zent7x" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/github.svg" alt="" width="16" height="16" />GitHub</a>
+          <a href="https://x.com/zent7x" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/x.svg" alt="" width="16" height="16" />X / Twitter</a>
+          <a href="https://www.linkedin.com/in/adeeb-ahmad-555131340/" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/linkedin.svg" alt="" width="16" height="16" />LinkedIn</a>
+        </div>
+        <section class="latest-writing" aria-labelledby="latest-writing-title">
+          <div class="section-head"><h2 id="latest-writing-title">Latest writing</h2><a class="section-link" href="#writing">All notes <span aria-hidden="true">→</span></a></div>
+          <a class="latest-writing__link" href="/blog/pack-the-repo-not-the-prompt"><span><strong>Pack the repo, not the prompt</strong><span class="latest-writing__meta"><time datetime="2026-09-20">September 20, 2026</time><span>4 min read</span></span></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+        </section>
+      </section>
+      <section class="panel" id="work" data-panel="work" aria-labelledby="work-title">
+        <h1 class="panel-title" id="work-title" data-panel-heading>Work</h1>
+        <p class="panel-intro">Products I’m building and tools I’ve shared.</p>
+      <section class="block" id="ventures">
+        <div class="section-head">
+          <div><h2>Ventures</h2></div>
+
+        </div>
+        <ul class="cards">
+          <li>
+            <a class="card" href="https://warm.run" target="_blank" rel="noopener">
+              <span class="brand-logo mark-v2 brand-warm"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#warm"></use></svg></span>
+              <div>
+                <div class="card__top"><strong>warm.run</strong><span>Building · formerly Keelcode</span></div>
+                <p>Coding agents that leave a pull request for you to review.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="https://routing.run" target="_blank" rel="noopener">
+              <span class="brand-logo mark-v2 brand-routing"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#routing"></use></svg></span>
+              <div>
+                <div class="card__top"><strong>routing.run</strong><span>2025 · Live</span></div>
+                <p>OpenAI-compatible LLM router with zero prompt logging.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="block" id="projects">
+        <div class="section-head">
+          <div><h2>Projects</h2></div>
+
+        </div>
+        <div class="project-toolbar" id="project-toolbar" hidden>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-button" data-project-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-project-filter="developer" aria-pressed="false">Developer tools</button>
+            <button type="button" class="filter-button" data-project-filter="personal" aria-pressed="false">Personal tools</button>
+          </div>
+          <span class="result-count" id="project-count" role="status" aria-live="polite">5 projects</span>
+        </div>
+        <ul class="project-grid project-explorer">
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-terminal-fenster">
+              <summary><span class="project-logo mark-v2 brand-terminal"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#terminal-fenster"></use></svg></span><span class="project-detail__copy"><strong>terminal-fenster</strong><span>Real Chromium pixels inside your terminal.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Click, type, and scroll through real web pages inside a compatible terminal. Useful for docs, previews, and local dashboards without switching windows.</p><div class="project-detail__links"><a href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener">Visit project <span aria-hidden="true">↗</span></a><a href="/blog/chromium-in-the-terminal">Read the story <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-grasp">
+              <summary><span class="project-logo mark-v2 brand-grasp"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#grasp"></use></svg></span><span class="project-detail__copy"><strong>grasp</strong><span>The right code context for an agent.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Packs relevant source into a token budget, through a CLI or MCP server. Built for codebases that are too large to fit into one context window.</p><div class="project-detail__links"><a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a><a href="/blog/pack-the-repo-not-the-prompt">Read the story <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-codemap">
+              <summary><span class="project-logo mark-v2 brand-codemap"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#codemap"></use></svg></span><span class="project-detail__copy"><strong>codemap</strong><span>A codebase you can explore.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Explore imports and frequently changed files in one shareable, offline HTML map. Open the sample to try it on a real repository.</p><div class="project-detail__links"><a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a><a href="https://zent7x.com/codemap/explore.html" target="_blank" rel="noopener">Explore a sample map <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-cogrep">
+              <summary><span class="project-logo mark-v2 brand-cogrep"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#cogrep"></use></svg></span><span class="project-detail__copy"><strong>cogrep</strong><span>Local semantic code search.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Find code by meaning and spot similar logic. The model and index stay on your machine.</p><div class="project-detail__links"><a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="personal">
+            <details class="project-detail" id="project-tally">
+              <summary><span class="project-logo mark-v2 brand-tally"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#tally"></use></svg></span><span class="project-detail__copy"><strong>tally</strong><span>Private finance planning in your browser.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Import bank CSVs, manage budgets, and plan uneven income. Your financial data stays in your browser.</p><div class="project-detail__links"><a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+        </ul>
+      </section>
+      <section class="block github-block" id="github">
+        <div class="section-head">
+          <div><h2>GitHub activity</h2></div>
+
+        </div>
+        <div class="github-panel">
+          <div class="github-panel__head">
+            <div class="github-identity">
+              <span class="github-mark" aria-hidden="true"><img src="logos/github.svg" alt="" width="22" height="22" /></span>
+              <div>
+                <p class="github-title">@zent7x</p>
+                <p class="github-sub" id="gh-sub">Public contributions · last 52 weeks</p>
+              </div>
+            </div>
+            <a class="github-profile" href="https://github.com/zent7x" target="_blank" rel="noopener">View profile <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="contrib-zone">
+            <div class="contrib-zone__head">
+              <p class="contrib-meta" id="contrib-meta">Loading heatmap…</p>
+              <div class="contrib-legend" aria-label="Contribution intensity from less to more">
+                <span>Less</span><i></i><i></i><i></i><i></i><i></i><span>More</span>
+              </div>
+            </div>
+            <div class="contrib-wrap" id="contrib-wrap" aria-busy="true">
+              <div class="contrib-months" id="contrib-months" aria-hidden="true"></div>
+              <div class="contrib-grid-shell">
+                <div class="contrib-weekdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>
+                <div class="contrib-skeleton" id="contrib-skeleton" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="github-panel__foot">
+            <a href="https://github.com/zent7x?tab=repositories" target="_blank" rel="noopener">Browse repositories ↗</a>
+          </div>
+        </div>
+      </section>
+      </section>
+      <section class="panel" id="writing" data-panel="writing" aria-labelledby="writing-title">
+        <h1 class="panel-title" id="writing-title" data-panel-heading>Writing</h1>
+        <p class="panel-intro">Notes on things I’m building and learning.</p>
+        <div class="reading-toolbar" id="reading-toolbar" hidden>
+          <div class="filters" role="group" aria-label="Filter writing">
+            <button class="filter-button" type="button" data-reading-filter="all" aria-pressed="true">All writing</button>
+            <button class="filter-button" type="button" data-reading-filter="saved" aria-pressed="false">Saved <span id="saved-count">0</span></button>
+          </div>
+          <span class="reading-help" id="reading-help">Save a piece for later.</span>
+        </div>
+        <section class="block" id="blog" aria-label="Published writing">
+          <ul class="writing-list">
+            <li data-article="pack-the-repo-not-the-prompt"><a href="/blog/pack-the-repo-not-the-prompt"><div class="article-copy"><h2>Pack the repo, not the prompt</h2><p>Giving agents the right source, without the whole codebase.</p></div><span class="article-meta"><time datetime="2026-09-20">Sep 20, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="pack-the-repo-not-the-prompt" data-article-title="Pack the repo, not the prompt" aria-label="Save Pack the repo, not the prompt for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="chromium-in-the-terminal"><a href="/blog/chromium-in-the-terminal"><div class="article-copy"><h2>Real Chromium pixels in your terminal</h2><p>A browser that lives where the rest of the work happens.</p></div><span class="article-meta"><time datetime="2026-08-02">Aug 02, 2026</time><span class="reading-time">5 min read</span></span></a><button class="save-article" type="button" data-save-article="chromium-in-the-terminal" data-article-title="Real Chromium pixels in your terminal" aria-label="Save Real Chromium pixels in your terminal for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="zero-prompt-logging"><a href="/blog/zero-prompt-logging"><div class="article-copy"><h2>Zero prompt logging is the product</h2><p>The router sees everything. What should it remember?</p></div><span class="article-meta"><time datetime="2026-07-05">Jul 05, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="zero-prompt-logging" data-article-title="Zero prompt logging is the product" aria-label="Save Zero prompt logging is the product for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="authorized-means-written"><a href="/blog/authorized-means-written"><div class="article-copy"><h2>Authorized means written down</h2><p>How I approach an engagement, from scope to report.</p></div><span class="article-meta"><time datetime="2026-06-10">Jun 10, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="authorized-means-written" data-article-title="Authorized means written down" aria-label="Save Authorized means written down for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+          </ul>
+        </section>
+        <div class="reading-empty" id="reading-empty" hidden><p>No saved pieces yet. Use the bookmark beside an article to keep it here.</p><button type="button" class="reading-reset" data-reading-reset>Browse all writing <span aria-hidden="true">→</span></button></div>
+        <p class="sr-only" id="reading-status" role="status" aria-live="polite"></p>
+        <p class="projects-more"><a href="/blog">Browse all articles</a> · <a href="/feed.xml">Subscribe via RSS <span aria-hidden="true">↗</span></a></p>
+      </section>
+      <section class="panel" id="more" data-panel="more" aria-labelledby="more-title">
+        <h1 class="panel-title" id="more-title" data-panel-heading>Elsewhere</h1>
+        <p class="panel-intro" id="interests">Away from the keyboard: chess, anime, and the Kashmir mountains.</p>
+      <section class="block" id="games">
+        <div class="section-head">
+          <div><h2>Games</h2></div>
+
+        </div>
+        <ul class="games-grid">
+          <li class="game-card"><a class="game-link" href="#chess" aria-label="Play a chess puzzle">
+            <div class="game-card__top"><img class="game-logo logo--black" src="/logos/chess.svg" alt="" width="22" height="22" /><strong>Chess</strong><span class="link-arrow" aria-hidden="true">→</span></div>
+            <p>I prefer longer games to blitz.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://playvalorant.com/en-us/" target="_blank" rel="noopener" aria-label="Visit the Valorant website">
+            <div class="game-card__top"><img class="game-logo logo--black" src="/logos/valorant.svg" alt="" width="22" height="22" /><strong>Valorant</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>Ranked games with friends.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="noopener" aria-label="View Elden Ring on Steam">
+            <div class="game-card__top"><img class="game-logo " src="/logos/elden-ring.jpg" alt="" width="22" height="22" /><strong>Elden Ring</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>A game I keep coming back to.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://www.playbalatro.com/" target="_blank" rel="noopener" aria-label="Visit the Balatro website">
+            <div class="game-card__top"><img class="game-logo " src="/logos/balatro.png" alt="" width="22" height="22" /><strong>Balatro</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>Usually one more hand than planned.</p>
+          </a></li>
+        </ul>
+      </section>
+      <section class="block chess-section" id="chess" aria-labelledby="chess-title">
+        <div class="section-head"><h2 id="chess-title">One move to finish.</h2></div>
+        <p class="panel-intro chess-intro">A small chess break. Find checkmate in one move.</p>
+        <div id="chess-puzzle"><noscript>Enable JavaScript to play the chess puzzle.</noscript></div>
+      </section>
+      <details class="block tools-disclosure" id="stack">
+        <summary>Tools I use</summary>
+
+        <div class="tool-groups">
+          <section class="tool-group"><h3>Languages</h3><ul class="tech-stack">
+              <li data-tech="TypeScript"><img class="tool-logo" src="tech/typescript.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">TypeScript</span></li>
+              <li data-tech="Rust"><img class="tool-logo logo--black" src="tech/rust.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Rust</span></li>
+              <li data-tech="Go"><img class="tool-logo" src="tech/go.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Go</span></li>
+              <li data-tech="Python"><img class="tool-logo" src="tech/python.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Python</span></li>
+              <li data-tech="Solidity"><img class="tool-logo" src="tech/solidity.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Solidity</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>App development</h3><ul class="tech-stack">
+              <li data-tech="Bun"><img class="tool-logo" src="tech/bun.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Bun</span></li>
+              <li data-tech="Node.js"><img class="tool-logo" src="tech/nodejs.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Node.js</span></li>
+              <li data-tech="React"><img class="tool-logo" src="tech/react.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">React</span></li>
+              <li data-tech="Git"><img class="tool-logo" src="tech/git.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Git</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>Models &amp; data</h3><ul class="tech-stack">
+              <li data-tech="PyTorch"><img class="tool-logo" src="tech/pytorch.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">PyTorch</span></li>
+              <li data-tech="Transformers"><img class="tool-logo" src="tech/huggingface.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Transformers</span></li>
+              <li data-tech="OpenAI"><img class="tool-logo logo--white" src="tech/openai.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">OpenAI</span></li>
+              <li data-tech="NVIDIA CUDA"><img class="tool-logo" src="tech/nvidia.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">NVIDIA CUDA</span></li>
+              <li data-tech="PostgreSQL"><img class="tool-logo" src="tech/postgresql.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">PostgreSQL</span></li>
+              <li data-tech="Redis"><img class="tool-logo" src="tech/redis.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Redis</span></li>
+              <li data-tech="Kafka"><img class="tool-logo logo--white" src="tech/kafka.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Kafka</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>Infrastructure</h3><ul class="tech-stack">
+              <li data-tech="Docker"><img class="tool-logo" src="tech/docker.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Docker</span></li>
+              <li data-tech="Kubernetes"><img class="tool-logo" src="tech/kubernetes.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Kubernetes</span></li>
+              <li data-tech="Nginx"><img class="tool-logo" src="tech/nginx.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Nginx</span></li>
+              <li data-tech="Terraform"><img class="tool-logo" src="tech/terraform.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Terraform</span></li>
+              <li data-tech="Ansible"><img class="tool-logo" src="tech/ansible.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Ansible</span></li>
+              <li data-tech="GitHub Actions"><img class="tool-logo" src="tech/github-actions.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">GitHub Actions</span></li>
+              <li data-tech="Cloudflare"><img class="tool-logo" src="tech/cloudflare.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Cloudflare</span></li>
+              <li data-tech="AWS"><img class="tool-logo tool-logo--aws" src="tech/aws.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">AWS</span></li>
+              <li data-tech="Grafana"><img class="tool-logo" src="tech/grafana.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Grafana</span></li>
+              <li data-tech="Prometheus"><img class="tool-logo" src="tech/prometheus.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Prometheus</span></li>
+              <li data-tech="Linux"><img class="tool-logo logo--black" src="tech/linux.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Linux</span></li>
+          </ul></section>
+        </div>
+      </details>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="location"><span>Kashmir, India</span><time id="local-time" aria-label="Local time in Kashmir" hidden></time></div>
+      <span class="colophon"><button class="footer-action" id="hint-palette" data-open-palette type="button" hidden aria-haspopup="dialog" title="Find a page or link">Find something</button><span class="footer-dot">·</span><a href="/privacy">Privacy</a><span class="footer-dot">·</span><a href="/terms">Terms</a><span class="footer-dot">·</span><span id="year">2026</span></span>
+    </footer>
+  </div>
+  <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" id="palette-backdrop"></div>
+    <div class="palette-dialog" role="dialog" aria-modal="true" aria-labelledby="palette-label">
+      <button class="icon-button palette-close" id="palette-close" type="button" aria-label="Close command palette">×</button>
+      <label class="palette-label" id="palette-label" for="palette-input">Jump anywhere</label>
+      <input type="search" class="palette-input" id="palette-input" placeholder="Search pages, projects, or links…" autocomplete="off" spellcheck="false" />
+      <ul class="palette-list" id="palette-list"></ul>
+      <p class="palette-foot">↑↓ navigate <span>↵ open</span><span>esc close</span></p>
+    </div>
+  </div>
+  <script src="site.js"></script>
+  <script type="module" src="extras.js"></script>
+  <script type="module" src="chess.js"></script>
+</body>
 </html>
