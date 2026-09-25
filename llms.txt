@@ -15,7 +15,7 @@
 - [grasp](https://github.com/zent7x/grasp): Code context for agents on repos too big for one window.
 - [codemap](https://github.com/zent7x/codemap): Any repository as a self contained explorable map.
 - [cogrep](https://github.com/zent7x/cogrep): Local semantic code search and clone detection.
-- [tally](https://github.com/zent7x/tally): Offline finance tracker. One HTML file, no cloud.
+- [tally](https://github.com/zent7x/tally): Private finance planning in your browser. Import bank CSVs, manage budgets, and plan uneven income.
 
 ## Contact
 - Email: zentex@warm.run

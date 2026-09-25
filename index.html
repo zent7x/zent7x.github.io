@@ -1,288 +1,380 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Ivv6p6pQSkwy2MVXoi/0lCDx1ew+/9+pGP5iqQ/rH9Y='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" href="/assets/geist-sans-latin-400-normal-gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/geist-sans-latin-600-normal-DFOURf8L.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/assets/geist-mono-latin-400-normal-DTRLJnHl.woff2" as="font" type="font/woff2" crossorigin />
-    <title>Adeeb Bashir · zentex · founder and security researcher</title>
-    <meta
-      name="description"
-      content="Adeeb Bashir, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir."
-    />
-    <link rel="canonical" href="https://zent7x.com/" />
-    <meta name="author" content="Adeeb Bashir" />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="msvalidate.01" content="940AB5BDEC0119745699D137EAE0FACE" />
-    <link rel="alternate" type="application/rss+xml" title="zentex · Writing" href="https://zent7x.com/feed.xml" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adeeb Bashir (zentex) — Founder &amp; Security Researcher</title>
+  <meta name="description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta name="author" content="Adeeb Bashir" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="msvalidate.01" content="940AB5BDEC0119745699D137EAE0FACE" />
+  <meta name="theme-color" content="#141414" id="theme-color" />
+  <link rel="canonical" href="https://zent7x.com/" />
+  <link rel="alternate" type="application/rss+xml" title="zentex · Writing" href="https://zent7x.com/feed.xml" />
+  <link rel="preload" href="assets/geist-sans-latin-400-normal-gapTbOY8.woff2" as="font" type="font/woff2" crossorigin />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="zentex" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:title" content="Adeeb Bashir · zentex · founder and security researcher" />
-    <meta
-      property="og:description"
-      content="Adeeb Bashir, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir."
-    />
-    <meta property="og:url" content="https://zent7x.com/" />
-    <meta property="og:image" content="https://zent7x.com/media/og.jpg" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="zentex — Adeeb Bashir" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@zent7x" />
-    <meta name="twitter:creator" content="@zent7x" />
-    <meta name="twitter:title" content="Adeeb Bashir · zentex · founder and security researcher" />
-    <meta
-      name="twitter:description"
-      content="Adeeb Bashir, also zentex. Founder of warm.run and routing.run. Authorized security research from Kashmir."
-    />
-    <meta name="twitter:image" content="https://zent7x.com/media/og.jpg" />
-    <meta name="twitter:image:alt" content="zentex — Adeeb Bashir" />
-
-    <meta name="theme-color" content="#fdfdfc" />
-    <script>(function () {
-  if (window.top !== window.self) {
-    try { window.top.location = window.self.location; } catch (e) {}
-  }
-  document.documentElement.classList.add("js");
-  var dark = false;
-  try {
-    dark = localStorage.getItem("zentex-theme") === "dark";
-  } catch (e) {}
-  if (dark) document.documentElement.classList.add("dark");
-})();</script>
-    <link rel="icon" href="/favicon.ico" sizes="48x48" />
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon-256.png" type="image/png" sizes="256x256" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "@id": "https://zent7x.com/#person",
-        "name": "Adeeb Bashir",
-        "givenName": "Adeeb",
-        "familyName": "Bashir",
-        "alternateName": ["Adeeb", "Adeeb Ahmad", "zentex", "zent7x"],
-        "url": "https://zent7x.com/",
-        "image": "https://zent7x.com/media/adeeb.jpg",
-        "email": "mailto:zentex@warm.run",
-        "jobTitle": "Founder and security researcher",
-        "knowsAbout": ["LLM routing", "AI agent loops", "Application security", "Rust", "TypeScript"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "Kashmir"
-        },
-        "sameAs": [
-          "https://github.com/zent7x",
-          "https://x.com/zent7x",
-          "https://www.linkedin.com/in/adeeb-ahmad-555131340/"
-        ],
-        "owns": [
-          { "@type": "Organization", "name": "warm.run", "url": "https://warm.run" },
-          { "@type": "Organization", "name": "routing.run", "url": "https://routing.run" }
-        ]
-      }
-    </script>
-    <script type="module" crossorigin src="/assets/index-BxapVFDQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D9PNUije.css">
-      <script type="application/ld+json">
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="zentex" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Adeeb Bashir (zentex) — Founder &amp; Security Researcher" />
+  <meta property="og:description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta property="og:url" content="https://zent7x.com/" />
+  <meta property="og:image" content="https://zent7x.com/media/og-portfolio.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Adeeb Bashir — founder and security researcher in Kashmir. warm.run and routing.run." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@zent7x" />
+  <meta name="twitter:creator" content="@zent7x" />
+  <meta name="twitter:title" content="Adeeb Bashir (zentex) — Founder &amp; Security Researcher" />
+  <meta name="twitter:description" content="Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools." />
+  <meta name="twitter:image" content="https://zent7x.com/media/og-portfolio.png" />
+  <meta name="twitter:image:alt" content="Adeeb Bashir — founder and security researcher in Kashmir. warm.run and routing.run." />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="favicon-256.png" type="image/png" sizes="256x256" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://zent7x.com/#website",
-  "name": "zentex",
-  "url": "https://zent7x.com/",
-  "author": {
-    "@id": "https://zent7x.com/#person"
-  },
-  "inLanguage": "en"
-}
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "@id": "https://zent7x.com/#profilepage",
-  "url": "https://zent7x.com/",
-  "name": "Adeeb Bashir (zentex)",
-  "dateModified": "2026-09-20",
-  "mainEntity": {
-    "@id": "https://zent7x.com/#person"
-  }
-}
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "@id": "https://zent7x.com/#projects",
-  "name": "Open source projects",
-  "numberOfItems": 5,
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "terminal-fenster",
-        "description": "Real Chromium pixels inside your terminal.",
-        "url": "https://zent7x.com/terminal-fenster/",
-        "applicationCategory": "DeveloperApplication",
-        "author": {
-          "@id": "https://zent7x.com/#person"
-        }
+      "@type": "WebSite",
+      "@id": "https://zent7x.com/#website",
+      "url": "https://zent7x.com/",
+      "name": "zentex",
+      "alternateName": "Adeeb Bashir",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://zent7x.com/#person"
       }
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "grasp",
-        "description": "Code context for agents on repos too big for one window.",
-        "url": "https://github.com/zent7x/grasp",
-        "applicationCategory": "DeveloperApplication",
-        "author": {
-          "@id": "https://zent7x.com/#person"
-        }
+      "@type": "ProfilePage",
+      "@id": "https://zent7x.com/#profile",
+      "url": "https://zent7x.com/",
+      "name": "Adeeb Bashir (zentex) — Founder & Security Researcher",
+      "description": "Adeeb Bashir, also zentex. Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://zent7x.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://zent7x.com/#person"
       }
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "codemap",
-        "description": "Any repository as a self contained explorable map.",
-        "url": "https://github.com/zent7x/codemap",
-        "applicationCategory": "DeveloperApplication",
-        "author": {
-          "@id": "https://zent7x.com/#person"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "cogrep",
-        "description": "Local semantic code search and clone detection.",
-        "url": "https://github.com/zent7x/cogrep",
-        "applicationCategory": "DeveloperApplication",
-        "author": {
-          "@id": "https://zent7x.com/#person"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "SoftwareApplication",
-        "name": "tally",
-        "description": "Offline finance tracker. One HTML file, no cloud.",
-        "url": "https://github.com/zent7x/tally",
-        "applicationCategory": "DeveloperApplication",
-        "author": {
-          "@id": "https://zent7x.com/#person"
-        }
-      }
+      "@type": "Person",
+      "@id": "https://zent7x.com/#person",
+      "name": "Adeeb Bashir",
+      "givenName": "Adeeb",
+      "familyName": "Bashir",
+      "alternateName": [
+        "zentex",
+        "zent7x"
+      ],
+      "url": "https://zent7x.com/",
+      "image": "https://zent7x.com/media/adeeb.jpg",
+      "description": "Founder and security researcher in Kashmir, building warm.run, routing.run, and open-source developer tools.",
+      "jobTitle": "Founder and security researcher",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Kashmir, India"
+      },
+      "sameAs": [
+        "https://github.com/zent7x",
+        "https://x.com/zent7x",
+        "https://www.linkedin.com/in/adeeb-ahmad-555131340/"
+      ]
     }
   ]
 }
-    </script>
-    <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": "https://zent7x.com/#faq",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Who is zentex?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "zentex is Adeeb Bashir, a founder and security researcher based in Kashmir. I build routing.run and warm.run, ship open-source developer tools like terminal-fenster, cogrep, and grasp, and take authorized security engagements only."
+  </script>
+  <script>
+    try {
+      if (localStorage.getItem('zentex-theme') === 'light') {
+        document.documentElement.classList.add('site-white');
+        document.getElementById('theme-color').content = '#ffffff';
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What do you actually take on?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "LLM routing, agent loops, local developer tools, and authorized security work. If the job is a slide deck or a growth hack, I will pass."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you a freelancer or a founder?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both. I am building warm.run and routing.run. Consulting is for problems that are sharp enough to be worth the context switch."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you log prompts on routing.run?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Zero prompt logging is the product. If a vendor needs your prompts to improve the model, that is their business, not yours."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where are you based?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Kashmir. I ship from the mountains. Timezone is IST. Async email is the default."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How should I email you?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Write to zentex@warm.run. Put the problem in the first paragraph. Links beat PDFs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you only do authorized security work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Scope in writing. I do not hunt friends, family, or random production boxes. If you need that energy, look elsewhere."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can you work inside an existing repo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. That is the usual case. I read the codebase, I do not replace it with a rewrite unless the rewrite is the actual job."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does this cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It depends on the blast radius. I quote in writing after I understand the problem. If the quote is wrong for you, we stop there. No retainers hiding in the weeds."
-      }
-    }
-  ]
-}
-    </script>
-  </head>
-  <body>
-    <div id="root"><div class="mx-auto max-w-[680px] px-6 pt-12 sm:pt-16"><a href="#main" class="fixed top-2 left-2 z-50 -translate-y-24 rounded-lg bg-fg px-3 py-2 text-sm font-semibold text-bg focus-visible:translate-y-0">Skip to content</a><header class="flex items-center justify-between"><a href="/" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] flex items-center gap-3 rounded-lg font-mono text-sm text-muted hover:text-fg" aria-label="zentex home"><img src="/avatar.png" alt="Adeeb Bashir" width="32" height="32" class="size-8 rounded-full object-cover"/>zentex ~/</a><div class="flex items-center gap-2"><button type="button" aria-label="Search" aria-haspopup="dialog" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group flex items-center gap-2 rounded-full bg-chip py-2 pr-2 pl-3 text-muted hover:text-fg active:scale-[0.98] sm:pr-1.5"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-5 sm:size-4" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><span class="hidden text-sm sm:inline">Search</span><kbd class="hidden rounded bg-bg px-1.5 py-0.5 font-mono text-[10px] leading-none text-faint sm:inline">⌘<!-- -->K</kbd></button><button type="button" aria-label="Toggle dark theme" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] grid size-10 place-items-center rounded-full bg-chip text-muted hover:text-fg active:scale-[0.98]"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-5 dark:hidden" aria-hidden="true"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="hidden size-5 dark:block" aria-hidden="true"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"></path></svg></button></div></header><main id="main"><div class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] mt-16" style="transition-delay:0ms"><h1 class="text-2xl font-semibold tracking-tight text-fg">hey, i’m adeeb, also zentex.</h1><p class="mt-4 max-w-[680px] text-lg leading-8 text-muted text-pretty">founder and security researcher in<!-- --> <span class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] inline-flex items-center gap-1 rounded-md bg-chip px-2 py-0.5 align-baseline font-medium text-fg hover:bg-line"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-4" aria-hidden="true"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg>kashmir</span>, building<!-- --> <a href="https://warm.run" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] inline-flex items-center gap-1 rounded-md bg-chip px-2 py-0.5 align-baseline font-medium text-fg hover:bg-line"><span class="grid size-5 place-items-center rounded-sm bg-white"><img src="/logos/warm.svg" alt="" width="14" height="14" class="size-3.5 object-contain"/></span>warm.run</a> and<!-- --> <a href="https://routing.run" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] inline-flex items-center gap-1 rounded-md bg-chip px-2 py-0.5 align-baseline font-medium text-fg hover:bg-line"><span class="grid size-5 place-items-center rounded-sm bg-white"><img src="/logos/routing.png" alt="" width="14" height="14" class="size-3.5 object-contain"/></span>routing.run</a>. i work on llm routing, agent loops, and local developer tools, and i take authorized security engagements, like the work with<!-- --> <a href="https://thepublive.com" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] inline-flex items-center gap-1 rounded-md bg-chip px-2 py-0.5 align-baseline font-medium text-fg hover:bg-line"><span class="grid size-5 place-items-center rounded-sm bg-white"><img src="/logos/publive.svg" alt="" width="14" height="14" class="size-3.5 object-contain"/></span>publive</a> that surfaced critical bugs.</p><p class="mt-4 max-w-[680px] text-lg leading-8 text-muted text-pretty">the parts i enjoy most are the places where systems leak, loops nobody can replay, and tools that still work with the wifi off. most days are rust, typescript, and a terminal.</p><figure class="mt-12 rounded-2xl bg-chip p-2"><picture><source type="image/avif" sizes="(max-width: 680px) calc(100vw - 64px), 616px" srcSet="/media/kashmir-616.avif 616w, /media/kashmir-1232.avif 1232w"/><source type="image/webp" sizes="(max-width: 680px) calc(100vw - 64px), 616px" srcSet="/media/kashmir-616.webp 616w, /media/kashmir-1232.webp 1232w"/><img src="/media/kashmir-616.jpg" sizes="(max-width: 680px) calc(100vw - 64px), 616px" srcSet="/media/kashmir-616.jpg 616w, /media/kashmir-1232.jpg 1232w" alt="Krishansar Lake near Sonamarg, Kashmir: a deep blue alpine lake below grey peaks with patches of snow, green meadows in the foreground" width="616" height="410" class="aspect-[3/2] w-full rounded-lg object-cover" fetchPriority="high"/></picture><figcaption class="flex flex-wrap items-center justify-between gap-2 px-2 py-3 font-mono text-xs text-faint"><span>Krishansar Lake, Sonamarg · <!-- -->Kashmir</span><a class="hover:text-fg" href="https://commons.wikimedia.org/wiki/File:Krishansar_Lake,_Sonmarg,_Kashmir_valley,_India_01.jpg" target="_blank" rel="noopener noreferrer">photo: Rohit Sharma, CC BY-SA 4.0</a></figcaption></figure></div><div class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">01</span><span class="text-xl font-semibold">Experience</span></h2><ul class="mt-4"><li><a href="https://warm.run" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/warm.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">warm.run</span><span class="text-sm text-muted">Founder</span><span class="font-mono text-xs uppercase tracking-wide text-[#B08A00] dark:text-[#FACC15]">Building</span></span><span class="mt-1 block text-muted text-pretty">Overnight loops that ship review-ready PRs. Formerly Keelcode.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li><li><a href="https://routing.run" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="grid size-10 shrink-0 place-items-center rounded-md bg-white shadow-[0_0_0_1px_var(--line)]"><img src="/logos/routing.png" alt="" width="28" height="28" class="size-7 object-contain"/></span><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">routing.run</span><span class="font-mono text-xs uppercase tracking-wide text-[#3FBE6E] dark:text-[#4FE884]">Live</span></span><span class="mt-1 block text-muted text-pretty">OpenAI compatible LLM router with zero prompt logging.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li></ul></div><div class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">02</span><span class="text-xl font-semibold">Open source</span></h2><ul class="mt-4"><li><a href="https://zent7x.com/terminal-fenster/" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/terminal-fenster.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">terminal-fenster</span></span><span class="mt-1 block text-muted text-pretty">Real Chromium pixels inside your terminal.</span></span></a></li><li><a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/grasp.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">grasp</span></span><span class="mt-1 block text-muted text-pretty">Code context for agents on repos too big for one window.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li><li><a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/codemap.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">codemap</span></span><span class="mt-1 block text-muted text-pretty">Any repository as a self contained explorable map.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li><li><a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/cogrep.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">cogrep</span></span><span class="mt-1 block text-muted text-pretty">Local semantic code search and clone detection.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li><li><a href="https://github.com/zent7x/tally" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><img src="/logos/tally.svg" alt="" width="40" height="40" class="size-10 shrink-0 rounded-md shadow-[0_0_0_1px_var(--line)]"/><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">tally</span></span><span class="mt-1 block text-muted text-pretty">Offline finance tracker. One HTML file, no cloud.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li></ul></div><div class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">03</span><span class="text-xl font-semibold">Writing</span></h2><ul class="mt-4"><li><a href="/blog/chromium-in-the-terminal" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="min-w-0 flex-1"><span class="block font-semibold text-balance">Real Chromium pixels in your terminal</span><span class="mt-1 block text-muted text-pretty">Why terminal-fenster paints actual browser frames into Ghostty instead of faking a text mode web.</span></span><span class="shrink-0 font-mono text-xs text-faint">2026-08-02</span></a></li><li><a href="/blog/zero-prompt-logging" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="min-w-0 flex-1"><span class="block font-semibold text-balance">Zero prompt logging is the product</span><span class="mt-1 block text-muted text-pretty">The router in the middle sees everything. routing.run is built on the idea that it should remember nothing.</span></span><span class="shrink-0 font-mono text-xs text-faint">2026-07-05</span></a></li><li><a href="/blog/authorized-means-written" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="min-w-0 flex-1"><span class="block font-semibold text-balance">Authorized means written down</span><span class="mt-1 block text-muted text-pretty">How I run security engagements, and why nothing happens before the scope exists on paper.</span></span><span class="shrink-0 font-mono text-xs text-faint">2026-06-10</span></a></li><li><a href="/blog/pack-the-repo-not-the-prompt" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-baseline gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="min-w-0 flex-1"><span class="block font-semibold text-balance">Pack the repo, not the prompt</span><span class="mt-1 block text-muted text-pretty">grasp indexes a codebase too big for one window, then packs only the source that belongs in the prompt.</span></span><span class="shrink-0 font-mono text-xs text-faint">2026-09-20</span></a></li></ul><p class="mt-4"><a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm text-sm text-muted underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="/blog">All writing</a></p></div><div class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">04</span><span class="text-xl font-semibold">Security</span></h2><ul class="mt-4"><li><a href="https://thepublive.com" target="_blank" rel="noopener noreferrer" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group -mx-3 flex items-center gap-4 rounded-lg px-3 py-3 hover:bg-chip active:scale-[0.98]"><span class="grid size-10 shrink-0 place-items-center rounded-md bg-white shadow-[0_0_0_1px_var(--line)]"><img src="/logos/publive.svg" alt="" width="28" height="28" class="size-7 object-contain"/></span><span class="min-w-0 flex-1"><span class="flex flex-wrap items-baseline gap-x-3"><span class="font-semibold">Publive</span></span><span class="mt-1 block text-muted text-pretty">Authorized engagement under a written scope. Critical findings were reported to Publive the day they were confirmed.</span></span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] size-4 shrink-0 text-faint group-hover:text-fg" aria-hidden="true"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"></path></svg></a></li></ul><p class="mt-4 text-sm text-muted">How that engagement ran, scope to report:<!-- --> <a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="/blog/authorized-means-written">Authorized means written down</a></p></div><div id="faq" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">05</span><span class="text-xl font-semibold">FAQ</span></h2><dl class="mt-4"><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Who is zentex?</dt><dd class="mt-1 text-muted text-pretty">zentex is Adeeb Bashir, a founder and security researcher based in Kashmir. I build routing.run and warm.run, ship open-source developer tools like terminal-fenster, cogrep, and grasp, and take authorized security engagements only.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">What do you actually take on?</dt><dd class="mt-1 text-muted text-pretty">LLM routing, agent loops, local developer tools, and authorized security work. If the job is a slide deck or a growth hack, I will pass.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Are you a freelancer or a founder?</dt><dd class="mt-1 text-muted text-pretty">Both. I am building warm.run and routing.run. Consulting is for problems that are sharp enough to be worth the context switch.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Do you log prompts on routing.run?</dt><dd class="mt-1 text-muted text-pretty">No. Zero prompt logging is the product. If a vendor needs your prompts to improve the model, that is their business, not yours.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Where are you based?</dt><dd class="mt-1 text-muted text-pretty">Kashmir. I ship from the mountains. Timezone is IST. Async email is the default.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">How should I email you?</dt><dd class="mt-1 text-muted text-pretty">Write to zentex@warm.run. Put the problem in the first paragraph. Links beat PDFs.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Do you only do authorized security work?</dt><dd class="mt-1 text-muted text-pretty">Yes. Scope in writing. I do not hunt friends, family, or random production boxes. If you need that energy, look elsewhere.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">Can you work inside an existing repo?</dt><dd class="mt-1 text-muted text-pretty">Yes. That is the usual case. I read the codebase, I do not replace it with a rewrite unless the rewrite is the actual job.</dd></div><div class="border-line border-t py-4 first:border-t-0 first:pt-0"><dt class="font-semibold text-balance">What does this cost?</dt><dd class="mt-1 text-muted text-pretty">It depends on the blast radius. I quote in writing after I understand the problem. If the quote is wrong for you, we stop there. No retainers hiding in the weeds.</dd></div></dl></div><div id="contact" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] reveal-pending mt-24" style="transition-delay:0ms"><h2 class="flex items-baseline gap-3"><span class="font-mono text-xs text-faint">06</span><span class="text-xl font-semibold">Contact</span></h2><p class="mt-4 max-w-[680px] text-muted text-pretty">One email. A written yes or no. No deck, no call until I reply.</p><a href="mailto:zentex@warm.run?subject=Hard%20problem" class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] mt-6 inline-flex items-center gap-2 rounded-lg bg-fg px-3 py-2 text-base font-semibold text-bg hover:opacity-80 active:scale-[0.98]">Email me the hard problem</a><p class="mt-6 flex flex-wrap gap-4 text-muted"><a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="https://github.com/zent7x" target="_blank" rel="noopener noreferrer">GitHub</a><a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="https://www.linkedin.com/in/adeeb-ahmad-555131340/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="https://x.com/zent7x" target="_blank" rel="noopener noreferrer">X</a><a class="transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] rounded-sm underline decoration-line underline-offset-4 hover:text-fg hover:decoration-fg" href="mailto:zentex@warm.run?subject=Hard%20problem">Email</a></p></div></main><footer class="mt-24 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-8 pb-16 text-sm text-muted"><nav class="flex flex-wrap gap-4" aria-label="Footer"><a class="hover:text-fg" href="/blog">Writing</a><a class="hover:text-fg" href="/privacy">Privacy</a><a class="hover:text-fg" href="/terms">Terms</a></nav><span class="font-mono text-xs text-faint">Adeeb Bashir<!-- --> · <!-- -->zentex</span></footer></div></div>
-  </body>
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="portfolio.css" />
+  <link rel="stylesheet" href="extras.css" />
+  <link rel="stylesheet" href="chess.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page">
+    <header class="top">
+      <a class="identity" href="#about" aria-label="Adeeb Bashir — about">
+        <img class="avatar" src="avatar.png" alt="" width="42" height="42" />
+        <span class="identity__text"><strong>Adeeb Bashir</strong><span class="identity__alias">zentex</span></span>
+      </a>
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-open-palette hidden aria-label="Search the site" title="Search the site (⌘ / Ctrl K)" aria-haspopup="dialog"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></button>
+        <button class="icon-button theme-toggle" id="theme-toggle" type="button" hidden aria-label="Switch to light theme" title="Switch to light theme" aria-pressed="false">
+          <svg class="sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20.5 14A8.5 8.5 0 0 1 10 3.5 8.5 8.5 0 1 0 20.5 14Z"/></svg>
+        </button>
+      </div>
+    </header>
+    <nav class="page-nav" aria-label="Main navigation">
+      <a href="#about" data-page-link>About</a>
+      <a href="#work" data-page-link>Work</a>
+      <a href="#writing" data-page-link>Writing</a>
+      <a href="#more" data-page-link>Elsewhere</a>
+    </nav>
+    <main id="main" tabindex="-1">
+      <section class="panel about-panel" id="about" data-panel="about" aria-labelledby="about-title">
+        <h1 id="about-title" data-panel-heading>I’m Adeeb, a <strong>founder and security researcher</strong> in Kashmir.</h1>
+        <div class="intro-copy">
+          <p>I’m building <a class="inline-link brand-warm" href="https://warm.run" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#warm"></use></svg>warm.run</a>, where coding agents work through the night and leave PRs to review, and <a class="inline-link brand-routing" href="https://routing.run" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#routing"></use></svg>routing.run</a>, an LLM gateway that doesn’t log your prompts.</p>
+          <p>I also make open-source tools: <a class="inline-link brand-terminal" href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#terminal-fenster"></use></svg>terminal-fenster</a> puts a real browser in your terminal; <a class="inline-link brand-grasp" href="https://github.com/zent7x/grasp" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#grasp"></use></svg>grasp</a> gives agents the code they need; <a class="inline-link brand-cogrep" href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener"><svg class="link-logo link-logo--v2" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#cogrep"></use></svg>cogrep</a> searches code locally.</p>
+          <p>Most of my work is in <a class="inline-link brand-rust" href="https://www.rust-lang.org/" target="_blank" rel="noopener"><span class="link-logo link-logo--rust" aria-hidden="true"></span>Rust</a> and <a class="inline-link brand-typescript" href="https://www.typescriptlang.org/" target="_blank" rel="noopener"><span class="link-logo link-logo--typescript" aria-hidden="true"></span>TypeScript</a>. I like building tools that are small enough to understand and useful without an internet connection.</p>
+          <p>My security work includes an engagement with <a class="inline-link" href="https://thepublive.com" target="_blank" rel="noopener"><img class="link-logo logo--black" src="logos/publive-mark.svg" alt="" width="17" height="17" />Publive</a>, where I found and reported critical bugs.</p>
+        </div>
+        <div class="intro-actions" id="contact">
+          <div class="contact-actions"><a class="email-button" href="mailto:zentex@warm.run">Get in touch</a><button class="copy-email" id="copy-email" type="button" hidden aria-label="Copy email address" title="Copy zentex@warm.run"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></svg><span data-copy-label>Copy email</span></button></div>
+          <a class="quiet-link" href="#chess">Take a chess break <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="social-links" aria-label="Social profiles">
+          <a href="https://github.com/zent7x" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/github.svg" alt="" width="16" height="16" />GitHub</a>
+          <a href="https://x.com/zent7x" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/x.svg" alt="" width="16" height="16" />X / Twitter</a>
+          <a href="https://www.linkedin.com/in/adeeb-ahmad-555131340/" target="_blank" rel="noopener"><img class="social-logo logo--black" src="logos/linkedin.svg" alt="" width="16" height="16" />LinkedIn</a>
+        </div>
+        <section class="latest-writing" aria-labelledby="latest-writing-title">
+          <div class="section-head"><h2 id="latest-writing-title">Latest writing</h2><a class="section-link" href="#writing">All notes <span aria-hidden="true">→</span></a></div>
+          <a class="latest-writing__link" href="/blog/pack-the-repo-not-the-prompt"><span><strong>Pack the repo, not the prompt</strong><span class="latest-writing__meta"><time datetime="2026-09-20">September 20, 2026</time><span>4 min read</span></span></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+        </section>
+      </section>
+      <section class="panel" id="work" data-panel="work" aria-labelledby="work-title">
+        <h1 class="panel-title" id="work-title" data-panel-heading>Work</h1>
+        <p class="panel-intro">Products I’m building and tools I’ve shared.</p>
+      <section class="block" id="ventures">
+        <div class="section-head">
+          <div><h2>Ventures</h2></div>
+
+        </div>
+        <ul class="cards">
+          <li>
+            <a class="card" href="https://warm.run" target="_blank" rel="noopener">
+              <span class="brand-logo mark-v2 brand-warm"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#warm"></use></svg></span>
+              <div>
+                <div class="card__top"><strong>warm.run</strong><span>Building · formerly Keelcode</span></div>
+                <p>Coding agents that leave a pull request for you to review.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="card" href="https://routing.run" target="_blank" rel="noopener">
+              <span class="brand-logo mark-v2 brand-routing"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#routing"></use></svg></span>
+              <div>
+                <div class="card__top"><strong>routing.run</strong><span>2025 · Live</span></div>
+                <p>OpenAI-compatible LLM router with zero prompt logging.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="block" id="projects">
+        <div class="section-head">
+          <div><h2>Projects</h2></div>
+
+        </div>
+        <div class="project-toolbar" id="project-toolbar" hidden>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" class="filter-button" data-project-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-button" data-project-filter="developer" aria-pressed="false">Developer tools</button>
+            <button type="button" class="filter-button" data-project-filter="personal" aria-pressed="false">Personal tools</button>
+          </div>
+          <span class="result-count" id="project-count" role="status" aria-live="polite">5 projects</span>
+        </div>
+        <ul class="project-grid project-explorer">
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-terminal-fenster">
+              <summary><span class="project-logo mark-v2 brand-terminal"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#terminal-fenster"></use></svg></span><span class="project-detail__copy"><strong>terminal-fenster</strong><span>Real Chromium pixels inside your terminal.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Click, type, and scroll through real web pages inside a compatible terminal. Useful for docs, previews, and local dashboards without switching windows.</p><div class="project-detail__links"><a href="https://zent7x.com/terminal-fenster/" target="_blank" rel="noopener">Visit project <span aria-hidden="true">↗</span></a><a href="/blog/chromium-in-the-terminal">Read the story <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-grasp">
+              <summary><span class="project-logo mark-v2 brand-grasp"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#grasp"></use></svg></span><span class="project-detail__copy"><strong>grasp</strong><span>The right code context for an agent.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Packs relevant source into a token budget, through a CLI or MCP server. Built for codebases that are too large to fit into one context window.</p><div class="project-detail__links"><a href="https://github.com/zent7x/grasp" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a><a href="/blog/pack-the-repo-not-the-prompt">Read the story <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-codemap">
+              <summary><span class="project-logo mark-v2 brand-codemap"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#codemap"></use></svg></span><span class="project-detail__copy"><strong>codemap</strong><span>A codebase you can explore.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Explore imports and frequently changed files in one shareable, offline HTML map. Open the sample to try it on a real repository.</p><div class="project-detail__links"><a href="https://github.com/zent7x/codemap" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a><a href="https://zent7x.com/codemap/explore.html" target="_blank" rel="noopener">Explore a sample map <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="developer">
+            <details class="project-detail" id="project-cogrep">
+              <summary><span class="project-logo mark-v2 brand-cogrep"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#cogrep"></use></svg></span><span class="project-detail__copy"><strong>cogrep</strong><span>Local semantic code search.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Find code by meaning and spot similar logic. The model and index stay on your machine.</p><div class="project-detail__links"><a href="https://github.com/zent7x/cogrep" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+          <li data-project-category="personal">
+            <details class="project-detail" id="project-tally">
+              <summary><span class="project-logo mark-v2 brand-tally"><svg class="project-mark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="logos/v2/marks.svg#tally"></use></svg></span><span class="project-detail__copy"><strong>tally</strong><span>Private finance planning in your browser.</span></span><svg class="detail-chevron" viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="project-detail__body"><p>Import bank CSVs, manage budgets, and plan uneven income. Your financial data stays in your browser.</p><div class="project-detail__links"><a href="https://github.com/zent7x/tally" target="_blank" rel="noopener">View source <span aria-hidden="true">↗</span></a></div></div>
+            </details>
+          </li>
+        </ul>
+      </section>
+      <section class="block github-block" id="github">
+        <div class="section-head">
+          <div><h2>GitHub activity</h2></div>
+
+        </div>
+        <div class="github-panel">
+          <div class="github-panel__head">
+            <div class="github-identity">
+              <span class="github-mark" aria-hidden="true"><img src="logos/github.svg" alt="" width="22" height="22" /></span>
+              <div>
+                <p class="github-title">@zent7x</p>
+                <p class="github-sub" id="gh-sub">Public contributions · last 52 weeks</p>
+              </div>
+            </div>
+            <a class="github-profile" href="https://github.com/zent7x" target="_blank" rel="noopener">View profile <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="contrib-zone">
+            <div class="contrib-zone__head">
+              <p class="contrib-meta" id="contrib-meta">Loading heatmap…</p>
+              <div class="contrib-legend" aria-label="Contribution intensity from less to more">
+                <span>Less</span><i></i><i></i><i></i><i></i><i></i><span>More</span>
+              </div>
+            </div>
+            <div class="contrib-wrap" id="contrib-wrap" aria-busy="true">
+              <div class="contrib-months" id="contrib-months" aria-hidden="true"></div>
+              <div class="contrib-grid-shell">
+                <div class="contrib-weekdays" aria-hidden="true"><span>Mon</span><span>Wed</span><span>Fri</span></div>
+                <div class="contrib-skeleton" id="contrib-skeleton" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="github-panel__foot">
+            <a href="https://github.com/zent7x?tab=repositories" target="_blank" rel="noopener">Browse repositories ↗</a>
+          </div>
+        </div>
+      </section>
+      </section>
+      <section class="panel" id="writing" data-panel="writing" aria-labelledby="writing-title">
+        <h1 class="panel-title" id="writing-title" data-panel-heading>Writing</h1>
+        <p class="panel-intro">Notes on things I’m building and learning.</p>
+        <div class="reading-toolbar" id="reading-toolbar" hidden>
+          <div class="filters" role="group" aria-label="Filter writing">
+            <button class="filter-button" type="button" data-reading-filter="all" aria-pressed="true">All writing</button>
+            <button class="filter-button" type="button" data-reading-filter="saved" aria-pressed="false">Saved <span id="saved-count">0</span></button>
+          </div>
+          <span class="reading-help" id="reading-help">Save a piece for later.</span>
+        </div>
+        <section class="block" id="blog" aria-label="Published writing">
+          <ul class="writing-list">
+            <li data-article="pack-the-repo-not-the-prompt"><a href="/blog/pack-the-repo-not-the-prompt"><div class="article-copy"><h2>Pack the repo, not the prompt</h2><p>Giving agents the right source, without the whole codebase.</p></div><span class="article-meta"><time datetime="2026-09-20">Sep 20, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="pack-the-repo-not-the-prompt" data-article-title="Pack the repo, not the prompt" aria-label="Save Pack the repo, not the prompt for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="chromium-in-the-terminal"><a href="/blog/chromium-in-the-terminal"><div class="article-copy"><h2>Real Chromium pixels in your terminal</h2><p>A browser that lives where the rest of the work happens.</p></div><span class="article-meta"><time datetime="2026-08-02">Aug 02, 2026</time><span class="reading-time">5 min read</span></span></a><button class="save-article" type="button" data-save-article="chromium-in-the-terminal" data-article-title="Real Chromium pixels in your terminal" aria-label="Save Real Chromium pixels in your terminal for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="zero-prompt-logging"><a href="/blog/zero-prompt-logging"><div class="article-copy"><h2>Zero prompt logging is the product</h2><p>The router sees everything. What should it remember?</p></div><span class="article-meta"><time datetime="2026-07-05">Jul 05, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="zero-prompt-logging" data-article-title="Zero prompt logging is the product" aria-label="Save Zero prompt logging is the product for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+            <li data-article="authorized-means-written"><a href="/blog/authorized-means-written"><div class="article-copy"><h2>Authorized means written down</h2><p>How I approach an engagement, from scope to report.</p></div><span class="article-meta"><time datetime="2026-06-10">Jun 10, 2026</time><span class="reading-time">4 min read</span></span></a><button class="save-article" type="button" data-save-article="authorized-means-written" data-article-title="Authorized means written down" aria-label="Save Authorized means written down for later" aria-pressed="false" title="Save for later" hidden><svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5.5 3.5h9a1 1 0 0 1 1 1v13L10 14l-5.5 3.5v-13a1 1 0 0 1 1-1Z"/></svg></button></li>
+          </ul>
+        </section>
+        <div class="reading-empty" id="reading-empty" hidden><p>No saved pieces yet. Use the bookmark beside an article to keep it here.</p><button type="button" class="reading-reset" data-reading-reset>Browse all writing <span aria-hidden="true">→</span></button></div>
+        <p class="sr-only" id="reading-status" role="status" aria-live="polite"></p>
+        <p class="projects-more"><a href="/blog">Browse all articles</a> · <a href="/feed.xml">Subscribe via RSS <span aria-hidden="true">↗</span></a></p>
+      </section>
+      <section class="panel" id="more" data-panel="more" aria-labelledby="more-title">
+        <h1 class="panel-title" id="more-title" data-panel-heading>Elsewhere</h1>
+        <p class="panel-intro" id="interests">Away from the keyboard: chess, anime, and the Kashmir mountains.</p>
+      <section class="block" id="games">
+        <div class="section-head">
+          <div><h2>Games</h2></div>
+
+        </div>
+        <ul class="games-grid">
+          <li class="game-card"><a class="game-link" href="#chess" aria-label="Play a chess puzzle">
+            <div class="game-card__top"><img class="game-logo logo--black" src="/logos/chess.svg" alt="" width="22" height="22" /><strong>Chess</strong><span class="link-arrow" aria-hidden="true">→</span></div>
+            <p>I prefer longer games to blitz.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://playvalorant.com/en-us/" target="_blank" rel="noopener" aria-label="Visit the Valorant website">
+            <div class="game-card__top"><img class="game-logo logo--black" src="/logos/valorant.svg" alt="" width="22" height="22" /><strong>Valorant</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>Ranked games with friends.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://store.steampowered.com/app/1245620/ELDEN_RING/" target="_blank" rel="noopener" aria-label="View Elden Ring on Steam">
+            <div class="game-card__top"><img class="game-logo " src="/logos/elden-ring.jpg" alt="" width="22" height="22" /><strong>Elden Ring</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>A game I keep coming back to.</p>
+          </a></li>
+          <li class="game-card"><a class="game-link" href="https://www.playbalatro.com/" target="_blank" rel="noopener" aria-label="Visit the Balatro website">
+            <div class="game-card__top"><img class="game-logo " src="/logos/balatro.png" alt="" width="22" height="22" /><strong>Balatro</strong><span class="link-arrow" aria-hidden="true">↗</span></div>
+            <p>Usually one more hand than planned.</p>
+          </a></li>
+        </ul>
+      </section>
+      <section class="block chess-section" id="chess" aria-labelledby="chess-title">
+        <div class="section-head"><h2 id="chess-title">One move to finish.</h2></div>
+        <p class="panel-intro chess-intro">A small chess break. Find checkmate in one move.</p>
+        <div id="chess-puzzle"><noscript>Enable JavaScript to play the chess puzzle.</noscript></div>
+      </section>
+      <details class="block tools-disclosure" id="stack">
+        <summary>Tools I use</summary>
+
+        <div class="tool-groups">
+          <section class="tool-group"><h3>Languages</h3><ul class="tech-stack">
+              <li data-tech="TypeScript"><img class="tool-logo" src="tech/typescript.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">TypeScript</span></li>
+              <li data-tech="Rust"><img class="tool-logo logo--black" src="tech/rust.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Rust</span></li>
+              <li data-tech="Go"><img class="tool-logo" src="tech/go.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Go</span></li>
+              <li data-tech="Python"><img class="tool-logo" src="tech/python.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Python</span></li>
+              <li data-tech="Solidity"><img class="tool-logo" src="tech/solidity.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Solidity</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>App development</h3><ul class="tech-stack">
+              <li data-tech="Bun"><img class="tool-logo" src="tech/bun.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Bun</span></li>
+              <li data-tech="Node.js"><img class="tool-logo" src="tech/nodejs.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Node.js</span></li>
+              <li data-tech="React"><img class="tool-logo" src="tech/react.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">React</span></li>
+              <li data-tech="Git"><img class="tool-logo" src="tech/git.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Git</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>Models &amp; data</h3><ul class="tech-stack">
+              <li data-tech="PyTorch"><img class="tool-logo" src="tech/pytorch.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">PyTorch</span></li>
+              <li data-tech="Transformers"><img class="tool-logo" src="tech/huggingface.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Transformers</span></li>
+              <li data-tech="OpenAI"><img class="tool-logo logo--white" src="tech/openai.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">OpenAI</span></li>
+              <li data-tech="NVIDIA CUDA"><img class="tool-logo" src="tech/nvidia.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">NVIDIA CUDA</span></li>
+              <li data-tech="PostgreSQL"><img class="tool-logo" src="tech/postgresql.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">PostgreSQL</span></li>
+              <li data-tech="Redis"><img class="tool-logo" src="tech/redis.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Redis</span></li>
+              <li data-tech="Kafka"><img class="tool-logo logo--white" src="tech/kafka.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Kafka</span></li>
+          </ul></section>
+          <section class="tool-group"><h3>Infrastructure</h3><ul class="tech-stack">
+              <li data-tech="Docker"><img class="tool-logo" src="tech/docker.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Docker</span></li>
+              <li data-tech="Kubernetes"><img class="tool-logo" src="tech/kubernetes.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Kubernetes</span></li>
+              <li data-tech="Nginx"><img class="tool-logo" src="tech/nginx.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Nginx</span></li>
+              <li data-tech="Terraform"><img class="tool-logo" src="tech/terraform.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Terraform</span></li>
+              <li data-tech="Ansible"><img class="tool-logo" src="tech/ansible.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Ansible</span></li>
+              <li data-tech="GitHub Actions"><img class="tool-logo" src="tech/github-actions.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">GitHub Actions</span></li>
+              <li data-tech="Cloudflare"><img class="tool-logo" src="tech/cloudflare.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Cloudflare</span></li>
+              <li data-tech="AWS"><img class="tool-logo tool-logo--aws" src="tech/aws.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">AWS</span></li>
+              <li data-tech="Grafana"><img class="tool-logo" src="tech/grafana.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Grafana</span></li>
+              <li data-tech="Prometheus"><img class="tool-logo" src="tech/prometheus.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Prometheus</span></li>
+              <li data-tech="Linux"><img class="tool-logo logo--black" src="tech/linux.svg" alt="" width="18" height="18" loading="lazy" /><span class="tool-name">Linux</span></li>
+          </ul></section>
+        </div>
+      </details>
+      </section>
+    </main>
+    <footer class="foot">
+      <div class="location"><span>Kashmir, India</span><time id="local-time" aria-label="Local time in Kashmir" hidden></time></div>
+      <span class="colophon"><button class="footer-action" id="hint-palette" data-open-palette type="button" hidden aria-haspopup="dialog" title="Find a page or link">Find something</button><span class="footer-dot">·</span><a href="/privacy">Privacy</a><span class="footer-dot">·</span><a href="/terms">Terms</a><span class="footer-dot">·</span><span id="year">2026</span></span>
+    </footer>
+  </div>
+  <div class="sr-only" id="copy-status" role="status" aria-live="polite"></div>
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" id="palette-backdrop"></div>
+    <div class="palette-dialog" role="dialog" aria-modal="true" aria-labelledby="palette-label">
+      <button class="icon-button palette-close" id="palette-close" type="button" aria-label="Close command palette">×</button>
+      <label class="palette-label" id="palette-label" for="palette-input">Jump anywhere</label>
+      <input type="search" class="palette-input" id="palette-input" placeholder="Search pages, projects, or links…" autocomplete="off" spellcheck="false" />
+      <ul class="palette-list" id="palette-list"></ul>
+      <p class="palette-foot">↑↓ navigate <span>↵ open</span><span>esc close</span></p>
+    </div>
+  </div>
+  <script src="site.js"></script>
+  <script type="module" src="extras.js"></script>
+  <script type="module" src="chess.js"></script>
+</body>
 </html>
