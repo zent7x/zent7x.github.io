@@ -13,6 +13,7 @@ Avoid hand-editing its minified JavaScript or treating it as maintainable source
 | URL | Published file |
 | --- | --- |
 | `/blog` | `public/blog.html` |
+| `/blog/arriving-too-early` | `public/blog/arriving-too-early.html` |
 | `/blog/authorized-means-written` | `public/blog/authorized-means-written.html` |
 | `/blog/chromium-in-the-terminal` | `public/blog/chromium-in-the-terminal.html` |
 | `/blog/pack-the-repo-not-the-prompt` | `public/blog/pack-the-repo-not-the-prompt.html` |

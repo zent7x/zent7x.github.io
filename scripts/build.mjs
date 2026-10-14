@@ -6,7 +6,7 @@ const repositoryRoot = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'https://zent7x.com';
 const preservedRoutes = [
   'blog', 'privacy', 'terms',
-  'blog/authorized-means-written', 'blog/chromium-in-the-terminal',
+  'blog/arriving-too-early', 'blog/authorized-means-written', 'blog/chromium-in-the-terminal',
   'blog/pack-the-repo-not-the-prompt', 'blog/zero-prompt-logging',
 ];
 

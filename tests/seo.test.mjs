@@ -5,6 +5,7 @@ import { readFile } from "node:fs/promises";
 const root = new URL("../", import.meta.url);
 const origin = "https://zent7x.com";
 const articles = [
+  "arriving-too-early",
   "authorized-means-written",
   "chromium-in-the-terminal",
   "pack-the-repo-not-the-prompt",

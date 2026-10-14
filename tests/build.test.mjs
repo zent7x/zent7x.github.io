@@ -8,7 +8,7 @@ import { buildSite } from '../scripts/build.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const routes = [
-  'blog', 'privacy', 'terms', 'blog/authorized-means-written',
+  'blog', 'privacy', 'terms', 'blog/arriving-too-early', 'blog/authorized-means-written',
   'blog/chromium-in-the-terminal', 'blog/pack-the-repo-not-the-prompt',
   'blog/zero-prompt-logging',
 ];
